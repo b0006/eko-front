@@ -1,0 +1,26 @@
+@import './fonts';
+@import './vars';
+
+:root {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: $bg-main;
+  color: $bg-font-color;
+  overflow: overlay;
+  -moz-overflow: overlay;
+  color: $bg-font-color;
+}
+
+// :focus {
+//   outline: none;
+//   background-color: $bg-font-hover;
+// }
+
+// body.using-mouse :focus {
+//   outline: none;
+//   background-color: transparent;
+// }

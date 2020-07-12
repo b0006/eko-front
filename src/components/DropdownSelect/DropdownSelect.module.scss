@@ -1,0 +1,71 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 100%;
+
+  border-left: 1px solid rgba(129,129,129,.2);
+  border-right: 1px solid rgba(129,129,129,.2);
+
+  &:hover {
+    color: $bg-font-color;
+  }
+
+  .arrowDown {
+    &::after {
+      content: "\25bc";
+    }
+  }
+
+  .arrowUp {
+    &::after {
+      content: "\25b2";
+    }
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 98%;
+    padding: 0 15px;
+    width: 160px;
+
+    .label {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+  }
+
+  .list {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid rgba(129,129,129,.2);
+    z-index: 10;
+    overflow: overlay;
+    max-height: 190px;
+    width: 100%;
+
+    .item {
+      padding: 7px 5px;
+      &:hover {
+        background-color: $bg-hover;
+      }
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+}

@@ -1,12 +1,15 @@
 @import '../../assets/scss/utils';
 
 .wrapper {
+  position: relative;
+
   .title {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+
+    text-decoration: none;
 
     cursor: pointer;
     width: 260px;
@@ -24,6 +27,25 @@
 
   .list {
     position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: $light-color;
+
+    > * {
+      list-style: none;
+      border: 1px solid $border-color;
+      padding: 10px 15px;
+
+      a {
+        text-decoration: none;
+        color: $dark-color;
+      }
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
   }
 
   .rotateDown {

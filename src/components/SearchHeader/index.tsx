@@ -11,7 +11,11 @@ interface IOptionItem {
   value: string;
 }
 
-const OPTION_LIST: IOptionItem[] = [
+const CATEGORY_LIST = [
+  { label: 'Сеты', value: 'sets' },
+  { label: 'Пастила', value: 'paste' },
+  { label: 'Фрипсы', value: 'frips' },
+  { label: 'Орехи и вяленые ягоды', value: 'nutsAndDriedBerries' },
   { label: 'Фрукты', value: 'fruits' },
   { label: 'Подарочные наборы', value: 'gifts' },
 ];
@@ -33,7 +37,7 @@ const SearchHeader: React.FC = () => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={OPTION_LIST} />
+      <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={CATEGORY_LIST} />
       <div className={styles.search} role="button" onClick={onSubmit}>
         <FontAwesomeIcon icon={faSearch} size="lg" />
       </div>

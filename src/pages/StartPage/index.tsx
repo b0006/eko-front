@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Example from '../../components/Example';
+import styles from './StartPage.module.scss';
 
 const StartPage: React.FC = () => {
-  return <Example />;
+  return <div className={styles.main}></div>;
 };
 
 export default StartPage;

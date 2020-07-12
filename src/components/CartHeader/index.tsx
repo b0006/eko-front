@@ -1,8 +1,9 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import BadgeHeader from '../BadgeHeader';
 
-import { ReactComponent as CartIcon } from './assets/cart.svg';
 import styles from './CartHeader.module.scss';
 
 const CartHeader: React.FC = () => {
@@ -10,7 +11,7 @@ const CartHeader: React.FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <BadgeHeader>
-          <CartIcon />
+          <FontAwesomeIcon icon={faShoppingCart} size="2x" />
         </BadgeHeader>
         <span>900 руб</span>
       </div>

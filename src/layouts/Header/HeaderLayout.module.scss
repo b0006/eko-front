@@ -1,7 +1,7 @@
 @import '../../assets/scss/utils';
 
 .wrapper {
-  border-bottom: 1px solid rgba(232,232,232,1);
+  border-bottom: 1px solid $border-color;
   font-size: 13px;
 
   .container {

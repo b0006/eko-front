@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../../assets/img/logo.png';
 import SearchHeader from '../../components/SearchHeader';
 import CartHeader from '../../components/CartHeader';
+import BottomHeader from '../../components/BottomHeader';
 
 import styles from './HeaderLayout.module.scss';
 
@@ -21,6 +22,7 @@ const HeaderLayout: React.FC = ({ children }) => {
           <CartHeader />
         </div>
       </header>
+      <BottomHeader />
       <div>{children}</div>
     </>
   );

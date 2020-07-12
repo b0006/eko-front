@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import DropdownSearchHeader from '../DropdownSearchHeader';
 
-import { ReactComponent as SearchIcon } from './assets/search.svg';
 import styles from './SearchHeader.module.scss';
 
 interface IOptionItem {
@@ -34,7 +35,7 @@ const SearchHeader: React.FC = () => {
       />
       <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={OPTION_LIST} />
       <div className={styles.search} role="button" onClick={onSubmit}>
-        <SearchIcon />
+        <FontAwesomeIcon icon={faSearch} size="lg" />
       </div>
     </section>
   );

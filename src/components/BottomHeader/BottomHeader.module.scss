@@ -1,0 +1,23 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  @include container;
+  border-bottom: 1px solid $border-color;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  .title {
+    width: 260px;
+    background-color: $main-color;
+    color: $light-color;
+    text-transform: uppercase;
+    padding: 10px 15px;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}

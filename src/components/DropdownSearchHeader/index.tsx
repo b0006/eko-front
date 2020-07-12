@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import classnames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './DropdownSearchHeader.module.scss';
 
@@ -47,16 +49,9 @@ const DropdownSearchHeader: React.FC<IProps> = ({ value, onChange, options }) =>
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className={classnames({
-          [styles.button]: true,
-          [styles.arrowDown]: !isOpen,
-          [styles.arrowUp]: isOpen,
-        })}
-        ref={btnRef}
-        role="button"
-        onClick={() => setIsOpen(!isOpen)}>
+      <div className={styles.button} ref={btnRef} role="button" onClick={() => setIsOpen(!isOpen)}>
         <span className={styles.label}>{valueLabel || 'Выбрать категорию'}</span>
+        <FontAwesomeIcon className={isOpen ? styles.rotateDown : styles.rotateUp} icon={faChevronDown} />
       </div>
       <div ref={listRef} className={classnames({ [styles.hide]: !isOpen, [styles.show]: isOpen, [styles.list]: true })}>
         <div role="button" onClick={() => onClickItem()} className={styles.item}>

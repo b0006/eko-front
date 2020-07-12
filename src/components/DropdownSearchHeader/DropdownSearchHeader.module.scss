@@ -18,22 +18,6 @@
     color: $dark-color;
   }
 
-  .arrowDown {
-    &::after {
-      content: "\25bc";
-      margin-left: 5px;
-      margin-bottom: 2px;
-    }
-  }
-
-  .arrowUp {
-    &::after {
-      content: "\25b2";
-      margin-left: 5px;
-      margin-bottom: 2px;
-    }
-  }
-
   .button {
     display: flex;
     align-items: center;
@@ -47,6 +31,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       text-transform: uppercase;
+      margin-right: 5px;
     }
   }
 
@@ -78,5 +63,15 @@
     animation: hide 0.2s linear;
     animation-fill-mode: forwards;
     z-index: -1;
+  }
+
+  .rotateDown {
+    transform: rotate(180deg);
+    transition: transform 0.2s linear;
+  }
+
+  .rotateUp {
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
   }
 }

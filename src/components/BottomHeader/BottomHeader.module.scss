@@ -1,23 +1,60 @@
 @import '../../assets/scss/utils';
 
 .wrapper {
-  @include container;
   border-bottom: 1px solid $border-color;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  @media(max-width: $desktop-xs-width) {
+    display: none;
+  }
 
-  .title {
-    width: 260px;
-    background-color: $main-color;
-    color: $light-color;
-    text-transform: uppercase;
-    padding: 10px 15px;
-
-    span {
-      margin-left: 10px;
+  .content {
+    @include container;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  
+    .title {
+      width: 260px;
+      background-color: $main-color;
+      color: $light-color;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      font-size: 14px;
+  
+      span {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    }
+  
+    .menuList {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 0 15px;
+  
+      .active {
+        color: $main-color;
+      }
+  
+      > * {
+        padding: 0 10px;
+  
+        a {
+          font-size: 14px;
+          color: $dark-color;
+          text-decoration: none;
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
     }
   }
 }

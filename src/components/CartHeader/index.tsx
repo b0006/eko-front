@@ -13,7 +13,7 @@ const CartHeader: React.FC = () => {
         <BadgeHeader>
           <FontAwesomeIcon icon={faShoppingCart} size="2x" />
         </BadgeHeader>
-        <span>900 руб</span>
+        <span className={styles.price}>900 руб</span>
       </div>
     </div>
   );

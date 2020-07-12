@@ -58,7 +58,7 @@ const DropdownSearchHeader: React.FC<IProps> = ({ value, onChange, options }) =>
         onClick={() => setIsOpen(!isOpen)}>
         <span className={styles.label}>{valueLabel || 'Выбрать категорию'}</span>
       </div>
-      <div ref={listRef} className={classnames({ [styles.hide]: !isOpen, [styles.list]: true })}>
+      <div ref={listRef} className={classnames({ [styles.hide]: !isOpen, [styles.show]: isOpen, [styles.list]: true })}>
         <div role="button" onClick={() => onClickItem()} className={styles.item}>
           Без категории
         </div>

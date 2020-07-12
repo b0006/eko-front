@@ -1,0 +1,44 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    cursor: pointer;
+    width: 260px;
+    background-color: $main-color;
+    color: $light-color;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-size: 14px;
+
+    span {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .list {
+    position: absolute;
+  }
+
+  .rotateDown {
+    @include rotateDown;
+  }
+
+  .rotateUp {
+    @include rotateUp;
+  }
+
+  .show {
+    @include show;
+  }
+
+  .hide {
+    @include hide;
+  }
+}

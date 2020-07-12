@@ -44,3 +44,24 @@
     opacity: 1;
   }
 }
+
+@mixin rotateDown {
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
+}
+
+@mixin rotateUp {
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+}
+
+@mixin show {
+  animation: show 0.2s linear;
+  animation-fill-mode: forwards;
+}
+
+@mixin hide {
+  animation: hide 0.2s linear;
+  animation-fill-mode: forwards;
+  z-index: -1;
+}

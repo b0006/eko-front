@@ -1,30 +1,32 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+
+import CategoryListHeader from '../CategoryListHeader';
 
 import styles from './BottomHeader.module.scss';
+
+const MenuItem: React.FC<{ title: string; path: string; activeClassName?: string }> = ({
+  title,
+  path,
+  activeClassName,
+}) => (
+  <li>
+    <NavLink activeClassName={activeClassName} to={path}>
+      {title}
+    </NavLink>
+  </li>
+);
 
 const BottomHeader: React.FC = () => {
   const { pathname } = useLocation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <div className={styles.title}>
-          <FontAwesomeIcon icon={faBars} size="lg" />
-          <span>Категории</span>
-        </div>
+        <CategoryListHeader />
         <ul className={styles.menuList}>
-          <li>
-            <NavLink activeClassName={pathname === '/' ? styles.active : ''} to="/">
-              Главная
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName={styles.active} to="/about">
-              О нас
-            </NavLink>
-          </li>
+          <MenuItem activeClassName={pathname === '/' ? styles.active : ''} title="Главная" path="/" />
+          <MenuItem activeClassName={styles.active} title="Отзывы" path="/reviews" />
+          <MenuItem activeClassName={styles.active} title="Контакты" path="/contacts" />
         </ul>
       </div>
     </div>

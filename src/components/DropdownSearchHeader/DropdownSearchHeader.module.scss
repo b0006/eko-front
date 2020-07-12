@@ -11,22 +11,26 @@
 
   height: 100%;
 
-  border-left: 1px solid rgba(129,129,129,.2);
-  border-right: 1px solid rgba(129,129,129,.2);
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
 
   &:hover {
-    color: $bg-font-color;
+    color: $dark-color;
   }
 
   .arrowDown {
     &::after {
       content: "\25bc";
+      margin-left: 5px;
+      margin-bottom: 2px;
     }
   }
 
   .arrowUp {
     &::after {
       content: "\25b2";
+      margin-left: 5px;
+      margin-bottom: 2px;
     }
   }
 
@@ -50,8 +54,8 @@
     position: absolute;
     top: 40px;
     right: 0;
-    background-color: white;
-    border: 1px solid rgba(129,129,129,.2);
+    background-color: $light-color;
+    border: 1px solid $border-color;
     z-index: 10;
     overflow: overlay;
     max-height: 190px;
@@ -60,7 +64,7 @@
     .item {
       padding: 7px 5px;
       &:hover {
-        background-color: $bg-hover;
+        background-color: $hover-color;
       }
     }
   }

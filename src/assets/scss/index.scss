@@ -8,11 +8,11 @@
 
 body {
   margin: 0;
-  background-color: $bg-main;
-  color: $bg-font-color;
+  background-color: $light-color;
+  color: $dark-color;
   overflow: overlay;
   -moz-overflow: overlay;
-  color: $bg-font-color;
+  color: $dark-color;
 }
 
 // :focus {

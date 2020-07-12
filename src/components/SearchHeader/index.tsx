@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import DropdownSelect from '../DropdownSelect';
+import DropdownSearchHeader from '../DropdownSearchHeader';
 
 import { ReactComponent as SearchIcon } from './assets/search.svg';
 import styles from './SearchHeader.module.scss';
@@ -32,7 +32,7 @@ const SearchHeader: React.FC = () => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <DropdownSelect value={searchCategory} onChange={setSearchCategory} options={OPTION_LIST} />
+      <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={OPTION_LIST} />
       <div className={styles.search} role="button" onClick={onSubmit}>
         <SearchIcon />
       </div>

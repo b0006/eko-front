@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import classnames from 'classnames';
 
-import styles from './DropdownSelect.module.scss';
+import styles from './DropdownSearchHeader.module.scss';
 
 interface IProps {
   onChange(val?: string): void;
@@ -9,7 +9,7 @@ interface IProps {
   value?: string;
 }
 
-const DropdownSelect: React.FC<IProps> = ({ value, onChange, options }) => {
+const DropdownSearchHeader: React.FC<IProps> = ({ value, onChange, options }) => {
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
@@ -72,4 +72,4 @@ const DropdownSelect: React.FC<IProps> = ({ value, onChange, options }) => {
   );
 };
 
-export default DropdownSelect;
+export default DropdownSearchHeader;

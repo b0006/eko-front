@@ -2,6 +2,15 @@
 
 .wrapper {
   border-bottom: 1px solid rgba(232,232,232,1);
+  font-size: 13px;
+
+  .container {
+    @include container;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   .content {
     display: flex;
@@ -10,8 +19,6 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     height: 105px;
-  
-    @include container;
   
     .logo {
       display: flex;
@@ -31,5 +38,9 @@
         font-size: 26px;
       }
     }
+  }
+
+  @media(max-width: $desktop-xs-width) {
+    display: none;
   }
 }

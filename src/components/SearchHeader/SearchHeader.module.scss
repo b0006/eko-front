@@ -18,6 +18,10 @@
     height: 98%;
     min-width: 290px;
 
+    @media(max-width: $desktop-md-width - 1) {
+      min-width: 220px;
+    }
+
     &::placeholder {
       font-size: inherit;
     }

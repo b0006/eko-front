@@ -32,4 +32,30 @@
       }
     }
   }
+
+  .itemList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .item > * {
+      text-decoration: none;
+      color: $dark-color;
+      display: block;
+      border-bottom: 1px solid $border-color;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 12px 24px;
+      font-size: 14px;
+      letter-spacing: 2px;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+
+    .itemActive {
+      color: $main-color;
+    }
+  }
 }

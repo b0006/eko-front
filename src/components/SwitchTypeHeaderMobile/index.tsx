@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import classnames from 'classnames';
 
 import menuList from '../../route/menuList';
@@ -12,6 +12,7 @@ interface IProps {
 }
 
 const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
+  const { pathname } = useLocation();
   const [currentType, setCurrentType] = useState<'menu' | 'category'>('menu');
 
   const currentList = useMemo(() => {
@@ -19,7 +20,7 @@ const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
     if (currentType === 'menu') {
       list = menuList.map((item) => ({ path: item.path, label: item.label }));
     } else if (currentType === 'category') {
-      list = CATEGORY_LIST.map((item) => ({ path: `/${item.value}`, label: item.label }));
+      list = CATEGORY_LIST.map((item) => ({ path: `/catalog/${item.value}`, label: item.label }));
     }
     return list;
   }, [currentType]);
@@ -42,14 +43,20 @@ const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
           </li>
         </ul>
       </div>
-      <ul>
-        {currentList.map((item) => (
-          <li key={item.path}>
-            <Link onClick={hideSidebar} to={item.path}>
-              {item.label}
-            </Link>
-          </li>
-        ))}
+      <ul className={styles.itemList}>
+        {currentList.map((item) => {
+          let activeClassName = styles.itemActive;
+          if (item.path === '/') {
+            activeClassName = pathname === '/' ? styles.itemActive : '';
+          }
+          return (
+            <li className={styles.item} key={item.path}>
+              <NavLink activeClassName={activeClassName} onClick={hideSidebar} to={item.path}>
+                {item.label}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

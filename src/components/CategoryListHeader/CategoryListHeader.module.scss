@@ -36,9 +36,11 @@
     > * {
       list-style: none;
       border: 1px solid $border-color;
-      padding: 10px 15px;
+      margin: 0;
 
       a {
+        display: block;
+        padding: 10px 15px;
         text-decoration: none;
         color: $dark-color;
       }

@@ -1,11 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
-import classnames from 'classnames';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
-import { headerStore } from '../../mobx';
 
 import styles from './CategoryListHeader.module.scss';
 
@@ -18,29 +14,17 @@ const CATEGORY_LIST = [
   { label: 'Подарочные наборы', value: 'gifts' },
 ];
 
-const CategoryListHeader: React.FC = observer(() => {
-  const { isFixed } = headerStore;
-
-  const { pathname } = useLocation();
-  const isMainPage = useMemo(() => pathname === '/' && !isFixed, [pathname, isFixed]);
-
-  const [isOpened, setIsOpened] = useState(false);
-
-  useEffect(() => setIsOpened(isMainPage), [isMainPage]);
-
-  const onMouseEnter = () => (!isMainPage || isFixed) && setIsOpened(true);
-  const onMouseLeave = () => (!isMainPage || isFixed) && setIsOpened(false);
-
+const CategoryListHeader: React.FC = () => {
   return (
-    <div className={styles.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <Link className={styles.title} to="/catalog">
+    <div className={styles.wrapper}>
+      <div className={styles.title}>
         <div>
           <FontAwesomeIcon icon={faBars} size="lg" />
           <span>Категории</span>
         </div>
-        <FontAwesomeIcon className={isOpened ? styles.rotateDown : styles.rotateUp} icon={faChevronDown} />
-      </Link>
-      <ul className={classnames({ [styles.list]: true, [styles.show]: isOpened, [styles.hide]: !isOpened })}>
+        <FontAwesomeIcon className={styles.arrowIcon} icon={faChevronDown} />
+      </div>
+      <ul className={styles.list}>
         {CATEGORY_LIST.map((item) => (
           <li key={item.value}>
             <Link to={`/catalog/${item.value}`}>{item.label}</Link>
@@ -49,6 +33,6 @@ const CategoryListHeader: React.FC = observer(() => {
       </ul>
     </div>
   );
-});
+};
 
 export default CategoryListHeader;

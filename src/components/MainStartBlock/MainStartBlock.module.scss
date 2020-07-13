@@ -1,5 +1,7 @@
 @import '../../assets/scss/utils';
 
+$margin-left-content: 340px;
+
 .wrapper {
   height: 620px;
   background-position: center center;
@@ -20,8 +22,20 @@
       color: $main-color;
       font-size: 82px;
       margin: 0;
-      margin-left: 340px;
       padding-top: 130px;
+    }
+
+    h2 {
+      color: $light-color;
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .list {
+      color: $light-color;
+      font-size: 26px;
+      line-height: 38px;
+      padding: 30px;
     }
   }
 }

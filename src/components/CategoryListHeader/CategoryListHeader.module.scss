@@ -2,6 +2,7 @@
 
 .wrapper {
   position: relative;
+  width: 290px;
 
   .title {
     display: flex;
@@ -12,7 +13,6 @@
     text-decoration: none;
 
     cursor: pointer;
-    width: 290px;
     background-color: $main-color;
     color: $light-color;
     text-transform: uppercase;
@@ -31,6 +31,7 @@
     padding: 0;
     width: 100%;
     background-color: $light-color;
+    @include hide;
 
     > * {
       list-style: none;
@@ -48,19 +49,17 @@
     }
   }
 
-  .rotateDown {
-    @include rotateDown;
-  }
-
-  .rotateUp {
+  .arrowIcon {
     @include rotateUp;
   }
 
-  .show {
-    @include show;
-  }
+  &:hover {
+    .arrowIcon {
+      @include rotateDown;
+    }
 
-  .hide {
-    @include hide;
+    .list {
+      @include show;
+    }
   }
 }

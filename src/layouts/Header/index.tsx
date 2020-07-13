@@ -15,7 +15,7 @@ const HeaderLayout: React.FC = ({ children }) => {
   useEffect(() => {
     const onScroll = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      toggleFixed(winScroll >= 109);
+      toggleFixed(winScroll >= 90);
     };
 
     document.addEventListener('scroll', onScroll);

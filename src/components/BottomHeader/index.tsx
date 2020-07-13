@@ -33,6 +33,7 @@ const BottomHeader: React.FC = observer(() => {
         <div className={styles.menuListWrapper}>
           <ul className={styles.menuList}>
             <MenuItem activeClassName={pathname === '/' ? styles.active : ''} title="Главная" path="/" />
+            <MenuItem activeClassName={styles.active} title="Каталог" path="/catalog" />
             <MenuItem activeClassName={styles.active} title="Отзывы" path="/reviews" />
             <MenuItem activeClassName={styles.active} title="Контакты" path="/contacts" />
           </ul>

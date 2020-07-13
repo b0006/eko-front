@@ -56,12 +56,13 @@
 }
 
 @mixin show {
-  animation: show 0.2s linear;
-  animation-fill-mode: forwards;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s, visibility 0.2s;
 }
 
 @mixin hide {
-  animation: hide 0.2s linear;
-  animation-fill-mode: forwards;
-  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
 }

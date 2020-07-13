@@ -20,4 +20,42 @@
       }
     }
   }
+
+  .layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 11;
+    background-color: $layout-color;
+    visibility: hidden;
+  }
+
+  .showLayout {
+    visibility: visible;
+    transition: visibility 0.5s ease;
+  }
+
+  transition: all 0.2s ease;
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 300px;
+    width: 0;
+    height: 100%;
+    margin-left: -300px;
+    background-color: $light-color;
+    border-right: none;
+    overflow-y: auto;
+    transition: all 0.2s ease;
+    z-index: 20;
+  }
+
+  .show {
+    border-right: 2px solid $border-color;
+    width: 300px;
+  }
 }

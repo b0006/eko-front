@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import 'mobx-react-lite/batchingForReactDom';
 
@@ -9,7 +9,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppRouter />
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <AppRouter />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

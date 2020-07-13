@@ -3,6 +3,8 @@ import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+import SearchHeaderMobile from '../SearchHeaderMobile';
+
 import styles from './SidebarMenuHeader.module.scss';
 
 const SidebarMenuHeader: React.FC = () => {
@@ -37,9 +39,11 @@ const SidebarMenuHeader: React.FC = () => {
           [styles.hideLayout]: !isShowed,
         })}
       />
-      <div className={classnames({ [styles.sidebar]: true, [styles.show]: isShowed, [styles.hide]: !isShowed })}>
-        <div ref={contentRef} className={styles.content}>
-          content
+      <div
+        ref={contentRef}
+        className={classnames({ [styles.sidebar]: true, [styles.show]: isShowed, [styles.hide]: !isShowed })}>
+        <div className={styles.content}>
+          <SearchHeaderMobile />
         </div>
       </div>
     </div>

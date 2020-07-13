@@ -1,0 +1,38 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+
+  .input {
+    border: none;
+    height: 80%;
+
+    &::placeholder {
+      font-weight: bold;
+    }
+  }
+
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    padding: 0 26px;
+    cursor: pointer;
+
+    .icon {
+      path {
+        fill: $gray-color;
+      };
+    }
+
+    &:hover {
+      path {
+        fill: $dark-color;
+      };
+    }
+  }
+}

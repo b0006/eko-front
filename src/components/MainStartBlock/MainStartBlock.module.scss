@@ -1,0 +1,27 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  height: 620px;
+  background-position: center center;
+  background-attachment: scroll;
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .gradient {
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(69,69,69,0.6), rgba(64,64,64,0.2));
+  }
+
+  .content {
+    @include container;
+
+    h1 {
+      color: $main-color;
+      font-size: 82px;
+      margin: 0;
+      margin-left: 340px;
+      padding-top: 130px;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import styles from './StartPage.module.scss';
+import MainStartBlock from '../../components/MainStartBlock';
 
 const StartPage: React.FC = () => {
-  return <div className={styles.main}></div>;
+  return <MainStartBlock />;
 };
 
 export default StartPage;

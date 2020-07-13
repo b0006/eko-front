@@ -1,17 +1,17 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import BadgeHeader from '../BadgeHeader';
 
 import styles from './CartHeader.module.scss';
 
-const CartHeader: React.FC = () => {
+const CartHeader: React.FC<FontAwesomeIconProps> = ({ size, ...rest }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <BadgeHeader>
-          <FontAwesomeIcon icon={faShoppingCart} size="2x" />
+          <FontAwesomeIcon {...rest} size={size} icon={faShoppingCart} />
         </BadgeHeader>
         <span className={styles.price}>900 руб</span>
       </div>

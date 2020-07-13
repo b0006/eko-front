@@ -1,0 +1,9 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  .menuButton {
+    > * {
+      margin-right: 5px;
+    }
+  }
+}

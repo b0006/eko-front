@@ -19,25 +19,6 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     height: 105px;
-  
-    .logo {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      min-width: $width-logo;
-      
-      img {
-        max-width: 45px;
-        max-height: 45px;
-        margin-right: 4px;
-      }
-  
-      span {
-        font-weight: bold;
-        letter-spacing: 3px;
-        font-size: 26px;
-      }
-    }
   }
 
   @media(max-width: $desktop-xs-width) {

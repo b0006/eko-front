@@ -1,0 +1,13 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+
+  @media(min-width: $desktop-xs-width + 1) {
+    display: none;
+  }
+}

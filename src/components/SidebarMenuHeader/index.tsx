@@ -8,8 +8,8 @@ const SidebarMenuHeader: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.menuButton}>
-        <FontAwesomeIcon icon={faBars} />
-        <span>Меню</span>
+        <FontAwesomeIcon icon={faBars} size="lg" />
+        <span className={styles.label}>Меню</span>
       </div>
     </div>
   );

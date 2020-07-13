@@ -26,7 +26,7 @@ const DesktopHeader: React.FC = () => {
       <header className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.content}>
-            <Logo />
+            <Logo className={styles.logo} />
             <SearchHeader />
           </div>
           <CartHeader icon="500px" size="lg" />

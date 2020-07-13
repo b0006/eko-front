@@ -5,5 +5,11 @@
     > * {
       margin-right: 5px;
     }
+
+    .label {
+      @media (max-width: $tablet-sm-width) {
+        display: none;
+      }
+    }
   }
 }

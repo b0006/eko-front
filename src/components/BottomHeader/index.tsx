@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 import CategoryListHeader from '../CategoryListHeader';
+import { headerStore } from '../../mobx';
 
 import styles from './BottomHeader.module.scss';
 
@@ -19,10 +22,12 @@ const MenuItem: React.FC<{ title: string; path: string; activeClassName?: string
   </li>
 );
 
-const BottomHeader: React.FC = () => {
+const BottomHeader: React.FC = observer(() => {
+  const { isFixed } = headerStore;
+
   const { pathname } = useLocation();
   return (
-    <div className={styles.wrapper}>
+    <div className={classnames({ [styles.fixed]: isFixed, [styles.wrapper]: true })}>
       <div className={styles.content}>
         <CategoryListHeader />
         <div className={styles.menuListWrapper}>
@@ -39,6 +44,6 @@ const BottomHeader: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default BottomHeader;

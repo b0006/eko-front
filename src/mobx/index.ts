@@ -1,3 +1,3 @@
-import userStore from './userStore';
+import headerStore from './headerStore';
 
-export { userStore };
+export { headerStore };

@@ -1,5 +1,13 @@
 @import '../../assets/scss/utils';
 
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $light-color;
+  border-bottom: none !important;
+}
+
 .wrapper {
   border-bottom: 1px solid $border-color;
 

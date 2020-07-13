@@ -1,8 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
+import { headerStore } from '../../mobx';
 
 import styles from './CategoryListHeader.module.scss';
 
@@ -15,16 +18,18 @@ const CATEGORY_LIST = [
   { label: 'Подарочные наборы', value: 'gifts' },
 ];
 
-const CategoryListHeader: React.FC = () => {
+const CategoryListHeader: React.FC = observer(() => {
+  const { isFixed } = headerStore;
+
   const { pathname } = useLocation();
-  const isMainPage = useMemo(() => pathname === '/', [pathname]);
+  const isMainPage = useMemo(() => pathname === '/' && !isFixed, [pathname, isFixed]);
 
   const [isOpened, setIsOpened] = useState(false);
 
   useEffect(() => setIsOpened(isMainPage), [isMainPage]);
 
-  const onMouseEnter = () => !isMainPage && setIsOpened(true);
-  const onMouseLeave = () => !isMainPage && setIsOpened(false);
+  const onMouseEnter = () => (!isMainPage || isFixed) && setIsOpened(true);
+  const onMouseLeave = () => (!isMainPage || isFixed) && setIsOpened(false);
 
   return (
     <div className={styles.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -44,6 +49,6 @@ const CategoryListHeader: React.FC = () => {
       </ul>
     </div>
   );
-};
+});
 
 export default CategoryListHeader;

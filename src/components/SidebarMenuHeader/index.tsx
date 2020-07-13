@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import SearchHeaderMobile from '../SearchHeaderMobile';
+import SwitchTypeHeaderMobile from '../SwitchTypeHeaderMobile';
 
 import styles from './SidebarMenuHeader.module.scss';
 
@@ -44,6 +45,7 @@ const SidebarMenuHeader: React.FC = () => {
         className={classnames({ [styles.sidebar]: true, [styles.show]: isShowed, [styles.hide]: !isShowed })}>
         <div className={styles.content}>
           <SearchHeaderMobile />
+          <SwitchTypeHeaderMobile hideSidebar={() => setIsShowed(false)} />
         </div>
       </div>
     </div>

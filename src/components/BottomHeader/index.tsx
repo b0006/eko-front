@@ -7,6 +7,7 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 import CategoryListHeader from '../CategoryListHeader';
 import { headerStore } from '../../mobx';
+import menuList from '../../route/menuList';
 
 import styles from './BottomHeader.module.scss';
 
@@ -32,10 +33,13 @@ const BottomHeader: React.FC = observer(() => {
         <CategoryListHeader />
         <div className={styles.menuListWrapper}>
           <ul className={styles.menuList}>
-            <MenuItem activeClassName={pathname === '/' ? styles.active : ''} title="Главная" path="/" />
-            <MenuItem activeClassName={styles.active} title="Каталог" path="/catalog" />
-            <MenuItem activeClassName={styles.active} title="Отзывы" path="/reviews" />
-            <MenuItem activeClassName={styles.active} title="Контакты" path="/contacts" />
+            {menuList.map((item) => {
+              let activeClassName = styles.active;
+              if (item.path === '/') {
+                activeClassName = pathname === '/' ? styles.active : '';
+              }
+              return <MenuItem key={item.path} activeClassName={activeClassName} title={item.label} path={item.path} />;
+            })}
           </ul>
           <a className={styles.phone} href="tel:88006002155">
             <FontAwesomeIcon icon={faPhone} />

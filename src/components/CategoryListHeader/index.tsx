@@ -3,16 +3,9 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './CategoryListHeader.module.scss';
+import { CATEGORY_LIST } from '../../mock/constants';
 
-const CATEGORY_LIST = [
-  { label: 'Сеты', value: 'sets' },
-  { label: 'Пастила', value: 'paste' },
-  { label: 'Фрипсы', value: 'frips' },
-  { label: 'Орехи и вяленые ягоды', value: 'nutsAndDriedBerries' },
-  { label: 'Фрукты', value: 'fruits' },
-  { label: 'Подарочные наборы', value: 'gifts' },
-];
+import styles from './CategoryListHeader.module.scss';
 
 const CategoryListHeader: React.FC = () => {
   return (

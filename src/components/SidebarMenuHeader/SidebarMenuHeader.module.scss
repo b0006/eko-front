@@ -29,15 +29,19 @@
     bottom: 0;
     z-index: 11;
     background-color: $layout-color;
-    visibility: hidden;
   }
 
   .showLayout {
     visibility: visible;
-    transition: visibility 0.5s ease;
+    transition: visibility $animation-time;
   }
 
-  transition: all 0.2s ease;
+  .hideLayout {
+    visibility: hidden;
+    transition: visibility $animation-time;
+  }
+
+  transition: all $animation-time ease;
 
   .sidebar {
     position: fixed;
@@ -50,7 +54,7 @@
     background-color: $light-color;
     border-right: none;
     overflow-y: auto;
-    transition: all 0.2s ease;
+    transition: all $animation-time ease;
     z-index: 20;
   }
 

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import DropdownSearchHeader from '../DropdownSearchHeader';
+import { CATEGORY_LIST } from '../../mock/constants';
 
 import styles from './SearchHeader.module.scss';
 
@@ -10,15 +11,6 @@ interface IOptionItem {
   label: string;
   value: string;
 }
-
-const CATEGORY_LIST = [
-  { label: 'Сеты', value: 'sets' },
-  { label: 'Пастила', value: 'paste' },
-  { label: 'Фрипсы', value: 'frips' },
-  { label: 'Орехи и вяленые ягоды', value: 'nutsAndDriedBerries' },
-  { label: 'Фрукты', value: 'fruits' },
-  { label: 'Подарочные наборы', value: 'gifts' },
-];
 
 const SearchHeader: React.FC = () => {
   const [searchText, setSearchText] = useState('');

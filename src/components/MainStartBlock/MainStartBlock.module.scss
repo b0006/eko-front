@@ -1,7 +1,5 @@
 @import '../../assets/scss/utils';
 
-$margin-left-content: 340px;
-
 .wrapper {
   height: 620px;
   background-position: center center;
@@ -23,12 +21,20 @@ $margin-left-content: 340px;
       font-size: 82px;
       margin: 0;
       padding-top: 130px;
+
+      @media(max-width: $desktop-xs-width) {
+        font-size: 15vw;
+      }
     }
 
     h2 {
       color: $light-color;
       margin: 0;
       font-size: 32px;
+
+      @media(max-width: $desktop-xs-width) {
+        font-size: 5vw;
+      }
     }
 
     .list {
@@ -36,6 +42,11 @@ $margin-left-content: 340px;
       font-size: 26px;
       line-height: 38px;
       padding: 30px;
+
+      @media(max-width: $desktop-xs-width) {
+        font-size: 17px;
+        line-height: unset;
+      }
     }
   }
 }

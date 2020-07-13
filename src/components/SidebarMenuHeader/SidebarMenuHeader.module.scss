@@ -2,6 +2,7 @@
 
 .wrapper {
   .menuButton {
+    cursor: pointer;
     > * {
       margin-right: 5px;
     }
@@ -9,6 +10,13 @@
     .label {
       @media (max-width: $tablet-sm-width) {
         display: none;
+      }
+    }
+
+    &:hover {
+      color: $gray-color;
+      g {
+        fill: $gray-color;
       }
     }
   }

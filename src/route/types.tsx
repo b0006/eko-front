@@ -5,13 +5,14 @@ import HeaderLayout from '../layouts/Header';
 
 interface IRouteComponentProps extends RouteProps {
   component: React.ComponentType<RouteComponentProps>;
+  isWrappedContainer?: boolean;
 }
 
-const PublicRoute: React.FC<IRouteComponentProps> = ({ component: Component, ...rest }) => (
+const PublicRoute: React.FC<IRouteComponentProps> = ({ component: Component, isWrappedContainer, ...rest }) => (
   <Route
     {...rest}
     render={(props) => (
-      <HeaderLayout>
+      <HeaderLayout isWrappedContainer={isWrappedContainer}>
         <Component {...props} />
       </HeaderLayout>
     )}

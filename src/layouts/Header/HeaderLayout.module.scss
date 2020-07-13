@@ -1,5 +1,9 @@
 @import '../../assets/scss/utils';
 
+.container {
+  @include container;
+}
+
 .content {
   @media (max-width: $desktop-xs-width) {
     margin-top: 51px;

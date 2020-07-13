@@ -1,16 +1,21 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import DesktopHeader from '../../components/DesktopHeader';
 import MobileHeader from '../../components/MobileHeader';
 
 import styles from './HeaderLayout.module.scss';
 
-const HeaderLayout: React.FC = ({ children }) => {
+interface IProps {
+  isWrappedContainer?: boolean;
+}
+
+const HeaderLayout: React.FC<IProps> = ({ children, isWrappedContainer }) => {
   return (
     <>
       <DesktopHeader />
       <MobileHeader />
-      <div className={styles.content}>{children}</div>
+      <div className={classnames({ [styles.content]: true, [styles.container]: isWrappedContainer })}>{children}</div>
     </>
   );
 };

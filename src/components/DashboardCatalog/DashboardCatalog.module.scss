@@ -1,0 +1,8 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

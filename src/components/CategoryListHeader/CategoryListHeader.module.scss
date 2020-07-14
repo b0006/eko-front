@@ -31,7 +31,6 @@
     padding: 0;
     width: 100%;
     background-color: $light-color;
-    @include hide;
 
     &Item {
       list-style: none;
@@ -56,17 +55,19 @@
     }
   }
 
-  .arrowIcon {
+  .arrowUp {
     @include rotateUp;
   }
 
-  &:hover {
-    .arrowIcon {
-      @include rotateDown;
-    }
+  .arrowDown {
+    @include rotateDown;
+  }
 
-    .list {
-      @include show;
-    }
+  .show {
+    @include show;
+  }
+
+  .hide {
+    @include hide;
   }
 }

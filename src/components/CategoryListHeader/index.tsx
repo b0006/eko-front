@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,8 +19,10 @@ const CategoryListHeader: React.FC = () => {
       </div>
       <ul className={styles.list}>
         {CATEGORY_LIST.map((item) => (
-          <li key={item.value}>
-            <Link to={`/catalog/${item.value}`}>{item.label}</Link>
+          <li className={styles.listItem} key={item.value}>
+            <NavLink activeClassName={styles.listItemActive} to={`/catalog/${item.value}`}>
+              {item.label}
+            </NavLink>
           </li>
         ))}
       </ul>

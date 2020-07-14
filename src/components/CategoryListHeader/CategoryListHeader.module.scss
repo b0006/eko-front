@@ -33,7 +33,7 @@
     background-color: $light-color;
     @include hide;
 
-    > * {
+    &Item {
       list-style: none;
       border: 1px solid $border-color;
       margin: 0;
@@ -48,6 +48,11 @@
       &:hover {
         background-color: $hover-color;
       }
+    }
+
+    &ItemActive {
+      background-color: $border-color;
+      font-weight: bold;
     }
   }
 

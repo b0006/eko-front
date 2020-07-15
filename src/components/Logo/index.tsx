@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import LogoImg from '../../assets/img/logo.png';
 
@@ -10,10 +11,10 @@ interface IProps {
 }
 
 const Logo: React.FC<IProps> = ({ className }) => (
-  <div className={classnames(styles.wrapper, className)}>
+  <Link to="/" className={classnames(styles.wrapper, className)}>
     <img src={LogoImg} alt="logo" />
     <span>ЭкоСнеки</span>
-  </div>
+  </Link>
 );
 
 export default Logo;

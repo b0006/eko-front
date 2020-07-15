@@ -4,9 +4,9 @@ import { FEATURED_CATEGORIES_LIST } from '../../mock/constants';
 import Card from '../../components/Card';
 import { getCountLabel } from '../../utils/string';
 
-import styles from './FeaturedCategories.module.scss';
+import styles from './FeaturedCategoriesBlock.module.scss';
 
-const FeaturedCategories: React.FC = () => {
+const FeaturedCategoriesBlock: React.FC = () => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.header}>
@@ -29,4 +29,4 @@ const FeaturedCategories: React.FC = () => {
   );
 };
 
-export default FeaturedCategories;
+export default FeaturedCategoriesBlock;

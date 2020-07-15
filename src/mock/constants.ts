@@ -66,3 +66,11 @@ export const FEATURED_CATEGORIES_LIST = [
     count: 22,
   },
 ];
+
+export const PRODUCT_FAVORITE_LIST = [
+  {
+    id: '1',
+    title: 'Пастила 1',
+    img: './categories/paste.webp',
+  },
+];

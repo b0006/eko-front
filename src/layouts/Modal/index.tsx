@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import classnames from 'classnames';
 
@@ -15,19 +15,23 @@ const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [switchAnimation, setSwitchAnimation] = useState(false);
 
+  const onHide = useCallback(() => {
+    setSwitchAnimation(false);
+    setTimeout(() => hide(), 250);
+  }, [hide]);
+
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (modalRef.current && e.target instanceof Element) {
         if (!modalRef.current.contains(e.target) && isShowed) {
-          setSwitchAnimation(false);
-          setTimeout(() => hide(), 250);
+          onHide();
         }
       }
     };
 
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [hide, isShowed]);
+  }, [hide, isShowed, onHide]);
 
   useEffect(() => {
     if (isShowed) {
@@ -42,7 +46,7 @@ const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
   const Content = (
     <div className={classnames({ [styles.overlay]: true, [styles.show]: switchAnimation })}>
       <div ref={modalRef} className={styles.modal}>
-        <input type="button" value="Закрыть" onClick={hide} />
+        <input type="button" value="Закрыть" onClick={onHide} />
         {children}
       </div>
     </div>

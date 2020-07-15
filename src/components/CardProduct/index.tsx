@@ -18,10 +18,8 @@ const CardProduct: React.FC<IProps> = ({ imageHeight = '16rem', imageWidth = '16
           <span className={styles.title}>Ананас</span>
           <span className={styles.category}>Фрипсы</span>
           <span className={styles.price}>130 руб</span>
-          <div className={styles.description}>
-            Himenaeos parturient nam a justo placerat lorem erat pretium a fusce pharetra pretium enim sagittis ut nunc
-            neque torquent sem a leo. Dictumst
-          </div>
+          <div className={styles.description}>Набор для детей без сахара и разными вариантами наполнения</div>
+          <input className={styles.button} type="button" value="Купить" />
         </div>
       </div>
     </div>

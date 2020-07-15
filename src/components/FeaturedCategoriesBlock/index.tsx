@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { FEATURED_CATEGORIES_LIST } from '../../mock/constants';
-import Card from '../../components/Card';
+import Card from '../Card';
+import TitleBlock from '../TitleBlock';
 import { getCountLabel } from '../../utils/string';
 
 import styles from './FeaturedCategoriesBlock.module.scss';
@@ -9,11 +10,11 @@ import styles from './FeaturedCategoriesBlock.module.scss';
 const FeaturedCategoriesBlock: React.FC = () => {
   return (
     <section className={styles.wrapper}>
-      <div className={styles.header}>
-        <span className={styles.top}>У нас покупают</span>
-        <span className={styles.middle}>Самые любимые категории</span>
-        <span className={styles.bottom}>Перейдите в каталог, чтобы увидеть больше крутых продуктов</span>
-      </div>
+      <TitleBlock
+        top="У нас покупают"
+        middle="Самые любимые категории"
+        bottom="Перейдите в каталог, чтобы увидеть больше крутых продуктов"
+      />
       <div className={styles.blocks}>
         {FEATURED_CATEGORIES_LIST.map((item) => (
           <Card

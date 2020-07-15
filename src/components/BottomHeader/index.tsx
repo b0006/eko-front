@@ -41,9 +41,9 @@ const BottomHeader: React.FC = observer(() => {
               return <MenuItem key={item.path} activeClassName={activeClassName} title={item.label} path={item.path} />;
             })}
           </ul>
-          <a className={styles.phone} href="tel:88006002155">
+          <a className={styles.phone} href="tel:88005353535">
             <FontAwesomeIcon icon={faPhone} />
-            8-800-600-21-55
+            8-800-535-35-35
           </a>
         </div>
       </div>

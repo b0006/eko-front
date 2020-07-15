@@ -1,0 +1,8 @@
+@import '../../assets/scss/utils';
+
+.wrapper {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+}

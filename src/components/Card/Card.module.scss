@@ -13,10 +13,6 @@
     background-size: cover;
 
     transition: all $animation-time;
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 
   &:hover {
@@ -32,6 +28,12 @@
 
     .bottom {
       height: 40%;
+    }
+
+    &:hover {
+      .img {
+        transform: scale(1.05);
+      }
     }
   }
 }
@@ -49,6 +51,7 @@
   height: 25%;
   transition: height $animation-time ease;
   background-color: $layout-color;
+  color: $light-color;
 
   .label {
     transition: transform $animation-time ease, opacity $animation-time ease;
@@ -56,7 +59,6 @@
     text-transform: uppercase;
     font-size: 18px;
     font-weight: bold;
-    color: $light-color;
   }
 
   .count {

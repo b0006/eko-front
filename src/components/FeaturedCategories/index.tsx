@@ -2,6 +2,7 @@ import React from 'react';
 
 import { FEATURED_CATEGORIES_LIST } from '../../mock/constants';
 import Card from '../../components/Card';
+import { getCountLabel } from '../../utils/string';
 
 import styles from './FeaturedCategories.module.scss';
 
@@ -15,7 +16,13 @@ const FeaturedCategories: React.FC = () => {
       </div>
       <div className={styles.blocks}>
         {FEATURED_CATEGORIES_LIST.map((item) => (
-          <Card key={item.value} image={item.img} title={item.label} description={`${item.count} товаров`} />
+          <Card
+            key={item.value}
+            image={item.img}
+            title={item.label}
+            link={`/catalog/${item.value}`}
+            description={`${item.count} ${getCountLabel(item.count, 'товар', ['', 'ов', 'а'])}`}
+          />
         ))}
       </div>
     </section>

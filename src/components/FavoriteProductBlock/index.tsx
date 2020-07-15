@@ -7,7 +7,16 @@ import styles from './FavoriteProductBlock.module.scss';
 const FavoriteProductBlock: React.FC = () => {
   return (
     <section className={styles.wrapper}>
-      <CardProduct />
+      <div className={styles.list}>
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+      </div>
     </section>
   );
 };

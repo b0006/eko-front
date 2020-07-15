@@ -1,2 +1,87 @@
 @import '../../assets/scss/utils';
 
+.wrapper {
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+
+  .previewContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding-bottom: 10px;
+
+    transition: transform $animation-time linear;
+    transform: scale(1);
+
+    .hoverContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    &:hover {
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,.15);
+      transition: transform $animation-time linear;
+      transform: scale(1.1);
+      z-index: 2;
+      background-color: $light-color;
+
+      .description {
+        display: block;
+      }
+
+      .hoverContent {
+        position: absolute;
+        top: 267px;
+        box-shadow: 0 10px 10px rgba(0,0,0,.15);
+        background-color: $light-color;
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .category {
+      margin: 10px 0;
+      color: $gray-color;
+      font-size: 14px;
+    }
+
+    .price {
+      font-weight: bold;
+      color: $main-color;
+    }
+
+    .description {
+      display: none;
+      text-align: center;
+      font-size: 14px;
+      margin: 10px 0;
+      color: $gray-color;
+    }
+
+    .imageWrapper {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+  
+      .img {
+        height: 90%;
+        width: 90%;
+        margin: 10px auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: all $animation-time;
+      }
+    }
+  }
+}

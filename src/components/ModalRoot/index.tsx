@@ -13,7 +13,7 @@ interface IProps {
   hide: () => void;
 }
 
-const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
+const ModalRoot: React.FC<IProps> = ({ children, isShowed, hide }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [switchAnimation, setSwitchAnimation] = useState(false);
 
@@ -56,4 +56,4 @@ const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
   );
 };
 
-export default ModalLayout;
+export default ModalRoot;

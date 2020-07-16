@@ -9,12 +9,16 @@
   padding: 60px 30px 30px 30px;
   width: 80%;
   height: 85%;
-  cursor: default;
+
+  @media (max-width: $mobile-md-width) {
+    padding: 60px 10px 10px 10px;
+  }
 
   @media (max-width: $desktop-xs-width) {
     width: 100%;
     height: 100%;
     margin: 0;
+    overflow: auto;
   }
 
   .close {
@@ -39,9 +43,8 @@
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: $layout-color;
-  cursor: pointer;
 }
 
 .show {

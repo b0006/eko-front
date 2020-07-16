@@ -9,6 +9,7 @@
   padding: 60px 30px 30px 30px;
   width: 80%;
   height: 85%;
+  cursor: default;
 
   @media (max-width: $desktop-xs-width) {
     width: 100%;
@@ -40,6 +41,7 @@
   height: 100%;
   overflow: auto;
   background-color: $layout-color;
+  cursor: pointer;
 }
 
 .show {

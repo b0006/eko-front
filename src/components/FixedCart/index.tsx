@@ -14,7 +14,8 @@ const FixedCart: React.FC = observer(() => {
   return (
     <div className={classnames({ [styles.wrapper]: true, [styles.offset]: isFixed })}>
       <FontAwesomeIcon icon={faShoppingBag} size="3x" />
-      <div className={styles.count}>2</div>
+      <span className={styles.count}>2</span>
+      <span className={styles.price}>2999 руб</span>
     </div>
   );
 });

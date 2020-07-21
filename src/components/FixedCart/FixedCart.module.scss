@@ -34,6 +34,19 @@
     border-radius: 20px;
   }
 
+  .price {
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: $main-color;
+    color: $light-color;
+    font-weight: bold;
+    padding: 2px 0px;
+    border-radius: 5px;
+  }
+
   &:hover {
     transform: scale(1.05);
   }

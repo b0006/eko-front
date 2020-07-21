@@ -1,6 +1,23 @@
 @import '../../assets/scss/utils';
 
 .wrapper {
+  .close {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 8px 10px;
+    cursor: pointer;
+
+    path {
+      fill: $gray-color;
+    }
+
+    > * {
+      margin-right: 10px;
+    }
+  }
+
   .menuButton {
     cursor: pointer;
     > * {

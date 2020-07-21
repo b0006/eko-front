@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 import SearchHeaderMobile from '../SearchHeaderMobile';
 import SwitchTypeHeaderMobile from '../SwitchTypeHeaderMobile';
@@ -40,13 +40,13 @@ const SidebarMenuHeader: React.FC = () => {
           [styles.hideLayout]: !isShowed,
         })}
       />
-      <div
-        ref={contentRef}
-        className={classnames({ [styles.sidebar]: true, [styles.show]: isShowed, [styles.hide]: !isShowed })}>
-        <div className={styles.content}>
-          <SearchHeaderMobile />
-          <SwitchTypeHeaderMobile hideSidebar={() => setIsShowed(false)} />
+      <div ref={contentRef} className={classnames({ [styles.sidebar]: true, [styles.show]: isShowed })}>
+        <div role="button" className={styles.close} onClick={() => setIsShowed(false)}>
+          <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
+          <span>Закрыть</span>
         </div>
+        <SearchHeaderMobile />
+        <SwitchTypeHeaderMobile hideSidebar={() => setIsShowed(false)} />
       </div>
     </div>
   );

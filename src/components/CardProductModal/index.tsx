@@ -28,14 +28,6 @@ const CardProductModal: React.FC<IProps> = ({ isShowed, hide }) => {
             <RadioItem name="test" label="35 гр - 190 руб" value="test1" checked />
             <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
             <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
-            <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
-            <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
-            <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
-            <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
-            <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
-            <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
-            <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
-            <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
           </div>
           <input type="button" className={styles.button} value="Добавить в корзину" />
           <div

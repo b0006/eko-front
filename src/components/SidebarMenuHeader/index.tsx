@@ -27,6 +27,10 @@ const SidebarMenuHeader: React.FC = () => {
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isShowed ? 'hidden' : 'auto';
+  }, [isShowed]);
+
   return (
     <div className={styles.wrapper}>
       <div ref={btnRef} role="button" onClick={() => setIsShowed(!isShowed)} className={styles.menuButton}>

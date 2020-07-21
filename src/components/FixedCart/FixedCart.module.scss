@@ -1,0 +1,44 @@
+@import '../../assets/scss/utils';
+
+.offset {
+  top: 10% !important;
+}
+
+.wrapper {
+  position: fixed;
+  right: 10%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: $light-color;
+  border-radius: 80px;
+  border: 1px solid $main-color;
+  z-index: 18;
+  top: 15%;
+  box-shadow: 0px 0px 5px 0px $main-color;
+  cursor: pointer;
+
+  path {
+    fill: $gray-color;
+  }
+
+  transition: top $animation-time, transform $animation-time;
+
+  .count {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $danger-color;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: $light-color;
+    border-radius: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: $desktop-xs-width) {
+    display: none;
+  }
+}

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 
 import Logo from '../../components/Logo';
 import SearchHeader from '../../components/SearchHeader';
-import CartHeader from '../../components/CartHeader';
 import BottomHeader from '../../components/BottomHeader';
 import { headerStore } from '../../mobx';
 
@@ -29,7 +28,6 @@ const DesktopHeader: React.FC = () => {
             <Logo className={styles.logo} />
             <SearchHeader />
           </div>
-          <CartHeader icon="500px" size="lg" />
         </div>
       </header>
       <BottomHeader />

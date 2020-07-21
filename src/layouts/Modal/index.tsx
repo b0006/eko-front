@@ -39,6 +39,7 @@ const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
     if (isShowed) {
       setTimeout(() => setSwitchAnimation(true), 0);
     }
+    document.body.style.overflow = isShowed ? 'hidden' : 'auto';
   }, [isShowed]);
 
   if (!isShowed || !modalRoot) {

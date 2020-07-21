@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import DesktopHeader from '../../components/DesktopHeader';
 import MobileHeader from '../../components/MobileHeader';
+import FixedCart from '../../components/FixedCart';
 
 import styles from './HeaderLayout.module.scss';
 
@@ -15,6 +16,7 @@ const HeaderLayout: React.FC<IProps> = ({ children, isWrappedContainer }) => {
     <>
       <DesktopHeader />
       <MobileHeader />
+      <FixedCart />
       <div className={classnames({ [styles.content]: true, [styles.container]: isWrappedContainer })}>{children}</div>
     </>
   );

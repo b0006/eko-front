@@ -1,17 +1,13 @@
 import React from 'react';
 
+import { IModalProps } from '../../layouts/Modal/interfaces';
 import ModalLayout from '../../layouts/Modal';
 import ImageSlider from '../ImageSlider';
 import RadioItem from '../RadioItem';
 
 import styles from './CardProductModal.module.scss';
 
-interface IProps {
-  isShowed: boolean;
-  hide: () => void;
-}
-
-const CardProductModal: React.FC<IProps> = ({ isShowed, hide }) => {
+const CardProductModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
   return (
     <ModalLayout isShowed={isShowed} hide={hide}>
       <div className={styles.wrapper}>

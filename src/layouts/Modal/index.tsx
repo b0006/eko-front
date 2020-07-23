@@ -4,22 +4,27 @@ import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+import { IModalProps } from './interfaces';
 import styles from './ModalLayout.module.scss';
 
 const modalRoot = document.getElementById('modal');
 
-interface IProps {
-  isShowed: boolean;
-  hide: () => void;
-}
+const hideHtmlScroll = (isShowed: boolean) => {
+  document.body.style.overflow = isShowed ? 'scroll' : 'unset';
+  const htmlElem = document.getElementsByTagName('html')[0];
+  htmlElem.style.overflow = isShowed ? 'hidden' : 'unset';
+};
 
-const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
+const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, className }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [switchAnimation, setSwitchAnimation] = useState(false);
 
   const onHide = useCallback(() => {
     setSwitchAnimation(false);
-    setTimeout(() => hide(), 250);
+    setTimeout(() => {
+      hide();
+      hideHtmlScroll(false);
+    }, 250);
   }, [hide]);
 
   useEffect(() => {
@@ -37,9 +42,11 @@ const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
 
   useEffect(() => {
     if (isShowed) {
-      setTimeout(() => setSwitchAnimation(true), 0);
+      setTimeout(() => {
+        setSwitchAnimation(true);
+        hideHtmlScroll(true);
+      }, 0);
     }
-    document.body.style.overflow = isShowed ? 'hidden' : 'auto';
   }, [isShowed]);
 
   if (!isShowed || !modalRoot) {
@@ -47,7 +54,7 @@ const ModalLayout: React.FC<IProps> = ({ children, isShowed, hide }) => {
   }
 
   return createPortal(
-    <div className={classnames({ [styles.overlay]: true, [styles.show]: switchAnimation })}>
+    <div className={classnames({ [styles.overlay]: true, [className]: true, [styles.show]: switchAnimation })}>
       <div ref={modalRef} className={styles.modal}>
         <FontAwesomeIcon className={styles.close} icon={faTimes} size="2x" onClick={onHide} />
         {children}

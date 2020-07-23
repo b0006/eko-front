@@ -11,13 +11,15 @@ const DesktopHeader: React.FC = () => {
   const { toggleFixed } = headerStore;
 
   useEffect(() => {
-    const onScroll = () => {
+    const onFixed = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      toggleFixed(winScroll >= 90);
+      toggleFixed(winScroll >= 106);
     };
 
-    document.addEventListener('scroll', onScroll);
-    return () => document.removeEventListener('scroll', onScroll);
+    onFixed();
+
+    document.addEventListener('scroll', onFixed);
+    return () => document.removeEventListener('scroll', onFixed);
   }, [toggleFixed]);
 
   return (

@@ -1,3 +1,4 @@
 import headerStore from './headerStore';
+import cartStore from './cartStore';
 
-export { headerStore };
+export { headerStore, cartStore };

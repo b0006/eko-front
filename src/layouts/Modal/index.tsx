@@ -32,8 +32,8 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
       }
     };
 
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
   }, [hide, isShowed, onHide]);
 
   useEffect(() => {

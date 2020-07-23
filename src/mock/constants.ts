@@ -85,8 +85,8 @@ export const CART_LIST = [
   },
   {
     id: '2',
-    title: 'Пастила 2',
-    img: './categories/paste.webp',
+    title: 'Пастила очень крутая 2',
+    img: './categories/frips.webp',
     price: 750,
     count: 1,
   },

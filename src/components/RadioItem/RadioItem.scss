@@ -31,8 +31,8 @@
   [type="radio"]:checked + label:after,
   [type="radio"]:not(:checked) + label:after {
       content: '';
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       background: $main-color;
       position: absolute;
       top: 4px;

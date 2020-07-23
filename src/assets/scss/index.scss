@@ -1,9 +1,12 @@
 @import './fonts';
 @import './vars';
 
-* {
-  box-sizing: border-box;
-}
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
 :root {
   font-family: 'Open Sans', sans-serif;

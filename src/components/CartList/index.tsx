@@ -1,16 +1,24 @@
 import React from 'react';
 
-import { CART_LIST } from '../../mock/constants';
+import CartItem from '../CartItem';
+import { cartStore } from '../../mobx';
 
 import './CartList.scss';
 
 const CartList: React.FC = () => {
+  const { removeById, cartList } = cartStore;
+
   return (
     <div className="cart-list">
-      {CART_LIST.map((item) => (
-        <div key={item.id} className="cart-list__item">
-          <img className="cart-list__item__image" src={item.img} alt={item.title} />
-        </div>
+      {cartList.map((item) => (
+        <CartItem
+          key={item.id}
+          title={item.title}
+          count={item.count}
+          img={item.img}
+          price={item.price}
+          onRemove={() => removeById(item.id)}
+        />
       ))}
     </div>
   );

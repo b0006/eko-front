@@ -17,34 +17,6 @@
   }
 }
 
-@keyframes hide {
-  0% {
-    display: block;
-    opacity: 1;
-  }
-  99% {
-    display: block;
-  }
-  100% {
-    display: none;
-    opacity: 0;
-  }
-}
-
-@keyframes show {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  99% {
-    display: block;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-  }
-}
-
 @mixin rotateDown {
   transform: rotate(180deg);
   transition: transform $animation-time linear;

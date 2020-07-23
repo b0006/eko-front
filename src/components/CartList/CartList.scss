@@ -3,38 +3,4 @@
 .cart-list {
   display: flex;
   flex-direction: column;
-
-  &__item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    padding: 12px 0;
-
-    &:not(:first-child), :not(:last-child) {
-      border-top: 1px solid $border-color;
-    }
-
-    &:first-child {
-      border-top: 1px solid $border-color;
-    }
-
-    &:last-child {
-      border-bottom: 1px solid $border-color;
-    }
-
-    &__image {
-      height: 70px;
-      width: 70px;
-      object-fit: cover;
-
-      transition: transform $animation-time;
-    }
-
-    &:hover {
-      .cart-list__item__image {
-        transform: scale(1.1);
-      }
-    }
-  }
 }

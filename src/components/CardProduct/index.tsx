@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import CardProductModal from '../CardProductModal';
+import useModal from '../../hook/useModal';
 
 import './CardProduct.scss';
 
@@ -10,10 +11,10 @@ interface IProps {
 }
 
 const CardProduct: React.FC<IProps> = ({ imageHeight = '16rem', imageWidth = '16rem' }) => {
-  const [isShowed, setIsShowed] = useState(false);
+  const { isShowed, showModal, hideModal } = useModal();
   return (
     <>
-      <div className="card-product" role="button" onClick={() => setIsShowed(true)}>
+      <div className="card-product" role="button" onClick={showModal}>
         <div className="card-product__preview-content">
           <div
             className="card-product__preview-content__img-wrapper"
@@ -34,7 +35,7 @@ const CardProduct: React.FC<IProps> = ({ imageHeight = '16rem', imageWidth = '16
           </div>
         </div>
       </div>
-      <CardProductModal isShowed={isShowed} hide={() => setIsShowed(false)} />
+      <CardProductModal isShowed={isShowed} hide={hideModal} />
     </>
   );
 };

@@ -1,0 +1,73 @@
+@import '../../assets/scss/utils';
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 12px 10px;
+
+  &:not(:first-child), &:not(:last-child) {
+    border-top: 1px solid $border-color;
+  }
+
+  &:first-child {
+    border-top: 1px solid $border-color;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__image {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px 0px $main-color;
+
+    transition: transform $animation-time;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &__title {
+      width: 50%;
+      padding: 0 12px;
+      font-weight: bold;
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 50%;
+      user-select: none;
+
+      &__remove {
+        cursor: pointer;
+        path {
+          fill: $gray-color;
+        }
+
+        &:hover {
+          path {
+            fill: $danger-color;
+          }
+        }
+      }
+    }
+
+    @media(max-width: $desktop-xs-width) {
+      flex-direction: column;
+    }
+  }
+
+  &:hover {
+    background-color: $border-color;
+  }
+}

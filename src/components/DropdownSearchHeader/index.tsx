@@ -53,7 +53,7 @@ const DropdownSearchHeader: React.FC<IProps> = ({ value, onChange, options }) =>
         <span className={styles.label}>{valueLabel || 'Выбрать категорию'}</span>
         <FontAwesomeIcon className={isOpen ? styles.rotateDown : styles.rotateUp} icon={faChevronDown} />
       </div>
-      <div ref={listRef} className={classnames({ [styles.hide]: !isOpen, [styles.show]: isOpen, [styles.list]: true })}>
+      <div ref={listRef} className={classnames({ [styles.show]: isOpen, [styles.list]: true })}>
         <div role="button" onClick={() => onClickItem()} className={styles.item}>
           Без категории
         </div>

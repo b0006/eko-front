@@ -5,6 +5,7 @@ import { faBars, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 import SearchHeaderMobile from '../SearchHeaderMobile';
 import SwitchTypeHeaderMobile from '../SwitchTypeHeaderMobile';
+import { toggleHtmlScroll } from '../../utils/html';
 
 import styles from './SidebarMenuHeader.module.scss';
 
@@ -28,7 +29,7 @@ const SidebarMenuHeader: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isShowed ? 'hidden' : 'auto';
+    toggleHtmlScroll(isShowed);
   }, [isShowed]);
 
   return (

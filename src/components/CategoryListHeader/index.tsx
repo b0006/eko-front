@@ -20,7 +20,7 @@ const CategoryListHeader: React.FC = () => {
         </div>
         <FontAwesomeIcon className={isOpened ? styles.arrowDown : styles.arrowUp} icon={faChevronDown} />
       </div>
-      <ul className={classnames({ [styles.list]: true, [styles.show]: isOpened, [styles.hide]: !isOpened })}>
+      <ul className={classnames({ [styles.list]: true, [styles.show]: isOpened })}>
         {CATEGORY_LIST.map((item) => (
           <li className={styles.listItem} key={item.value}>
             <NavLink

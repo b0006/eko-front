@@ -74,3 +74,20 @@ export const PRODUCT_FAVORITE_LIST = [
     img: './categories/paste.webp',
   },
 ];
+
+export const CART_LIST = [
+  {
+    id: '1',
+    title: 'Пастила 1',
+    img: './categories/paste.webp',
+    price: 450,
+    count: 2,
+  },
+  {
+    id: '2',
+    title: 'Пастила 2',
+    img: './categories/paste.webp',
+    price: 750,
+    count: 1,
+  },
+];

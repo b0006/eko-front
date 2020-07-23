@@ -1,0 +1,40 @@
+@import '../../assets/scss/utils';
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 12px 0;
+
+    &:not(:first-child), :not(:last-child) {
+      border-top: 1px solid $border-color;
+    }
+
+    &:first-child {
+      border-top: 1px solid $border-color;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $border-color;
+    }
+
+    .image {
+      height: 70px;
+      width: 70px;
+      object-fit: cover;
+
+      transition: transform $animation-time;
+    }
+
+    &:hover {
+      .image {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

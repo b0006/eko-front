@@ -4,18 +4,14 @@ import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+import { toggleHtmlScroll } from '../../utils/html';
+
 import { IModalProps } from './interfaces';
 import styles from './ModalLayout.module.scss';
 
 const modalRoot = document.getElementById('modal');
 
-const hideHtmlScroll = (isShowed: boolean) => {
-  document.body.style.overflow = isShowed ? 'scroll' : 'unset';
-  const htmlElem = document.getElementsByTagName('html')[0];
-  htmlElem.style.overflow = isShowed ? 'hidden' : 'unset';
-};
-
-const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, className }) => {
+const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNameLayout, classNameModal }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [switchAnimation, setSwitchAnimation] = useState(false);
 
@@ -23,7 +19,7 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
     setSwitchAnimation(false);
     setTimeout(() => {
       hide();
-      hideHtmlScroll(false);
+      toggleHtmlScroll(false);
     }, 250);
   }, [hide]);
 
@@ -44,7 +40,7 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
     if (isShowed) {
       setTimeout(() => {
         setSwitchAnimation(true);
-        hideHtmlScroll(true);
+        toggleHtmlScroll(true);
       }, 0);
     }
   }, [isShowed]);
@@ -54,8 +50,8 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
   }
 
   return createPortal(
-    <div className={classnames({ [styles.overlay]: true, [className]: true, [styles.show]: switchAnimation })}>
-      <div ref={modalRef} className={styles.modal}>
+    <div className={classnames({ [styles.overlay]: true, [classNameLayout]: true, [styles.show]: switchAnimation })}>
+      <div ref={modalRef} className={classnames({ [styles.modal]: true, [classNameModal]: true })}>
         <FontAwesomeIcon className={styles.close} icon={faTimes} size="2x" onClick={onHide} />
         {children}
       </div>

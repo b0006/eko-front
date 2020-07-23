@@ -1,0 +1,16 @@
+@import '../../assets/scss/utils';
+
+.layout {
+  width: 100%;
+  max-width: 560px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}

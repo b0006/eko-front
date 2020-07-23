@@ -7,6 +7,10 @@
   flex-direction: row;
   justify-content: flex-end;
 
+  &_hide {
+    display: none;
+  }
+
   &__content {
     position: fixed;
     padding: 20px;

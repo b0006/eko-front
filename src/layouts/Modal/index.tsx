@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import classnames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,54 +14,41 @@ const modalRoot = document.getElementById('modal');
 
 const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNameLayout, classNameModal }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [switchAnimation, setSwitchAnimation] = useState(false);
-
-  const onHide = useCallback(() => {
-    setSwitchAnimation(false);
-    setTimeout(() => {
-      hide();
-      toggleHtmlScroll(false);
-    }, 250);
-  }, [hide]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (modalRef.current && e.target instanceof Element) {
         if (!modalRef.current.contains(e.target) && isShowed) {
-          onHide();
+          hide();
         }
       }
     };
 
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
-  }, [hide, isShowed, onHide]);
+  }, [hide, isShowed]);
 
   useEffect(() => {
     if (isShowed) {
-      setTimeout(() => {
-        setSwitchAnimation(true);
-        toggleHtmlScroll(true);
-      }, 0);
+      toggleHtmlScroll(true);
+    } else {
+      setTimeout(() => toggleHtmlScroll(false), 200);
     }
   }, [isShowed]);
 
-  if (!isShowed || !modalRoot) {
+  if (!modalRoot) {
     return null;
   }
 
   return createPortal(
-    <div
-      className={classnames({
-        'modal-layout__overlay': true,
-        [classNameLayout]: true,
-        'modal-layout__show': switchAnimation,
-      })}>
-      <div ref={modalRef} className={classnames({ 'modal-layout__content': true, [classNameModal]: true })}>
-        <FontAwesomeIcon className="modal-layout__content__close" icon={faTimes} size="2x" onClick={onHide} />
-        {children}
+    <CSSTransition in={isShowed} timeout={200} unmountOnExit classNames="modal">
+      <div className={classnames({ 'modal-layout__overlay': true, [classNameLayout]: true })}>
+        <div ref={modalRef} className={classnames('modal-layout__content', classNameModal)}>
+          <FontAwesomeIcon className="modal-layout__content__close" icon={faTimes} size="2x" onClick={hide} />
+          {children}
+        </div>
       </div>
-    </div>,
+    </CSSTransition>,
     modalRoot
   );
 };

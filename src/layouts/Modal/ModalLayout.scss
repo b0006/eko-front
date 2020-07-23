@@ -37,7 +37,7 @@
   }
 
   &__overlay {
-    @include hide;
+    // @include hide;
     position: fixed;
     z-index: 100;
     left: 0;
@@ -51,4 +51,19 @@
   &__show {
     @include show;
   }
+}
+
+.modal-enter {
+  opacity: 0;
+}
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity $animation-time;
+}
+.modal-exit {
+  opacity: 1;
+}
+.modal-exit-active {
+  opacity: 0;
+  transition: opacity $animation-time;
 }

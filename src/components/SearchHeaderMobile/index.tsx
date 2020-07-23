@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './SearchHeaderMobile.module.scss';
+import './SearchHeaderMobile.scss';
 
 const SearchHeaderMobile: React.FC = () => {
   const [searchText, setSearchText] = useState('');
@@ -13,16 +13,16 @@ const SearchHeaderMobile: React.FC = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className="search-header-mobile">
       <input
-        className={styles.input}
+        className="search-header-mobile__input"
         value={searchText}
         type="text"
         placeholder="Поиск продукта"
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <div role="button" className={styles.iconWrapper} onClick={onSearch}>
-        <FontAwesomeIcon className={styles.icon} icon={faSearch} size="lg" />
+      <div role="button" className="search-header-mobile__icon-wrapper" onClick={onSearch}>
+        <FontAwesomeIcon className="search-header-mobile__icon-wrapper__icon" icon={faSearch} size="lg" />
       </div>
     </div>
   );

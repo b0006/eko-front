@@ -1,13 +1,13 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.fixed-cart {
   @include container;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 
-  .content {
+  &__content {
     position: fixed;
     padding: 20px;
     margin-top: 20px;
@@ -25,7 +25,7 @@
 
     transition: top $animation-time, transform $animation-time;
 
-    .count {
+    &__count {
       position: absolute;
       right: 0;
       top: 0;
@@ -36,7 +36,7 @@
       border-radius: 20px;
     }
 
-    .price {
+    &__price {
       position: absolute;
       bottom: -13px;
       left: 0;

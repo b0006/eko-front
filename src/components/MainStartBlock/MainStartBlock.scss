@@ -1,6 +1,6 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.main-start-block {
   height: 620px;
   background-position: center center;
   background-attachment: scroll;
@@ -8,12 +8,12 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  .gradient {
+  &__gradient {
     height: 100%;
     background-image: linear-gradient(to bottom, rgba(69,69,69,0.6), rgba(64,64,64,0.2));
   }
 
-  .content {
+  &__content {
     @include container;
 
     h1 {
@@ -37,7 +37,7 @@
       }
     }
 
-    .list {
+    &__list {
       color: $light-color;
       font-size: 26px;
       line-height: 38px;

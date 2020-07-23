@@ -1,6 +1,6 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.cart-header {
   cursor: pointer;
 
   &:hover {
@@ -10,12 +10,12 @@
     }
   }
 
-  .content {
+  &__content {
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    .price {
+    &__price {
       margin-left: 10px;
 
       @media (max-width: $mobile-md-width) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './RadioItem.module.scss';
+import './RadioItem.scss';
 
 interface IProps {
   label?: string;
@@ -11,7 +11,7 @@ interface IProps {
 
 const RadioItem: React.FC<IProps> = ({ name, value, label, checked }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className="radio-item">
       <input type="radio" id={`${name}_${value}_radio`} name={name} defaultChecked={checked} />
       <label htmlFor={`${name}_${value}_radio`}>{label}</label>
     </div>

@@ -5,17 +5,17 @@ import Card from '../Card';
 import TitleBlock from '../TitleBlock';
 import { getCountLabel } from '../../utils/string';
 
-import styles from './FeaturedCategoriesBlock.module.scss';
+import './FeaturedCategoriesBlock.scss';
 
 const FeaturedCategoriesBlock: React.FC = () => {
   return (
-    <section className={styles.wrapper}>
+    <section className="featured-categories-block">
       <TitleBlock
         top="У нас покупают"
         middle="Самые любимые категории"
         bottom="Перейдите в каталог, чтобы увидеть больше крутых продуктов"
       />
-      <div className={styles.blocks}>
+      <div className="featured-categories-block__blocks">
         {FEATURED_CATEGORIES_LIST.map((item) => (
           <Card
             key={item.value}

@@ -1,10 +1,10 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.desktop-header {
   border-bottom: 1px solid $border-color;
   font-size: 13px;
 
-  .container {
+  &__container {
     @include container;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
     justify-content: space-between;
   }
 
-  .content {
+  &__content {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -20,7 +20,7 @@
     justify-content: flex-start;
     height: 105px;
     
-    .logo {
+    &__logo {
       min-width: $width-logo;
     }
   }

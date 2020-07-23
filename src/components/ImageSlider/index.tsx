@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 
-import styles from './ImageSlider.module.scss';
+import './ImageSlider.scss';
 
 interface IProps {
   list: string[];
@@ -31,44 +31,49 @@ const ImageSlider: React.FC<IProps> = ({ list }) => {
   const onCurrent = (index: number) => setSlideIndex(index);
 
   return (
-    <>
-      <div className={styles.wrapper}>
+    <div className="image-slider">
+      <div>
         {list.map((image, index) => (
           <div
             key={image}
             className={classnames({
-              [styles.initSlide]: true,
-              [styles.fade]: true,
-              [styles.show]: slideIndex === index,
+              'image-slider__init-slide': true,
+              'image-slider__fade': true,
+              'image-slider__show': slideIndex === index,
             })}>
-            {list.length > 1 && <span className={styles.numberText}>{`${slideIndex + 1} / ${list.length}`}</span>}
+            {list.length > 1 && (
+              <span className="image-slider__number-text">{`${slideIndex + 1} / ${list.length}`}</span>
+            )}
             <img src={image} alt="" />
           </div>
         ))}
         {list.length > 1 && (
           <>
-            <span role="button" className={styles.prev} onClick={onPrev}>
+            <span role="button" className="image-slider__prev" onClick={onPrev}>
               &#10094;
             </span>
-            <span role="button" className={styles.next} onClick={onNext}>
+            <span role="button" className="image-slider__next" onClick={onNext}>
               &#10095;
             </span>
           </>
         )}
       </div>
       {list.length > 1 && (
-        <div className={styles.dotWrapper}>
+        <div className="image-slider__dot-wrapper">
           {list.map((_, index) => (
             <span
               key={index}
               role="button"
               onClick={() => onCurrent(index)}
-              className={classnames({ [styles.dot]: true, [styles.active]: slideIndex === index })}
+              className={classnames({
+                'image-slider__dot-wrapper__dot': true,
+                'image-slider__dot-wrapper__dot-active': slideIndex === index,
+              })}
             />
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

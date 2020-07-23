@@ -1,7 +1,7 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
-  .close {
+.sidebar-menu-header {
+  &__close {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,13 +18,13 @@
     }
   }
 
-  .menuButton {
+  &__menu-button {
     cursor: pointer;
     > * {
       margin-right: 5px;
     }
 
-    .label {
+    &__label {
       @media (max-width: $tablet-sm-width) {
         display: none;
       }
@@ -38,7 +38,7 @@
     }
   }
 
-  .layout {
+  &__layout {
     position: fixed;
     top: 0;
     left: 0;
@@ -48,19 +48,19 @@
     background-color: $layout-color;
   }
 
-  .showLayout {
+  &__show-layout {
     visibility: visible;
     transition: visibility $animation-time;
   }
 
-  .hideLayout {
+  &__hide-layout {
     visibility: hidden;
     transition: visibility $animation-time;
   }
 
   transition: all $animation-time ease;
 
-  .sidebar {
+  &__sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -75,7 +75,7 @@
     z-index: 20;
   }
 
-  .show {
+  &__show {
     border-right: 2px solid $border-color;
     width: 300px;
   }

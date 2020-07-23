@@ -4,16 +4,16 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import BadgeHeader from '../BadgeHeader';
 
-import styles from './CartHeader.module.scss';
+import './CartHeader.scss';
 
 const CartHeader: React.FC<FontAwesomeIconProps> = ({ size, ...rest }) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.content}>
+    <div className="cart-header">
+      <div className="cart-header__content">
         <BadgeHeader>
           <FontAwesomeIcon {...rest} size={size} icon={faShoppingCart} />
         </BadgeHeader>
-        <span className={styles.price}>900 руб</span>
+        <span className="cart-header__content__price">900 руб</span>
       </div>
     </div>
   );

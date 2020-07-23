@@ -1,11 +1,11 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.favorite-product-block {
   @include container;
   padding-top: 50px;
   padding-bottom: 50px;
 
-  .list {
+  &__list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

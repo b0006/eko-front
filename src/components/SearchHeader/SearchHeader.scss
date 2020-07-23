@@ -1,6 +1,6 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.search-header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,7 +27,7 @@
     }
   }
 
-  .search {
+  &__search {
     padding: 0 15px;
     height: 98%;
     display: flex;

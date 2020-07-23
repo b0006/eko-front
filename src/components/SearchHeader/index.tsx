@@ -5,7 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import DropdownSearchHeader from '../DropdownSearchHeader';
 import { CATEGORY_LIST } from '../../mock/constants';
 
-import styles from './SearchHeader.module.scss';
+import './SearchHeader.scss';
 
 interface IOptionItem {
   label: string;
@@ -22,7 +22,7 @@ const SearchHeader: React.FC = () => {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section className="search-header">
       <input
         type="text"
         placeholder="Введите название продукта"
@@ -30,7 +30,7 @@ const SearchHeader: React.FC = () => {
         onChange={(e) => setSearchText(e.target.value)}
       />
       <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={CATEGORY_LIST} />
-      <div className={styles.search} role="button" onClick={onSubmit}>
+      <div className="search-header__search" role="button" onClick={onSubmit}>
         <FontAwesomeIcon icon={faSearch} size="lg" />
       </div>
     </section>

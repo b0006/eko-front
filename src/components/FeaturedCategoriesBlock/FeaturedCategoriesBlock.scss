@@ -1,6 +1,6 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.featured-categories-block {
   @include container;
 
   display: flex;
@@ -10,7 +10,7 @@
   padding-top: 50px;
   padding-bottom: 50px;
 
-  .blocks {
+  &__blocks {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

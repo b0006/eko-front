@@ -3,11 +3,11 @@ import React from 'react';
 import Card from '../Card';
 import { CATEGORY_LIST } from '../../mock/constants';
 
-import styles from './DashboardCatalog.module.scss';
+import './DashboardCatalog.scss';
 
 const DashboardCatalog: React.FC = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className="dashboard-catalog">
       {CATEGORY_LIST.map((item) => (
         <Card
           key={item.value}

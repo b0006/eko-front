@@ -1,10 +1,10 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.image-slider {
   position: relative;
   margin: auto;
 
-  .initSlide {
+  &__init-slide {
     display: none;
     img {
       width: 100%;
@@ -13,7 +13,7 @@
     }
   }
 
-  .numberText {
+  &__number-text {
     color: $light-color;
     font-weight: bold;
     font-size: 12px;
@@ -23,7 +23,7 @@
     background-color: $layout-color;
   }
 
-  .text {
+  &__text {
     color: $light-color;
     font-size: 15px;
     padding: 8px 12px;
@@ -33,7 +33,7 @@
     text-align: center;
   }
 
-  .prev, .next {
+  &__prev, &__next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -52,18 +52,38 @@
     }
   }
 
-  .next {
+  &__next {
     right: 0;
     border-radius: 3px 0 0 3px;
   }
 
-  .fade {
+  &__fade {
     animation-name: fade;
     animation-duration: $animation-time;
   }
 
-  .show {
+  &__show {
     display: block;
+  }
+
+  &__dot-wrapper {
+    text-align: center;
+    margin-top: 15px;
+  
+    &__dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: $border-color;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color $animation-time ease;
+
+      &-active, &:hover {
+        background-color: $gray-color;
+      }
+    }
   }
 
   @-webkit-keyframes fade {
@@ -79,25 +99,5 @@
   /* On smaller screens, decrease text size */
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
-  }
-}
-
-.dotWrapper {
-  text-align: center;
-  margin-top: 15px;
-
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: $border-color;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color $animation-time ease;
-  }
-
-  .active, .dot:hover {
-    background-color: $gray-color;
   }
 }

@@ -1,6 +1,6 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.radio-item {
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {
       position: absolute;

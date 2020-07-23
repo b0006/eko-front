@@ -5,7 +5,7 @@ import SearchHeader from '../../components/SearchHeader';
 import BottomHeader from '../../components/BottomHeader';
 import { headerStore } from '../../mobx';
 
-import styles from './DesktopHeader.module.scss';
+import './DesktopHeader.scss';
 
 const DesktopHeader: React.FC = () => {
   const { toggleFixed } = headerStore;
@@ -24,10 +24,10 @@ const DesktopHeader: React.FC = () => {
 
   return (
     <>
-      <header className={styles.wrapper}>
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <Logo className={styles.logo} />
+      <header className="desktop-header">
+        <div className="desktop-header__container">
+          <div className="desktop-header__content">
+            <Logo className="desktop-header__content__logo" />
             <SearchHeader />
           </div>
         </div>

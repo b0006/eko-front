@@ -4,18 +4,18 @@ import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 import FixedCartModal from '../FixedCartModal';
 
-import styles from './FixedCart.module.scss';
+import './FixedCart.scss';
 
 const FixedCart: React.FC = () => {
   const [isShowed, setIsShowed] = useState(false);
 
   return (
     <>
-      <div className={styles.wrapper}>
-        <div role="button" onClick={() => setIsShowed(true)} className={styles.content}>
+      <div className="fixed-cart">
+        <div role="button" onClick={() => setIsShowed(true)} className="fixed-cart__content">
           <FontAwesomeIcon icon={faShoppingBag} size="3x" />
-          <span className={styles.count}>2</span>
-          <span className={styles.price}>2999 руб</span>
+          <span className="fixed-cart__content__count">2</span>
+          <span className="fixed-cart__content__price">2999 руб</span>
         </div>
       </div>
       <FixedCartModal isShowed={isShowed} hide={() => setIsShowed(false)} />

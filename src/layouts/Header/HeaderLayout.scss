@@ -1,0 +1,13 @@
+@import '../../assets/scss/utils';
+
+.header-layout {
+  &__container {
+    @include container;
+  }
+  
+  &__content {
+    @media (max-width: $desktop-xs-width) {
+      margin-top: 51px;
+    }
+  }
+}

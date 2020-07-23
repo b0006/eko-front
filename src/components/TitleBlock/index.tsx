@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './TitleBlock.module.scss';
+import './TitleBlock.scss';
 
 interface IProps {
   top: string;
@@ -10,10 +10,10 @@ interface IProps {
 
 const TitleBlock: React.FC<IProps> = ({ top, middle, bottom }) => {
   return (
-    <div className={styles.wrapper}>
-      <span className={styles.top}>{top}</span>
-      <span className={styles.middle}>{middle}</span>
-      {bottom && <span className={styles.bottom}>{bottom}</span>}
+    <div className="title-block">
+      <span className="title-block__top">{top}</span>
+      <span className="title-block__middle">{middle}</span>
+      {bottom && <span className="title-block__bottom">{bottom}</span>}
     </div>
   );
 };

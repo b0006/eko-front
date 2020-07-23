@@ -5,27 +5,27 @@ import ModalLayout from '../../layouts/Modal';
 import ImageSlider from '../ImageSlider';
 import RadioItem from '../RadioItem';
 
-import styles from './CardProductModal.module.scss';
+import './CardProductModal.scss';
 
 const CardProductModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
   return (
     <ModalLayout isShowed={isShowed} hide={hide}>
-      <div className={styles.wrapper}>
-        <div className={styles.imageContent}>
+      <div className="card-product-modal">
+        <div className="card-product-modal__image-content">
           <ImageSlider list={['./categories/gifts.webp', './categories/paste.webp', './categories/sets.webp']} />
         </div>
-        <div className={styles.descriptionContent}>
-          <span className={styles.title}>Ассорти пастилы M</span>
-          <div className={styles.price}>
-            <span className={styles.actual}>1300 руб</span>
-            <span className={styles.old}>1500 руб</span>
+        <div className="card-product-modal__description-content">
+          <span className="card-product-modal__description-content__title">Ассорти пастилы M</span>
+          <div className="card-product-modal__description-content__price">
+            <span className="card-product-modal__description-content__price__actual">1300 руб</span>
+            <span className="card-product-modal__description-content__price__old">1500 руб</span>
           </div>
-          <div className={styles.properties}>
+          <div className="card-product-modal__description-content__properties">
             <RadioItem name="test" label="35 гр - 190 руб" value="test1" checked />
             <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
             <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
           </div>
-          <input type="button" className={styles.button} value="Добавить в корзину" />
+          <input type="button" className="card-product-modal__description-content__button" value="Добавить в корзину" />
           <div
             dangerouslySetInnerHTML={{
               __html: `Хрустящие кисло-сладкие кружочки апельсина - рай для любителей цитрусовых!

@@ -5,7 +5,7 @@ import DesktopHeader from '../../components/DesktopHeader';
 import MobileHeader from '../../components/MobileHeader';
 import FixedCart from '../../components/FixedCart';
 
-import styles from './HeaderLayout.module.scss';
+import './HeaderLayout.scss';
 
 interface IProps {
   isWrappedContainer?: boolean;
@@ -17,7 +17,9 @@ const HeaderLayout: React.FC<IProps> = ({ children, isWrappedContainer }) => {
       <DesktopHeader />
       <MobileHeader />
       <FixedCart />
-      <div className={classnames({ [styles.content]: true, [styles.container]: isWrappedContainer })}>{children}</div>
+      <div className={classnames({ 'header-layout__content': true, 'header-layout__container': isWrappedContainer })}>
+        {children}
+      </div>
     </>
   );
 };

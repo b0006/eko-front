@@ -2,14 +2,14 @@ import React from 'react';
 
 import { CART_LIST } from '../../mock/constants';
 
-import styles from './CartList.module.scss';
+import './CartList.scss';
 
 const CartList: React.FC = () => {
   return (
-    <div className={styles.list}>
+    <div className="cart-list">
       {CART_LIST.map((item) => (
-        <div key={item.id} className={styles.item}>
-          <img className={styles.image} src={item.img} alt={item.title} />
+        <div key={item.id} className="cart-list__item">
+          <img className="cart-list__item__image" src={item.img} alt={item.title} />
         </div>
       ))}
     </div>

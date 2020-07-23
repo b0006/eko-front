@@ -7,7 +7,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toggleHtmlScroll } from '../../utils/html';
 
 import { IModalProps } from './interfaces';
-import styles from './ModalLayout.module.scss';
+import './ModalLayout.scss';
 
 const modalRoot = document.getElementById('modal');
 
@@ -50,9 +50,14 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
   }
 
   return createPortal(
-    <div className={classnames({ [styles.overlay]: true, [classNameLayout]: true, [styles.show]: switchAnimation })}>
-      <div ref={modalRef} className={classnames({ [styles.modal]: true, [classNameModal]: true })}>
-        <FontAwesomeIcon className={styles.close} icon={faTimes} size="2x" onClick={onHide} />
+    <div
+      className={classnames({
+        'modal-layout__overlay': true,
+        [classNameLayout]: true,
+        'modal-layout__show': switchAnimation,
+      })}>
+      <div ref={modalRef} className={classnames({ 'modal-layout__content': true, [classNameModal]: true })}>
+        <FontAwesomeIcon className="modal-layout__content__close" icon={faTimes} size="2x" onClick={onHide} />
         {children}
       </div>
     </div>,

@@ -3,17 +3,17 @@ import React from 'react';
 import CardProduct from '../CardProduct';
 import TitleBlock from '../TitleBlock';
 
-import styles from './FavoriteProductBlock.module.scss';
+import './FavoriteProductBlock.scss';
 
 const FavoriteProductBlock: React.FC = () => {
   return (
-    <section className={styles.wrapper}>
+    <section className="favorite-product-block">
       <TitleBlock
         top="Наши клиенты любят"
         middle="Самые любимые товары"
         bottom="Перейдите в каталог, чтобы увидеть больше крутых продуктов"
       />
-      <div className={styles.list}>
+      <div className="favorite-product-block__list">
         <CardProduct />
         <CardProduct />
         <CardProduct />

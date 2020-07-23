@@ -7,7 +7,7 @@ import SearchHeaderMobile from '../SearchHeaderMobile';
 import SwitchTypeHeaderMobile from '../SwitchTypeHeaderMobile';
 import { toggleHtmlScroll } from '../../utils/html';
 
-import styles from './SidebarMenuHeader.module.scss';
+import './SidebarMenuHeader.scss';
 
 const SidebarMenuHeader: React.FC = () => {
   const [isShowed, setIsShowed] = useState(false);
@@ -33,20 +33,26 @@ const SidebarMenuHeader: React.FC = () => {
   }, [isShowed]);
 
   return (
-    <div className={styles.wrapper}>
-      <div ref={btnRef} role="button" onClick={() => setIsShowed(!isShowed)} className={styles.menuButton}>
+    <div className="sidebar-menu-header">
+      <div
+        ref={btnRef}
+        role="button"
+        onClick={() => setIsShowed(!isShowed)}
+        className="sidebar-menu-header__menu-button">
         <FontAwesomeIcon icon={faBars} size="lg" />
-        <span className={styles.label}>Меню</span>
+        <span className="sidebar-menu-header__menu-button__label">Меню</span>
       </div>
       <div
         className={classnames({
-          [styles.layout]: true,
-          [styles.showLayout]: isShowed,
-          [styles.hideLayout]: !isShowed,
+          'sidebar-menu-header__layout': true,
+          'sidebar-menu-header__show-layout': isShowed,
+          'sidebar-menu-header__hide-layout': !isShowed,
         })}
       />
-      <div ref={contentRef} className={classnames({ [styles.sidebar]: true, [styles.show]: isShowed })}>
-        <div role="button" className={styles.close} onClick={() => setIsShowed(false)}>
+      <div
+        ref={contentRef}
+        className={classnames({ 'sidebar-menu-header__sidebar': true, 'sidebar-menu-header__show': isShowed })}>
+        <div role="button" className="sidebar-menu-header__close" onClick={() => setIsShowed(false)}>
           <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
           <span>Закрыть</span>
         </div>

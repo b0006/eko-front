@@ -1,10 +1,10 @@
 @import '../../assets/scss/utils';
 
-.list {
+.cart-list {
   display: flex;
   flex-direction: column;
 
-  .item {
+  &__item {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,7 +23,7 @@
       border-bottom: 1px solid $border-color;
     }
 
-    .image {
+    &__image {
       height: 70px;
       width: 70px;
       object-fit: cover;
@@ -32,7 +32,7 @@
     }
 
     &:hover {
-      .image {
+      .cart-list__item__image {
         transform: scale(1.1);
       }
     }

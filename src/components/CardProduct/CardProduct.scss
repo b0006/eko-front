@@ -1,11 +1,11 @@
 @import '../../assets/scss/utils';
 
-.wrapper {
+.card-product {
   position: relative;
   margin: 10px;
   cursor: pointer;
 
-  .previewContent {
+  &__preview-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,20 +16,6 @@
     transition: transform $animation-time linear;
     transform: scale(1);
 
-    .hoverContent {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-
-      .button {
-        display: none;
-        margin-bottom: 10px;
-        @include button;
-      }
-    }
-
     &:hover {
       position: relative;
       box-shadow: 0 0 10px rgba(0,0,0,.15);
@@ -38,48 +24,24 @@
       z-index: 2;
       background-color: $light-color;
 
-      .description, .button {
-        display: block;
-      }
-
-      .hoverContent {
+      .card-product__hover-content {
         position: absolute;
         top: 267px;
         box-shadow: 0 10px 10px rgba(0,0,0,.15);
         background-color: $light-color;
+
+        &__description, &__button {
+          display: block;
+        }
       }
     }
 
-    .title {
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .category {
-      margin: 10px 0;
-      color: $gray-color;
-      font-size: 14px;
-    }
-
-    .price {
-      font-weight: bold;
-      color: $main-color;
-    }
-
-    .description {
-      display: none;
-      text-align: center;
-      font-size: 14px;
-      margin: 10px 0;
-      color: $gray-color;
-    }
-
-    .imageWrapper {
+    &__img-wrapper {
       position: relative;
       overflow: hidden;
       margin-bottom: 10px;
   
-      .img {
+      &__img {
         height: 90%;
         width: 90%;
         margin: 10px auto;
@@ -88,6 +50,44 @@
         background-size: cover;
         transition: all $animation-time;
       }
+    }
+  }
+
+  &__hover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &__button {
+      display: none;
+      margin-bottom: 10px;
+      @include button;
+    }
+
+    &__title {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    &__category {
+      margin: 10px 0;
+      color: $gray-color;
+      font-size: 14px;
+    }
+
+    &__price {
+      font-weight: bold;
+      color: $main-color;
+    }
+
+    &__description {
+      display: none;
+      text-align: center;
+      font-size: 14px;
+      margin: 10px 0;
+      color: $gray-color;
     }
   }
 }

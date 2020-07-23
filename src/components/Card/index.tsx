@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Card.module.scss';
+import './Card.scss';
 
 interface IProps {
   image: string;
@@ -23,11 +23,11 @@ const Card: React.FC<IProps> = ({
   const Container = link ? Link : 'div';
 
   return (
-    <Container to={link} className={styles.item} style={{ height: imageHeight, width: imageWidth }}>
-      <div className={styles.img} style={{ backgroundImage: `url('${image}')` }} />
-      <div className={styles.bottom}>
-        <span className={styles.label}>{title}</span>
-        {description && <span className={styles.count}>{description}</span>}
+    <Container to={link} className="card-item" style={{ height: imageHeight, width: imageWidth }}>
+      <div className="card-item__img" style={{ backgroundImage: `url('${image}')` }} />
+      <div className="card-item__bottom">
+        <span className="card-item__bottom__label">{title}</span>
+        {description && <span className="card-item__bottom__count">{description}</span>}
       </div>
     </Container>
   );

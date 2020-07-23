@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import CardProductModal from '../CardProductModal';
 
-import styles from './CardProduct.module.scss';
+import './CardProduct.scss';
 
 interface IProps {
   imageHeight?: string;
@@ -13,17 +13,24 @@ const CardProduct: React.FC<IProps> = ({ imageHeight = '16rem', imageWidth = '16
   const [isShowed, setIsShowed] = useState(false);
   return (
     <>
-      <div className={styles.wrapper} role="button" onClick={() => setIsShowed(true)}>
-        <div className={styles.previewContent}>
-          <div className={styles.imageWrapper} style={{ height: imageHeight, width: imageWidth }}>
-            <div className={styles.img} style={{ backgroundImage: 'url("./categories/gifts.webp")' }} />
+      <div className="card-product" role="button" onClick={() => setIsShowed(true)}>
+        <div className="card-product__preview-content">
+          <div
+            className="card-product__preview-content__img-wrapper"
+            style={{ height: imageHeight, width: imageWidth }}>
+            <div
+              className="card-product__preview-content__img-wrapper__img"
+              style={{ backgroundImage: 'url("./categories/gifts.webp")' }}
+            />
           </div>
-          <div className={styles.hoverContent}>
-            <span className={styles.title}>Ананас</span>
-            <span className={styles.category}>Фрипсы</span>
-            <span className={styles.price}>130 руб</span>
-            <div className={styles.description}>Набор для детей без сахара и разными вариантами наполнения</div>
-            <input className={styles.button} type="button" value="Купить" />
+          <div className="card-product__hover-content">
+            <span className="card-product__hover-content__title">Ананас</span>
+            <span className="card-product__hover-content__category">Фрипсы</span>
+            <span className="card-product__hover-content__price">130 руб</span>
+            <div className="card-product__hover-content__description">
+              Набор для детей без сахара и разными вариантами наполнения
+            </div>
+            <input className="card-product__hover-content__button" type="button" value="Купить" />
           </div>
         </div>
       </div>

@@ -6,14 +6,15 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import CategoryListHeader from '../CategoryListHeader';
 import menuList from '../../route/menuList';
 
-import styles from './BottomHeader.module.scss';
+import './BottomHeader.scss';
 
-const MenuItem: React.FC<{ title: string; path: string; activeClassName?: string }> = ({
+const MenuItem: React.FC<{ title: string; path: string; className?: string; activeClassName?: string }> = ({
   title,
   path,
+  className,
   activeClassName,
 }) => (
-  <li>
+  <li className={className}>
     <NavLink activeClassName={activeClassName} to={path}>
       {title}
     </NavLink>
@@ -24,22 +25,28 @@ const BottomHeader: React.FC = () => {
   const { pathname } = useLocation();
   return (
     <>
-      <div className={styles.wrapper}>
-        <div className={styles.content}>
+      <div className="bottom-header">
+        <div className="bottom-header__content">
           <CategoryListHeader />
-          <div className={styles.menuListWrapper}>
-            <ul className={styles.menuList}>
+          <div className="bottom-header__content__menu-list">
+            <ul className="bottom-header__content__menu-list__wrapper">
               {menuList.map((item) => {
-                let activeClassName = styles.active;
+                let activeClassName = 'bottom-header__content__menu-list__item_active';
                 if (item.path === '/') {
-                  activeClassName = pathname === '/' ? styles.active : '';
+                  activeClassName = pathname === '/' ? 'bottom-header__content__menu-list__item_active' : '';
                 }
                 return (
-                  <MenuItem key={item.path} activeClassName={activeClassName} title={item.label} path={item.path} />
+                  <MenuItem
+                    className="bottom-header__content__menu-list__item"
+                    key={item.path}
+                    activeClassName={activeClassName}
+                    title={item.label}
+                    path={item.path}
+                  />
                 );
               })}
             </ul>
-            <a className={styles.phone} href="tel:88005353535">
+            <a className="bottom-header__content__phone" href="tel:88005353535">
               <FontAwesomeIcon icon={faPhone} />
               8-800-535-35-35
             </a>

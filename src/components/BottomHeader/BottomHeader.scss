@@ -12,14 +12,14 @@
   background-color: $light-color;
 }
 
-.wrapper {
+.bottom-header {
   border-bottom: 1px solid $border-color;
 
   @media(max-width: $desktop-xs-width) {
     display: none;
   }
 
-  .content {
+  &__content {
     @include container;
   
     display: flex;
@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: flex-start;
 
-    .phone {
+    &__phone {
       color: inherit;
       text-decoration: none;
       svg {
@@ -35,13 +35,30 @@
       }
     }
 
-    .menuListWrapper {
+    &__menu-list {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       flex-grow: 1;
 
-      .menuList {
+      &__item {
+        padding: 0 10px;
+    
+        a {
+          font-size: 14px;
+          color: $dark-color;
+          text-decoration: none;
+          &:hover {
+            color: $main-color;
+          }
+        }
+
+        &_active {
+          color: $main-color !important;
+        }
+      }
+
+      &__wrapper {
         display: flex;
         flex-direction: row;
         list-style: none;
@@ -50,23 +67,6 @@
         text-transform: uppercase;
         font-weight: bold;
         margin: 0 15px;
-    
-        .active {
-          color: $main-color;
-        }
-    
-        > * {
-          padding: 0 10px;
-    
-          a {
-            font-size: 14px;
-            color: $dark-color;
-            text-decoration: none;
-            &:hover {
-              color: $main-color;
-            }
-          }
-        }
       }
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './BadgeHeader.module.scss';
+import './BadgeHeader.scss';
 
 interface IProps {
   count?: number;
@@ -8,9 +8,9 @@ interface IProps {
 
 const BadgeHeader: React.FC<IProps> = ({ children, count = 0 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className="badge">
       {children}
-      <span className={styles.label}>{count}</span>
+      <span className="badge__label">{count}</span>
     </div>
   );
 };

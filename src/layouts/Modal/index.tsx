@@ -41,7 +41,7 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
   }
 
   return createPortal(
-    <CSSTransition in={isShowed} timeout={200} unmountOnExit classNames="modal">
+    <CSSTransition nodeRef={modalRef} in={isShowed} timeout={200} unmountOnExit classNames="modal">
       <div className={classnames({ 'modal-layout__overlay': true, [classNameLayout]: true })}>
         <div ref={modalRef} className={classnames('modal-layout__content', classNameModal)}>
           <FontAwesomeIcon className="modal-layout__content__close" icon={faTimes} size="2x" onClick={hide} />

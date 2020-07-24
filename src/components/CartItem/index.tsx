@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import InputCount from '../InputCount';
+import { cartStore } from '../../mobx';
 
 import './CartItem.scss';
 
 interface IProps {
+  id: string;
   img: string;
   title: string;
   price: number;
@@ -14,14 +16,17 @@ interface IProps {
   onRemove: () => void;
 }
 
-const CartItem: React.FC<IProps> = ({ img, title, price, count, onRemove }) => {
-  const [countValue, setCountValue] = useState(count || 1);
+const CartItem: React.FC<IProps> = ({ id, img, title, price, count, onRemove }) => {
+  const { updateCountItem } = cartStore;
 
   useEffect(() => {
-    if (countValue === 0) {
+    if (count === 0) {
       onRemove();
     }
-  }, [countValue, onRemove]);
+  }, [count, onRemove]);
+
+  const onPlus = () => updateCountItem(id, 1);
+  const onMinus = () => updateCountItem(id, -1);
 
   return (
     <div className="cart-item">
@@ -29,11 +34,7 @@ const CartItem: React.FC<IProps> = ({ img, title, price, count, onRemove }) => {
       <div className="cart-item__description">
         <div className="cart-item__description__title">{title}</div>
         <div className="cart-item__description__actions">
-          <InputCount
-            value={countValue}
-            onPlus={() => setCountValue((prevState) => (prevState += 1))}
-            onMinus={() => setCountValue((prevState) => (prevState -= 1))}
-          />
+          <InputCount value={count} onPlus={onPlus} onMinus={onMinus} />
           <div>{price} руб</div>
           <FontAwesomeIcon onClick={onRemove} className="cart-item__description__actions__remove" icon={faTrash} />
         </div>

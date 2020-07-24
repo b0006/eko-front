@@ -11,7 +11,7 @@ import useModal from '../../hook/useModal';
 import './FixedCart.scss';
 
 const FixedCart: React.FC = observer(() => {
-  const { cartList } = cartStore;
+  const { cartList, totalPrice } = cartStore;
   const { isShowed, showModal, hideModal } = useModal();
 
   const isCartEmpty = useMemo(() => cartList.length <= 0, [cartList]);
@@ -27,8 +27,8 @@ const FixedCart: React.FC = observer(() => {
       <div className={classnames({ 'fixed-cart': true, 'fixed-cart_hide': isCartEmpty })}>
         <div role="button" onClick={showModal} className="fixed-cart__content">
           <FontAwesomeIcon icon={faShoppingBag} size="3x" />
-          <span className="fixed-cart__content__count">2</span>
-          <span className="fixed-cart__content__price">2999 руб</span>
+          <span className="fixed-cart__content__count">{cartList.length}</span>
+          <span className="fixed-cart__content__price">{totalPrice} руб</span>
         </div>
       </div>
       <FixedCartModal isShowed={isShowed} hide={hideModal} />

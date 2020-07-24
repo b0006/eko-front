@@ -12,6 +12,7 @@ const CartList: React.FC = () => {
     <div className="cart-list">
       {cartList.map((item) => (
         <CartItem
+          id={item.id}
           key={item.id}
           title={item.title}
           count={item.count}

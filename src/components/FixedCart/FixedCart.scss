@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
+  
   &_hide {
     display: none;
   }
@@ -56,9 +56,9 @@
     &:hover {
       transform: scale(1.05);
     }
-  }
 
-  @media (max-width: $desktop-xs-width) {
-    display: none;
+    @media (max-width: $tablet-sm-width) {
+      transform: scale(0.8);
+    }
   }
 }

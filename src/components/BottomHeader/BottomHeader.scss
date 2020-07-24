@@ -1,22 +1,18 @@
 @import '../../assets/scss/utils';
 
-.offset {
-  height: 39px;
-}
-
-.fixed {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  background-color: $light-color;
-}
-
 .bottom-header {
   border-bottom: 1px solid $border-color;
 
-  @media(max-width: $desktop-xs-width) {
-    display: none;
+  &__offset {
+    height: 39px;
+  }
+
+  &__fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    background-color: $light-color;
   }
 
   &__content {
@@ -69,5 +65,9 @@
         margin: 0 15px;
       }
     }
+  }
+
+  @media(max-width: $desktop-xs-width) {
+    display: none;
   }
 }

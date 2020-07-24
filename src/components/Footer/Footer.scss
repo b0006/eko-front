@@ -1,13 +1,16 @@
 @import '../../assets/scss/utils';
 
 .footer {
+  display: flex;
+  align-items: center;
   background-color: $main-color;
   color: $light-color;
   padding: 20px 0;
   margin-top: 80px;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  right: 0;
+  left: 0;
   min-height: 100px;
 
   &__content {
@@ -17,6 +20,10 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
+
+    @media(max-width: $desktop-xs-width) {
+      width: 100%;
+    }
   }
 
   &__icon {
@@ -35,26 +42,19 @@
     }
   }
 
-  &__blocks {
+  &__phone {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-end;
+    text-decoration: none;
+    color: inherit;
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    &:hover {
+      color: $gray-color;
     }
 
-    > * {
-      list-style-type: none;
-      margin-right: 100px;
-
-      > * {
-        margin: 5px 0;
-
-        &:hover {
-          color: $dark-color;
-        }
-      }
+    &__icon {
+      margin-right: 10px;
     }
   }
 }

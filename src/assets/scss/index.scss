@@ -23,12 +23,19 @@
   min-height: 100vh;
 }
 
+.scroll-hidden {
+  overflow-y: hidden;
+
+  .bottom-header {
+    overflow-y: scroll;
+  }
+}
+
 body {
   margin: 0;
   background-color: $light-color;
   color: $dark-color;
   overflow-y: scroll;
-  // min-height: 100%;
   position: relative;
 }
 

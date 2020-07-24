@@ -8,11 +8,11 @@ import './MobileHeader.scss';
 
 const MobileHeader: React.FC = () => {
   return (
-    <header className="mobile-header">
+    <div className="mobile-header">
       <SidebarMenuHeader />
       <Logo />
       <CartHeader icon="500px" size="lg" />
-    </header>
+    </div>
   );
 };
 

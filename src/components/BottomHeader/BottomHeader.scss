@@ -1,7 +1,7 @@
 @import '../../assets/scss/utils';
 
 .bottom-header {
-  border-bottom: 1px solid $border-color;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.12);
 
   &__offset {
     height: 39px;

@@ -27,9 +27,9 @@ const InputCount: React.FC<IProps> = ({ value, onMinus, onPlus, min = 0, max = 9
 
   return (
     <div className="input-count">
-      <FontAwesomeIcon className="input-count__icon" onClick={onMinusClick} icon={faMinusCircle} />
+      <FontAwesomeIcon className="input-count__icon" size="lg" onClick={onMinusClick} icon={faMinusCircle} />
       <div className="input-count__value">{value}</div>
-      <FontAwesomeIcon className="input-count__icon" onClick={onPlusClick} icon={faPlusCircle} />
+      <FontAwesomeIcon className="input-count__icon" size="lg" onClick={onPlusClick} icon={faPlusCircle} />
     </div>
   );
 };

@@ -3,6 +3,7 @@
 .input-count {
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   path {
     fill: $gray-color;
@@ -19,7 +20,7 @@
 
     &:hover {
       path {
-        fill: $main-color-dark;
+        fill: $main-color;
       }
     }
   }

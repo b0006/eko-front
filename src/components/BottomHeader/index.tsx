@@ -9,19 +9,6 @@ import menuList from '../../route/menuList';
 
 import './BottomHeader.scss';
 
-const MenuItem: React.FC<{ title: string; path: string; className?: string; activeClassName?: string }> = ({
-  title,
-  path,
-  className,
-  activeClassName,
-}) => (
-  <li className={className}>
-    <NavLink activeClassName={activeClassName} to={path}>
-      {title}
-    </NavLink>
-  </li>
-);
-
 const BottomHeader: React.FC = () => {
   const { pathname } = useLocation();
   const [isFixedTop, setIsFixedTop] = useState(false);
@@ -40,31 +27,29 @@ const BottomHeader: React.FC = () => {
 
   return (
     <>
-      {isFixedTop && <div className="bottom-header__offset" />}
-      <div className={classnames({ 'bottom-header': true, 'bottom-header__fixed': isFixedTop })}>
+      {isFixedTop && <div className="header-offset" />}
+      <div className={classnames('bottom-header', { 'bottom-header__fixed': isFixedTop })}>
         <div className="bottom-header__content">
           <CategoryListHeader />
-          <div className="bottom-header__content__menu-list">
-            <ul className="bottom-header__content__menu-list__wrapper">
+          <div className="bottom-header__wrapper">
+            <ul className="bottom-header__list">
               {menuList.map((item) => {
-                let activeClassName = 'bottom-header__content__menu-list__item_active';
+                let activeClassName = 'bottom-header__list-item_active';
                 if (item.path === '/') {
-                  activeClassName = pathname === '/' ? 'bottom-header__content__menu-list__item_active' : '';
+                  activeClassName = pathname === '/' ? 'bottom-header__list-item_active' : '';
                 }
                 return (
-                  <MenuItem
-                    className="bottom-header__content__menu-list__item"
-                    key={item.path}
-                    activeClassName={activeClassName}
-                    title={item.label}
-                    path={item.path}
-                  />
+                  <li key={item.path} className="bottom-header__list-item">
+                    <NavLink className="bottom-header__list-link" activeClassName={activeClassName} to={item.path}>
+                      {item.label}
+                    </NavLink>
+                  </li>
                 );
               })}
             </ul>
-            <a className="bottom-header__content__phone" href="tel:88005353535">
-              <FontAwesomeIcon icon={faPhone} />
-              8-800-535-35-35
+            <a className="bottom-header__phone" href="tel:88005353535">
+              <FontAwesomeIcon className="bottom-header__icon" icon={faPhone} />
+              <span>8-800-555-35-35</span>
             </a>
           </div>
         </div>

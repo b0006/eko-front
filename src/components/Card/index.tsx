@@ -24,10 +24,10 @@ const Card: React.FC<IProps> = ({
 
   return (
     <Container to={link} className="card-item" style={{ height: imageHeight, width: imageWidth }}>
-      <div className="card-item__img" style={{ backgroundImage: `url('${image}')` }} />
+      <img className="card-item__img" src={image} alt={title} />
       <div className="card-item__bottom">
-        <span className="card-item__bottom__label">{title}</span>
-        {description && <span className="card-item__bottom__count">{description}</span>}
+        <span className="card-item__label">{title}</span>
+        {description && <span className="card-item__count">{description}</span>}
       </div>
     </Container>
   );

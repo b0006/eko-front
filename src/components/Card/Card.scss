@@ -1,6 +1,8 @@
 @import '../../assets/scss/utils';
 
 .card-item {
+  $self: &;
+
   position: relative;
   overflow: hidden;
   box-shadow: 1px 1px 2px rgba(0,0,0,.12);
@@ -9,11 +11,9 @@
   &__img {
     height: 100%;
     width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
 
-    transition: all $animation-time;
+    transition: transform $animation-time;
   }
 
   &__bottom {
@@ -30,41 +30,41 @@
     transition: height $animation-time ease;
     background-color: $layout-color;
     color: $light-color;
-  
-    &__label {
-      transition: transform $animation-time ease, opacity $animation-time ease;
-      transform: translateY(0) translateZ(0);
-      text-transform: uppercase;
-      font-size: 18px;
-      font-weight: bold;
-    }
-  
-    &__count {
-      position: absolute;
-      left: 0;
-      right: 0;
-      width: 100%;
-      text-align: center;
-      @include hide;
-    }
+  }
+
+  &__label {
+    transition: transform $animation-time ease, opacity $animation-time ease;
+    transform: translateY(0) translateZ(0);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__count {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    @include hide;
   }
 
   &:hover {
-    .card-item__bottom {
+    #{ $self }__bottom {
       height: 40%;
-
-      .card-item__bottom__label {
-        transition: transform $animation-time ease, opacity $animation-time ease;
-        transform: translateY(-10%) translateZ(0);
-      }
-
-      .card-item__bottom__count {
-        position: relative;
-        @include show;
-      }
     }
 
-    .card-item__img {
+    #{ $self }__label {
+      transition: transform $animation-time ease, opacity $animation-time ease;
+      transform: translateY(-10%) translateZ(0);
+    }
+
+    #{ $self }__count {
+      position: relative;
+      @include show;
+    }
+
+    #{ $self }__img {
       transform: scale(1.05);
     }
   }

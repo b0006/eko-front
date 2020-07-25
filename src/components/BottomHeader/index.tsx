@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
 import classnames from 'classnames';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,29 +7,30 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 import CategoryListHeader from '../CategoryListHeader';
 import menuList from '../../route/menuList';
+import { headerStore } from '../../mobx';
 
 import './BottomHeader.scss';
 
-const BottomHeader: React.FC = () => {
+const BottomHeader: React.FC = observer(() => {
   const { pathname } = useLocation();
-  const [isFixedTop, setIsFixedTop] = useState(false);
+  const { isFixed, toggleFixed } = headerStore;
 
   useEffect(() => {
     const onFixed = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      setIsFixedTop(winScroll >= 106);
+      toggleFixed(winScroll >= 106);
     };
 
     onFixed();
 
     document.addEventListener('scroll', onFixed);
     return () => document.removeEventListener('scroll', onFixed);
-  }, []);
+  }, [toggleFixed]);
 
   return (
     <>
-      {isFixedTop && <div className="header-offset" />}
-      <div className={classnames('bottom-header', { 'bottom-header__fixed': isFixedTop })}>
+      {isFixed && <div className="header-offset" />}
+      <div className={classnames('bottom-header', { 'bottom-header__fixed': isFixed })}>
         <div className="bottom-header__content">
           <CategoryListHeader />
           <div className="bottom-header__wrapper">
@@ -56,6 +58,6 @@ const BottomHeader: React.FC = () => {
       </div>
     </>
   );
-};
+});
 
 export default BottomHeader;

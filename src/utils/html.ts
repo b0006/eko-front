@@ -1,4 +1,5 @@
-export const toggleHtmlScroll = (isShowed: boolean) => {
+export const toggleHtmlScroll = (isShowed: boolean, isFixed?: boolean) => {
   const htmlElem = document.getElementsByTagName('html')[0];
-  htmlElem.className = isShowed ? 'scroll-hidden' : '';
+  const classHtml = isFixed ? 'scroll-hidden' : 'scroll-hidden-fixed';
+  htmlElem.className = isShowed ? classHtml : '';
 };

@@ -23,6 +23,14 @@
   min-height: 100vh;
 }
 
+.scroll-hidden-fixed {
+  overflow-y: hidden;
+
+  .mobile-header {
+    overflow-y: scroll;
+  }
+}
+
 .scroll-hidden {
   overflow-y: hidden;
 

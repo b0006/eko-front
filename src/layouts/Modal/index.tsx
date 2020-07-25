@@ -1,19 +1,22 @@
 import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { observer } from 'mobx-react-lite';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { toggleHtmlScroll } from '../../utils/html';
+import { headerStore } from '../../mobx';
 
 import { IModalProps } from './interfaces';
 import './ModalLayout.scss';
 
 const modalRoot = document.getElementById('modal');
 
-const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNameLayout, classNameModal }) => {
+const ModalLayout: React.FC<IModalProps> = observer(({ children, isShowed, hide, classNameLayout, classNameModal }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const { isFixed } = headerStore;
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -30,11 +33,11 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
 
   useEffect(() => {
     if (isShowed) {
-      toggleHtmlScroll(true);
+      toggleHtmlScroll(true, isFixed);
     } else {
-      setTimeout(() => toggleHtmlScroll(false), 200);
+      setTimeout(() => toggleHtmlScroll(false, isFixed), 200);
     }
-  }, [isShowed]);
+  }, [isShowed, isFixed]);
 
   if (!modalRoot) {
     return null;
@@ -51,6 +54,6 @@ const ModalLayout: React.FC<IModalProps> = ({ children, isShowed, hide, classNam
     </CSSTransition>,
     modalRoot
   );
-};
+});
 
 export default ModalLayout;

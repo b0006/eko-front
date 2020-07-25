@@ -3,7 +3,8 @@ import { observer } from 'mobx-react-lite';
 
 import { IModalProps } from '../../layouts/Modal/interfaces';
 import ModalLayout from '../../layouts/Modal';
-import CartList from '../../components/CartList';
+import CartList from '../CartList';
+import CartForm from '../CartForm';
 import { cartStore } from '../../mobx';
 
 import './FixedCartModal.scss';
@@ -19,6 +20,7 @@ const FixedCartModal: React.FC<IModalProps> = observer(({ isShowed, hide }) => {
           {totalPrice < 650 && <span>Минимальный заказ: 650 руб</span>}
           <span>Сумма: {totalPrice} руб</span>
         </div>
+        <CartForm />
       </div>
     </ModalLayout>
   );

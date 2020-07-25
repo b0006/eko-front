@@ -34,24 +34,18 @@ const SidebarMenuHeader: React.FC = () => {
 
   return (
     <div className="sidebar-menu-header">
-      <div
-        ref={btnRef}
-        role="button"
-        onClick={() => setIsShowed(!isShowed)}
-        className="sidebar-menu-header__menu-button">
+      <div ref={btnRef} role="button" onClick={() => setIsShowed(!isShowed)} className="sidebar-menu-header__button">
         <FontAwesomeIcon icon={faBars} size="lg" />
-        <span className="sidebar-menu-header__menu-button__label">Меню</span>
+        <span className="sidebar-menu-header__menu-label">Меню</span>
       </div>
       <div
-        className={classnames({
-          'sidebar-menu-header__layout': true,
-          'sidebar-menu-header__show-layout': isShowed,
-          'sidebar-menu-header__hide-layout': !isShowed,
+        className={classnames('sidebar-menu-header__layout', {
+          'sidebar-menu-header__layout_show': isShowed,
         })}
       />
       <div
         ref={contentRef}
-        className={classnames({ 'sidebar-menu-header__sidebar': true, 'sidebar-menu-header__show': isShowed })}>
+        className={classnames('sidebar-menu-header__sidebar', { 'sidebar-menu-header__sidebar_show': isShowed })}>
         <div role="button" className="sidebar-menu-header__close" onClick={() => setIsShowed(false)}>
           <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
           <span>Закрыть</span>

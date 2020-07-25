@@ -25,23 +25,22 @@
       max-height: unset;
       overflow: auto;
     }
+  }
 
-    &__close {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      cursor: pointer;
+  &__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
 
-      &:hover {
-        path {
-          fill: $gray-color;
-        }
+    &:hover {
+      path {
+        fill: $gray-color;
       }
     }
   }
 
   &__overlay {
-    // @include hide;
     position: fixed;
     z-index: 100;
     left: 0;
@@ -51,23 +50,23 @@
     overflow: auto;
     background-color: $layout-color;
   }
-  
-  &__show {
-    @include show;
-  }
 }
 
-.modal-enter {
-  opacity: 0;
-}
-.modal-enter-active {
-  opacity: 1;
-  transition: opacity $animation-time;
-}
-.modal-exit {
-  opacity: 1;
-}
-.modal-exit-active {
-  opacity: 0;
-  transition: opacity $animation-time;
+.modal {
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $animation-time;
+    }
+  }
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0;
+      transition: opacity $animation-time;
+    }
+  }
 }

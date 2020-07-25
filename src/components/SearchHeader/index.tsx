@@ -24,6 +24,7 @@ const SearchHeader: React.FC = () => {
   return (
     <section className="search-header">
       <input
+        className="search-header__input"
         type="text"
         placeholder="Введите название продукта"
         value={searchText}

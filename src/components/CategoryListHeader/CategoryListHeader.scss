@@ -4,7 +4,7 @@
   position: relative;
   width: 290px;
 
-  &__title {
+  &__header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,7 +19,7 @@
     padding: 10px 15px;
     font-size: 14px;
 
-    span {
+    &-title {
       margin-left: 10px;
       font-weight: bold;
     }
@@ -34,38 +34,34 @@
     background-color: $light-color;
     z-index: 1;
 
-    &__item {
-      list-style: none;
-      border: 1px solid $border-color;
-      margin: 0;
+    &-link {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: $dark-color;
 
-      a {
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: $dark-color;
-      }
-
-      &:hover {
-        background-color: $hover-color;
-      }
-
-      &-active {
+      &_active {
         background-color: $border-color;
         font-weight: bold;
       }
     }
+
+    &-item {
+      list-style: none;
+      border: 1px solid $border-color;
+      margin: 0;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
   }
 
-  &__arrowUp {
-    @include rotateUp;
-  }
-
-  &__arrowDown {
+  &__arrow {
     @include rotateDown;
-  }
 
-  &__show {
-    @include show;
+    &_up {
+      @include rotateUp;
+    }
   }
 }

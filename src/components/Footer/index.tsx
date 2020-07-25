@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <a className="footer__phone" href="tel:88005353535">
+        <a className="footer__phone" href="tel:88005553535">
           <div>
-            <FontAwesomeIcon className="footer__phone__icon" icon={faPhone} />
-            <span>8-800-535-35-35</span>
+            <FontAwesomeIcon className="footer__phone-icon" icon={faPhone} />
+            <span>8-800-555-35-35</span>
           </div>
           <span>Анастасия</span>
         </a>

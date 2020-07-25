@@ -24,11 +24,11 @@ const FixedCart: React.FC = observer(() => {
 
   return (
     <>
-      <div className={classnames({ 'fixed-cart': true, 'fixed-cart_hide': isCartEmpty })}>
+      <div className={classnames('fixed-cart', { 'fixed-cart_hide': isCartEmpty })}>
         <div role="button" onClick={showModal} className="fixed-cart__content">
           <FontAwesomeIcon icon={faShoppingBag} size="3x" />
-          <span className="fixed-cart__content__count">{cartList.length}</span>
-          <span className="fixed-cart__content__price">{totalPrice} руб</span>
+          <span className="fixed-cart__count">{cartList.length}</span>
+          <span className="fixed-cart__price">{totalPrice} руб</span>
         </div>
       </div>
       <FixedCartModal isShowed={isShowed} hide={hideModal} />

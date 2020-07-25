@@ -19,10 +19,10 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     height: 105px;
-    
-    &__logo {
-      min-width: $width-logo;
-    }
+  }
+
+  &__logo {
+    min-width: $width-logo;
   }
 
   @media(max-width: $desktop-xs-width) {

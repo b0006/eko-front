@@ -11,7 +11,7 @@
     height: unset;
   }
 
-  &__image-content {
+  &__left-block {
     flex: 1 1 40%;
     margin: auto 0;
 
@@ -22,7 +22,7 @@
     }
   }
 
-  &__description-content {
+  &__right-block {
     flex: 1 1 60%;
     padding: 10px 40px;
     display: flex;
@@ -33,67 +33,65 @@
       flex: unset;
       padding: 0;
     }
+  }
 
-    &__title {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 18px;
+  &__title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 18px;
 
-      @media (max-width: $desktop-xs-width) {
-        margin: 15px auto;
-      }
+    @media (max-width: $desktop-xs-width) {
+      margin: 15px auto;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+
+    &-actual {
+      color: $dark-color;
+      margin-right: 10px;
     }
 
-    &__price {
-      display: flex;
-      flex-direction: row;
-      font-weight: bold;
-      font-size: 18px;
-      margin-bottom: 15px;
-
-      @media (max-width: $desktop-xs-width) {
-        margin: 15px auto;
-      }
-
-      > * {
-        margin-right: 10px;
-      }
-
-      &__actual {
-        color: $dark-color;
-      }
-
-      &__old {
-        color: $gray-color;
-        text-decoration: line-through;
-      }
+    &-old {
+      color: $gray-color;
+      text-decoration: line-through;
+      margin-right: 10px;
     }
 
-    &__properties {
-      display: flex;
-      flex-direction: column;
-  
-      @media (max-width: $desktop-xs-width) {
-        margin: 0 auto;
-      }
-  
-      > * {
-        margin-right: 10px;
-        margin-bottom: 10px;
-      }
+    @media (max-width: $desktop-xs-width) {
+      margin: 15px auto;
     }
-  
-    &__button {
-      @include button;
-      width: 230px;
-      height: 40px;
-      margin: 15px 0;
-      letter-spacing: 1px;
-      font-size: 16px;
-  
-      @media (max-width: $desktop-xs-width) {
-        margin: 15px auto;
-      }
+  }
+
+  &__properties {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: $desktop-xs-width) {
+      margin: 0 auto;
+    }
+  }
+
+  &__button {
+    @include button;
+    width: 230px;
+    height: 40px;
+    margin: 15px 0;
+    letter-spacing: 1px;
+    font-size: 16px;
+
+    @media (max-width: $desktop-xs-width) {
+      margin: 15px auto;
     }
   }
 }

@@ -1,6 +1,8 @@
 @import '../../assets/scss/utils';
 
 .card-product {
+  $self: &;
+
   position: relative;
   margin: 10px;
   cursor: pointer;
@@ -24,32 +26,31 @@
       z-index: 2;
       background-color: $light-color;
 
-      .card-product__hover-content {
+      #{ $self }__hover-content {
         position: absolute;
         top: 267px;
         box-shadow: 0 10px 10px rgba(0,0,0,.15);
         background-color: $light-color;
+      }
 
-        &__description, &__button {
-          display: block;
-        }
+      #{ $self }__description, #{ $self }__button {
+        display: block;
       }
     }
+  }
 
-    &__img-wrapper {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 10px;
-  
-      &__img {
-        height: 90%;
-        width: 90%;
-        margin: 10px auto;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        transition: all $animation-time;
-      }
+  &__figure {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    text-align: center;
+
+    &-img {
+      height: 90%;
+      width: 90%;
+      margin: 10px auto;
+      object-fit: cover;
+      transition: transform $animation-time;
     }
   }
 
@@ -59,35 +60,35 @@
     align-items: center;
     justify-content: center;
     position: relative;
+  }
 
-    &__button {
-      display: none;
-      margin-bottom: 10px;
-      @include button;
-    }
+  &__button {
+    display: none;
+    margin-bottom: 10px;
+    @include button;
+  }
 
-    &__title {
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+  &__title {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 
-    &__category {
-      margin: 10px 0;
-      color: $gray-color;
-      font-size: 14px;
-    }
+  &__category {
+    margin: 10px 0;
+    color: $gray-color;
+    font-size: 14px;
+  }
 
-    &__price {
-      font-weight: bold;
-      color: $main-color;
-    }
+  &__price {
+    font-weight: bold;
+    color: $main-color;
+  }
 
-    &__description {
-      display: none;
-      text-align: center;
-      font-size: 14px;
-      margin: 10px 0;
-      color: $gray-color;
-    }
+  &__description {
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+    color: $gray-color;
   }
 }

@@ -28,20 +28,18 @@ const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
   return (
     <div className="switch-type-header-mobile">
       <div>
-        <ul className="switch-type-header-mobile__type-list">
+        <ul className="switch-type-header-mobile__types">
           <li
-            className={classnames({
-              'switch-type-header-mobile__type-list__item': true,
-              'switch-type-header-mobile__type-list__item-active': currentType === 'menu',
+            className={classnames('switch-type-header-mobile__types-item', {
+              'switch-type-header-mobile__types-item_active': currentType === 'menu',
             })}
             role="button"
             onClick={() => setCurrentType('menu')}>
             Меню
           </li>
           <li
-            className={classnames({
-              'switch-type-header-mobile__type-list__item': true,
-              'switch-type-header-mobile__type-list__item-active': currentType === 'category',
+            className={classnames('switch-type-header-mobile__types-item', {
+              'switch-type-header-mobile__types-item_active': currentType === 'category',
             })}
             role="button"
             onClick={() => setCurrentType('category')}>
@@ -49,15 +47,19 @@ const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
           </li>
         </ul>
       </div>
-      <ul className="switch-type-header-mobile__item-list">
+      <ul className="switch-type-header-mobile__list">
         {currentList.map((item) => {
-          let activeClassName = 'switch-type-header-mobile__item-list__item-active';
+          let activeClassName = 'switch-type-header-mobile__list-link_active';
           if (item.path === '/') {
-            activeClassName = pathname === '/' ? 'switch-type-header-mobile__item-list__item-active' : '';
+            activeClassName = pathname === '/' ? activeClassName : '';
           }
           return (
-            <li className="switch-type-header-mobile__item-list__item" key={item.path}>
-              <NavLink activeClassName={activeClassName} onClick={hideSidebar} to={item.path}>
+            <li className="switch-type-header-mobile__list-item" key={item.path}>
+              <NavLink
+                className="switch-type-header-mobile__list-link"
+                activeClassName={activeClassName}
+                onClick={hideSidebar}
+                to={item.path}>
                 {item.label}
               </NavLink>
             </li>

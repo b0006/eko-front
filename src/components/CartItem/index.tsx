@@ -32,11 +32,11 @@ const CartItem: React.FC<IProps> = ({ id, img, title, price, count, onRemove }) 
     <div className="cart-item">
       <img className="cart-item__image" src={img} alt={title} />
       <div className="cart-item__description">
-        <div className="cart-item__description__title">{title}</div>
-        <div className="cart-item__description__actions">
+        <div className="cart-item__title">{title}</div>
+        <div className="cart-item__actions">
           <InputCount value={count} onPlus={onPlus} onMinus={onMinus} />
           <div>{price} руб</div>
-          <FontAwesomeIcon onClick={onRemove} className="cart-item__description__actions__remove" icon={faTrash} />
+          <FontAwesomeIcon onClick={onRemove} className="cart-item__remove" icon={faTrash} />
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ const SearchHeaderMobile: React.FC = () => {
         onChange={(e) => setSearchText(e.target.value)}
       />
       <div role="button" className="search-header-mobile__icon-wrapper" onClick={onSearch}>
-        <FontAwesomeIcon className="search-header-mobile__icon-wrapper__icon" icon={faSearch} size="lg" />
+        <FontAwesomeIcon className="search-header-mobile__icon" icon={faSearch} size="lg" />
       </div>
     </div>
   );

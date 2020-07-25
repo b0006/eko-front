@@ -29,30 +29,6 @@
 
     transition: top $animation-time, transform $animation-time;
 
-    &__count {
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-color: $danger-color;
-      padding: 5px 10px;
-      font-weight: bold;
-      color: $light-color;
-      border-radius: 20px;
-    }
-
-    &__price {
-      position: absolute;
-      bottom: -13px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      background-color: $main-color;
-      color: $light-color;
-      font-weight: bold;
-      padding: 2px 0px;
-      border-radius: 5px;
-    }
-
     &:hover {
       transform: scale(1.05);
     }
@@ -60,5 +36,29 @@
     @media (max-width: $tablet-sm-width) {
       transform: scale(0.8);
     }
+  }
+
+  &__count {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $danger-color;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: $light-color;
+    border-radius: 20px;
+  }
+
+  &__price {
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: $main-color;
+    color: $light-color;
+    font-weight: bold;
+    padding: 2px 0px;
+    border-radius: 5px;
   }
 }

@@ -15,38 +15,38 @@
 
   &__content {
     @include container;
+  }
 
-    h1 {
-      color: $main-color;
-      font-size: 82px;
-      margin: 0;
-      padding-top: 130px;
+  &__title {
+    color: $main-color;
+    font-size: 82px;
+    margin: 0;
+    padding-top: 130px;
 
-      @media(max-width: $desktop-xs-width) {
-        font-size: 15vw;
-      }
+    @media(max-width: $desktop-xs-width) {
+      font-size: 15vw;
     }
+  }
 
-    h2 {
-      color: $light-color;
-      margin: 0;
-      font-size: 32px;
+  &__subtitle {
+    color: $light-color;
+    margin: 0;
+    font-size: 32px;
 
-      @media(max-width: $desktop-xs-width) {
-        font-size: 5vw;
-      }
+    @media(max-width: $desktop-xs-width) {
+      font-size: 5vw;
     }
+  }
 
-    &__list {
-      color: $light-color;
-      font-size: 26px;
-      line-height: 38px;
-      padding: 30px;
+  &__list {
+    color: $light-color;
+    font-size: 26px;
+    line-height: 38px;
+    padding: 30px;
 
-      @media(max-width: $desktop-xs-width) {
-        font-size: 17px;
-        line-height: unset;
-      }
+    @media(max-width: $desktop-xs-width) {
+      font-size: 17px;
+      line-height: unset;
     }
   }
 }

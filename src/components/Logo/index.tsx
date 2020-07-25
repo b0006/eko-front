@@ -12,8 +12,8 @@ interface IProps {
 
 const Logo: React.FC<IProps> = ({ className }) => (
   <Link to="/" className={classnames('logo', className)}>
-    <img src={LogoImg} alt="logo" />
-    <span>ЭкоСнеки</span>
+    <img className="logo__img" src={LogoImg} alt="logo" />
+    <span className="logo__title">ЭкоСнеки</span>
   </Link>
 );
 

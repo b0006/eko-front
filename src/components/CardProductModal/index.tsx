@@ -11,21 +11,21 @@ const CardProductModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
   return (
     <ModalLayout isShowed={isShowed} hide={hide}>
       <div className="card-product-modal">
-        <div className="card-product-modal__image-content">
+        <div className="card-product-modal__left-block">
           <ImageSlider list={['./categories/gifts.webp', './categories/paste.webp', './categories/sets.webp']} />
         </div>
-        <div className="card-product-modal__description-content">
-          <span className="card-product-modal__description-content__title">Ассорти пастилы M</span>
-          <div className="card-product-modal__description-content__price">
-            <span className="card-product-modal__description-content__price__actual">1300 руб</span>
-            <span className="card-product-modal__description-content__price__old">1500 руб</span>
+        <div className="card-product-modal__right-block">
+          <span className="card-product-modal__title">Ассорти пастилы M</span>
+          <div className="card-product-modal__price">
+            <span className="card-product-modal__price-actual">1300 руб</span>
+            <span className="card-product-modal__price-old">1500 руб</span>
           </div>
-          <div className="card-product-modal__description-content__properties">
+          <div className="card-product-modal__properties">
             <RadioItem name="test" label="35 гр - 190 руб" value="test1" checked />
             <RadioItem name="test" label="70 гр - 280 руб" value="test2" />
             <RadioItem name="test" label="500 гр - 1400 руб" value="test3" />
           </div>
-          <input type="button" className="card-product-modal__description-content__button" value="Добавить в корзину" />
+          <input type="button" className="card-product-modal__button" value="Добавить в корзину" />
           <div
             dangerouslySetInnerHTML={{
               __html: `Хрустящие кисло-сладкие кружочки апельсина - рай для любителей цитрусовых!

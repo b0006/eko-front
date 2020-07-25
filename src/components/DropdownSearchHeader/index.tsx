@@ -50,23 +50,21 @@ const DropdownSearchHeader: React.FC<IProps> = ({ value, onChange, options }) =>
   return (
     <div className="dropdown-search-header">
       <div className="dropdown-search-header__button" ref={btnRef} role="button" onClick={() => setIsOpen(!isOpen)}>
-        <span className="dropdown-search-header__button__label">{valueLabel || 'Выбрать категорию'}</span>
+        <span className="dropdown-search-header__label">{valueLabel || 'Выбрать категорию'}</span>
         <FontAwesomeIcon
-          className={isOpen ? 'dropdown-search-header__rotateDown' : 'dropdown-search-header__rotateUp'}
+          className={isOpen ? 'dropdown-search-header__arrow' : 'dropdown-search-header__arrow_up'}
           icon={faChevronDown}
         />
       </div>
-      <div
-        ref={listRef}
-        className={classnames({ 'dropdown-search-header__show': isOpen, 'dropdown-search-header__list': true })}>
-        <div role="button" onClick={() => onClickItem()} className="dropdown-search-header__list__item">
+      <div ref={listRef} className={classnames('dropdown-search-header__list', { 'animation-show': isOpen })}>
+        <div role="button" onClick={() => onClickItem()} className="dropdown-search-header__list-item">
           Без категории
         </div>
         {options.map((option) => (
           <div
             role="button"
             onClick={() => onClickItem(option.value)}
-            className="dropdown-search-header__list__item"
+            className="dropdown-search-header__list-item"
             key={option.value}>
             {option.label}
           </div>

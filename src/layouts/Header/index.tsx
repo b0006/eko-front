@@ -20,7 +20,7 @@ const HeaderLayout: React.FC<IProps> = ({ children, isWrappedContainer }) => {
         <MobileHeader />
         <FixedCart />
       </header>
-      <div className={classnames({ 'header-layout__content': true, 'header-layout__container': isWrappedContainer })}>
+      <div className={classnames('header-layout__content', { 'header-layout__container': isWrappedContainer })}>
         {children}
       </div>
       <Footer />

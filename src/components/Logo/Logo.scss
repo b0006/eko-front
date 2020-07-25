@@ -7,13 +7,13 @@
   text-decoration: none;
   color: $dark-color;
   
-  img {
+  &__img {
     max-width: 30px;
     max-height: 30px;
     margin-right: 4px;
   }
 
-  span {
+  &__title {
     font-weight: bold;
     letter-spacing: 3px;
     font-size: 26px;

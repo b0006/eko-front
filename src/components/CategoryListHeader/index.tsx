@@ -16,22 +16,23 @@ const CategoryListHeader: React.FC = () => {
       className="category-list-header"
       onMouseEnter={() => setIsOpened(true)}
       onMouseLeave={() => setIsOpened(false)}>
-      <div className="category-list-header__title">
+      <div className="category-list-header__header">
         <div>
           <FontAwesomeIcon icon={faBars} size="lg" />
-          <span>Категории</span>
+          <span className="category-list-header__header-title">Категории</span>
         </div>
         <FontAwesomeIcon
-          className={isOpened ? 'category-list-header__arrowDown' : 'category-list-header__arrowUp'}
+          className={isOpened ? 'category-list-header__arrow' : 'category-list-header__arrow_up'}
           icon={faChevronDown}
         />
       </div>
-      <ul className={classnames({ 'category-list-header__list': true, 'category-list-header__show': isOpened })}>
+      <ul className={classnames('category-list-header__list', { 'animation-show': isOpened })}>
         {CATEGORY_LIST.map((item) => (
-          <li className="category-list-header__list__item" key={item.value}>
+          <li className="category-list-header__list-item" key={item.value}>
             <NavLink
               onClick={() => setIsOpened(false)}
-              activeClassName="category-list-header__list__item-active"
+              className="category-list-header__list-link"
+              activeClassName="category-list-header__list-link_active"
               to={`/catalog/${item.value}`}>
               {item.label}
             </NavLink>

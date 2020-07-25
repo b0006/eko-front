@@ -6,11 +6,14 @@
 
   &__init-slide {
     display: none;
-    img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
+    animation-name: fade;
+    animation-duration: $animation-time;
+  }
+
+  &__img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
   }
 
   &__number-text {
@@ -57,11 +60,6 @@
     border-radius: 3px 0 0 3px;
   }
 
-  &__fade {
-    animation-name: fade;
-    animation-duration: $animation-time;
-  }
-
   &__show {
     display: block;
   }
@@ -69,20 +67,20 @@
   &__dot-wrapper {
     text-align: center;
     margin-top: 15px;
-  
-    &__dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: $border-color;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color $animation-time ease;
+  }
 
-      &-active, &:hover {
-        background-color: $gray-color;
-      }
+  &__dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: $border-color;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color $animation-time ease;
+
+    &_active, &:hover {
+      background-color: $gray-color;
     }
   }
 
@@ -94,10 +92,5 @@
   @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
-  }
-  
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev, .next,.text {font-size: 11px}
   }
 }

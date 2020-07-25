@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import classnames from 'classnames';
 
 import './ImageSlider.scss';
@@ -30,24 +30,22 @@ const ImageSlider: React.FC<IProps> = ({ list }) => {
 
   const onCurrent = (index: number) => setSlideIndex(index);
 
+  const isListExist = useMemo(() => list.length > 1, [list]);
+
   return (
     <div className="image-slider">
       <div>
         {list.map((image, index) => (
           <div
             key={image}
-            className={classnames({
-              'image-slider__init-slide': true,
-              'image-slider__fade': true,
+            className={classnames('image-slider__init-slide', {
               'image-slider__show': slideIndex === index,
             })}>
-            {list.length > 1 && (
-              <span className="image-slider__number-text">{`${slideIndex + 1} / ${list.length}`}</span>
-            )}
-            <img src={image} alt="" />
+            {isListExist && <span className="image-slider__number-text">{`${slideIndex + 1} / ${list.length}`}</span>}
+            <img className="image-slider__img" src={image} alt="" />
           </div>
         ))}
-        {list.length > 1 && (
+        {isListExist && (
           <>
             <span role="button" className="image-slider__prev" onClick={onPrev}>
               &#10094;
@@ -58,16 +56,15 @@ const ImageSlider: React.FC<IProps> = ({ list }) => {
           </>
         )}
       </div>
-      {list.length > 1 && (
+      {isListExist && (
         <div className="image-slider__dot-wrapper">
           {list.map((_, index) => (
             <span
               key={index}
               role="button"
               onClick={() => onCurrent(index)}
-              className={classnames({
-                'image-slider__dot-wrapper__dot': true,
-                'image-slider__dot-wrapper__dot-active': slideIndex === index,
+              className={classnames('image-slider__dot', {
+                'image-slider__dot_active': slideIndex === index,
               })}
             />
           ))}

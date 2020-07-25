@@ -19,13 +19,13 @@
     }
   }
 
-  &__menu-button {
+  &__button {
     cursor: pointer;
     > * {
       margin-right: 5px;
     }
 
-    &__label {
+    &-label {
       @media (max-width: $tablet-sm-width) {
         display: none;
       }
@@ -47,16 +47,13 @@
     bottom: 0;
     z-index: 11;
     background-color: $layout-color;
-  }
-
-  &__show-layout {
-    visibility: visible;
-    transition: visibility $animation-time;
-  }
-
-  &__hide-layout {
     visibility: hidden;
     transition: visibility $animation-time;
+
+    &_show {
+      visibility: visible;
+      transition: visibility $animation-time;
+    }
   }
 
   transition: all $animation-time ease;
@@ -74,10 +71,10 @@
     overflow-y: auto;
     transition: all $animation-time ease;
     z-index: 20;
-  }
 
-  &__show {
-    border-right: 2px solid $border-color;
-    width: 300px;
+    &_show {
+      border-right: 2px solid $border-color;
+      width: 300px;
+    }
   }
 }

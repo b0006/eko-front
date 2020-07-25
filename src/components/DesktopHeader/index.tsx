@@ -12,7 +12,7 @@ const DesktopHeader: React.FC = () => {
       <div className="desktop-header">
         <div className="desktop-header__container">
           <div className="desktop-header__content">
-            <Logo className="desktop-header__content__logo" />
+            <Logo className="desktop-header__logo" />
             <SearchHeader />
           </div>
         </div>

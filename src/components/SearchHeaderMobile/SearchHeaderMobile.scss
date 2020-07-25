@@ -23,16 +23,16 @@
     padding: 0 26px;
     cursor: pointer;
 
-    &__icon {
-      path {
-        fill: $gray-color;
-      };
-    }
-
     &:hover {
       path {
         fill: $dark-color;
       };
     }
+  }
+
+  &__icon {
+    path {
+      fill: $gray-color;
+    };
   }
 }

@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const HTTP = axios.create();
+import { userStore } from '../mobx';
+
+const HTTP = axios.create({
+  baseURL: 'http://localhost:5000',
+});
 
 HTTP.interceptors.response.use(
   (response) => {
@@ -12,6 +16,7 @@ HTTP.interceptors.response.use(
       window.console.error(error.toString());
     }
     if (status === 401) {
+      userStore.logout();
       window.console.log('logout');
     }
     return Promise.reject(error);

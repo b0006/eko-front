@@ -4,17 +4,10 @@ import agent from '../agent';
 
 type Method = keyof typeof agent;
 
-interface IResponseReturn<R> {
-  statusCode: number;
-  data?: R;
-  message?: string[];
-  error?: Error | string | null;
-}
-
 interface IResponse<R> {
   isLoading: boolean;
-  data: R | undefined;
-  error: string | Error | null | undefined;
+  data?: R;
+  error?: string | Error | null;
 }
 
 const useFetchDataApi = <T = object, R = object>(url: string, method: Method): [IResponse<R>, (data?: T) => void] => {
@@ -28,11 +21,11 @@ const useFetchDataApi = <T = object, R = object>(url: string, method: Method): [
       setError(null);
 
       try {
-        const response = await agent[method]<T, IResponseReturn<R>>(url, data);
-        if (response.data.statusCode !== 200) {
-          throw response.data.message;
+        const response = await agent[method]<T, R>(url, data);
+        if (response.status !== 200) {
+          throw new Error(response.statusText || 'Unknown error');
         }
-        setResponseData(response.data.data);
+        setResponseData(response.data);
       } catch (err) {
         setError(err);
       } finally {

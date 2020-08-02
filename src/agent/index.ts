@@ -5,18 +5,16 @@ import axios from './axios';
 const timeout = 60000;
 
 export default {
-  POST<T = object, R = object>(path: string, data?: T) {
-    return axios.post(path, data, { timeout }) as Promise<AxiosResponse<R>>;
+  async POST<T = object, R = object>(path: string, data?: T) {
+    const response: AxiosResponse<R> = await axios.post(path, data, { timeout });
+    return { status: response.status, data: response.data, statusText: response.statusText };
   },
 
-  PUT<T = object, R = object>(path: string, data?: T) {
-    return axios.put(path, data, { timeout }) as Promise<AxiosResponse<R>>;
-  },
-
-  GET<T = object, R = object>(path: string, params?: T) {
-    return axios.get(path, {
+  async GET<T = object, R = object>(path: string, params?: T) {
+    const response: AxiosResponse<R> = await axios.get(path, {
       params,
       timeout,
-    }) as Promise<AxiosResponse<R>>;
+    });
+    return { status: response.status, data: response.data, statusText: response.statusText };
   },
 };

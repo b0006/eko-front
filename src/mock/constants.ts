@@ -90,4 +90,18 @@ export const CART_LIST = [
     price: 750,
     count: 1,
   },
+  {
+    id: '3',
+    title: 'Пастила очень крутая 3',
+    img: './categories/frips.webp',
+    price: 250,
+    count: 4,
+  },
+  {
+    id: '4',
+    title: 'Пастила очень крутая 4',
+    img: './categories/frips.webp',
+    price: 50,
+    count: 1,
+  },
 ];

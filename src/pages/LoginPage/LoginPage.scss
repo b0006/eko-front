@@ -1,0 +1,11 @@
+@import '../../assets/scss/utils';
+
+.login-page {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 5%;
+}

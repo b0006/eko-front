@@ -24,13 +24,13 @@ const Card: React.FC<IProps> = observer(
   ({ id, image, title, description, isAddAction, link = '', imageWidth = '15rem', imageHeight = '15rem' }) => {
     const { isAuth } = userStore;
     const { removeById } = categoryStore;
-    const { isShowed, showModal, hideModal } = useModal();
+    const { isShowed, hideModal } = useModal();
 
     const Container = link && !isAddAction ? Link : 'div';
 
     const onOpenAddCategoryModal = () => {
       if (isAddAction) {
-        showModal();
+        // showModal();
       }
     };
 

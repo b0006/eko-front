@@ -1,0 +1,42 @@
+@import '../../assets/scss/utils';
+
+.modal-root {
+  &__body {
+    overflow: scroll;
+  }
+
+  &__overlay {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: $layout-color;
+  }
+
+  &__content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: $light-color;
+    padding: 60px 30px 30px 30px;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 800px;
+
+    @media (max-width: $mobile-md-width) {
+      padding: 60px 10px 10px 10px;
+    }
+
+    @media (max-width: $desktop-xs-width) {
+      width: 100%;
+      height: 100%;
+      max-height: unset;
+      overflow: auto;
+    }
+  }
+}

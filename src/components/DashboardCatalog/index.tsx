@@ -1,31 +1,35 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import { userStore } from '../../mobx';
+import { userStore, categoryStore } from '../../mobx';
 import Card from '../Card';
-import { CATEGORY_LIST } from '../../mock/constants';
+import Loader from '../Loader';
 import PlusImg from '../../assets/img/plus.png';
 
 import './DashboardCatalog.scss';
 
 const DashboardCatalog: React.FC = observer(() => {
   const { isAuth } = userStore;
+  const { categoryList, isLoading } = categoryStore;
 
   return (
     <div className="dashboard-catalog">
-      {isAuth && (
+      {isLoading && <Loader />}
+      {!isLoading && isAuth && (
         <Card isAddAction image={PlusImg} title="Добавить новую категорию" imageHeight="20rem" imageWidth="20rem" />
       )}
-      {CATEGORY_LIST.map((item) => (
-        <Card
-          key={item.value}
-          link={`/catalog/${item.value}`}
-          image={item.img}
-          title={item.label}
-          imageHeight="20rem"
-          imageWidth="20rem"
-        />
-      ))}
+      {!isLoading &&
+        categoryList &&
+        categoryList.map((category) => (
+          <Card
+            key={category.id}
+            link={`/catelog/${category.id}`}
+            image={category.imageList[0]}
+            title={category.title}
+            imageHeight="20rem"
+            imageWidth="20rem"
+          />
+        ))}
     </div>
   );
 });

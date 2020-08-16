@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { observer } from 'mobx-react-lite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import DropdownSearchHeader from '../DropdownSearchHeader';
-import { CATEGORY_LIST } from '../../mock/constants';
+import { categoryStore } from '../../mobx';
 
 import './SearchHeader.scss';
 
-interface IOptionItem {
-  label: string;
-  value: string;
-}
-
-const SearchHeader: React.FC = () => {
+const SearchHeader: React.FC = observer(() => {
   const [searchText, setSearchText] = useState('');
   const [searchCategory, setSearchCategory] = useState<string>();
+  const { categoryList } = categoryStore;
 
   const onSubmit = () => {
     // eslint-disable-next-line no-console
     console.log(searchText, searchCategory);
   };
+
+  const categoryOptionList = useMemo(
+    () => categoryList.map((category) => ({ value: category.id, label: category.title })),
+    [categoryList]
+  );
 
   return (
     <section className="search-header">
@@ -30,12 +32,12 @@ const SearchHeader: React.FC = () => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={CATEGORY_LIST} />
+      <DropdownSearchHeader value={searchCategory} onChange={setSearchCategory} options={categoryOptionList} />
       <div className="search-header__search" role="button" onClick={onSubmit}>
         <FontAwesomeIcon icon={faSearch} size="lg" />
       </div>
     </section>
   );
-};
+});
 
 export default SearchHeader;

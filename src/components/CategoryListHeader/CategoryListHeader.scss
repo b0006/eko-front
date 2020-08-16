@@ -25,6 +25,14 @@
     }
   }
 
+  &__loader {
+    @include hide;
+    position: absolute;
+    background-color: $hover-color;
+    width: 100%;
+    z-index: 1;
+  }
+
   &__list {
     @include hide;
     position: absolute;

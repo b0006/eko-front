@@ -1,5 +1,6 @@
 import headerStore from './headerStore';
 import cartStore from './cartStore';
 import userStore from './userStore';
+import categoryStore from './categoryStore';
 
-export { headerStore, cartStore, userStore };
+export { headerStore, categoryStore, cartStore, userStore };

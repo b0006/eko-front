@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import classnames from 'classnames';
+import { observer } from 'mobx-react-lite';
 
 import menuList from '../../route/menuList';
-import { CATEGORY_LIST } from '../../mock/constants';
+import { categoryStore } from '../../mobx';
 
 import './SwitchTypeHeaderMobile.scss';
 
@@ -11,7 +12,8 @@ interface IProps {
   hideSidebar: () => void;
 }
 
-const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
+const SwitchTypeHeaderMobile: React.FC<IProps> = observer(({ hideSidebar }) => {
+  const { categoryList } = categoryStore;
   const { pathname } = useLocation();
   const [currentType, setCurrentType] = useState<'menu' | 'category'>('menu');
 
@@ -20,10 +22,10 @@ const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
     if (currentType === 'menu') {
       list = menuList.map((item) => ({ path: item.path, label: item.label }));
     } else if (currentType === 'category') {
-      list = CATEGORY_LIST.map((item) => ({ path: `/catalog/${item.value}`, label: item.label }));
+      list = categoryList.map((item) => ({ path: `/catalog/${item.id}`, label: item.title }));
     }
     return list;
-  }, [currentType]);
+  }, [categoryList, currentType]);
 
   return (
     <div className="switch-type-header-mobile">
@@ -68,6 +70,6 @@ const SwitchTypeHeaderMobile: React.FC<IProps> = ({ hideSidebar }) => {
       </ul>
     </div>
   );
-};
+});
 
 export default SwitchTypeHeaderMobile;

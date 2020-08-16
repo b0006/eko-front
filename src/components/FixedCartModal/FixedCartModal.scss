@@ -6,6 +6,19 @@
     max-width: 560px;
     max-height: unset;
     height: unset;
+    margin-top: 5%;
+    top: unset;
+    left: unset;
+    transform: unset;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $tablet-sm-width) {
+      top: unset;
+      left: unset;
+      transform: unset;
+      margin-top: 0;
+    }
   }
 
   &__content {

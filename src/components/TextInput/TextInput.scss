@@ -1,0 +1,25 @@
+@import '../../assets/scss/utils';
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__input {
+    padding: 5px 10px;
+  }
+
+  &__label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+  }
+
+  &__error {
+    position: absolute;
+    color: $danger-color;
+    font-size: 12px;
+    bottom: -20px;
+  }
+}

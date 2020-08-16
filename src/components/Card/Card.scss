@@ -3,9 +3,14 @@
 .card-item {
   $self: &;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: relative;
   overflow: hidden;
-  box-shadow: 1px 1px 2px rgba(0,0,0,.12);
+  cursor: pointer;
+  box-shadow: 0px 0px 3px rgba(0,0,0,.12);
   margin: 7px;
 
   &__img {
@@ -14,6 +19,11 @@
     object-fit: cover;
 
     transition: transform $animation-time;
+  }
+
+  &__add {
+    height: 20%;
+    width: 20%;
   }
 
   &__bottom {

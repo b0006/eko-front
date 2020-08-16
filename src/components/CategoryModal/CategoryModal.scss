@@ -1,0 +1,21 @@
+@import '../../assets/scss/utils';
+
+.category-modal {
+  max-width: 600px;
+  height: unset;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $tablet-sm-width) {
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    width: 50%;
+  }
+}

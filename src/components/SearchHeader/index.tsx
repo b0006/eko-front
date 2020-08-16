@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -18,10 +18,7 @@ const SearchHeader: React.FC = observer(() => {
     console.log(searchText, searchCategory);
   };
 
-  const categoryOptionList = useMemo(
-    () => categoryList.map((category) => ({ value: category.id, label: category.title })),
-    [categoryList]
-  );
+  const categoryOptionList = categoryList.map((category) => ({ value: category.id, label: category.title }));
 
   return (
     <section className="search-header">

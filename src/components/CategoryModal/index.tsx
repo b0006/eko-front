@@ -1,11 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { observer } from 'mobx-react-lite';
 
 import { IModalProps } from '../../layouts/Modal/interfaces';
 import ModalLayout from '../../layouts/Modal';
 import UploadInput from '../UploadInput';
 import TextInput from '../TextInput';
 import { categoryStore } from '../../mobx';
+import notify from '../../utils/notify';
 
 import './CategoryModal.scss';
 
@@ -14,7 +16,7 @@ type Inputs = {
   imageFile: FileList;
 };
 
-const CategoryModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
+const CategoryModal: React.FC<IModalProps> = observer(({ isShowed, hide }) => {
   const { addToList } = categoryStore;
 
   const { register, handleSubmit, errors } = useForm<Inputs>();
@@ -26,8 +28,8 @@ const CategoryModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
     formData.append('title', data.title);
     const created = await addToList(formData);
     if (created) {
-      console.log('Категория создана');
       hide();
+      notify.show({ text: 'Категория создана', type: 'success' });
     }
   };
 
@@ -66,6 +68,6 @@ const CategoryModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
       </div>
     </ModalLayout>
   );
-};
+});
 
 export default CategoryModal;

@@ -32,7 +32,12 @@ const ModalLayout: React.FC<IModalProps> = observer(
 
     useEffect(() => {
       const handleClick = (e: MouseEvent) => {
+        const notifyEl = document.getElementsByClassName('notify-kas')[0];
+
         if (modalRef.current && e.target instanceof Element) {
+          if (notifyEl && notifyEl.contains(e.target)) {
+            return false;
+          }
           if (!modalRef.current.contains(e.target) && isShowed) {
             hide();
           }

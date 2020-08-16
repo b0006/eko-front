@@ -57,9 +57,9 @@ decorate(CategoryStore, {
   categoryList: observable,
   isLoading: observable,
   setList: action,
-  getList: action.bound,
-  removeById: action.bound,
-  addToList: action.bound,
+  getList: action,
+  removeById: action,
+  addToList: action,
 });
 
 export default new CategoryStore();

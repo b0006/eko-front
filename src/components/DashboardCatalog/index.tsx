@@ -16,13 +16,21 @@ const DashboardCatalog: React.FC = observer(() => {
     <div className="dashboard-catalog">
       {isLoading && <Loader />}
       {!isLoading && isAuth && (
-        <Card isAddAction image={PlusImg} title="Добавить новую категорию" imageHeight="20rem" imageWidth="20rem" />
+        <Card
+          id=""
+          isAddAction
+          image={PlusImg}
+          title="Добавить новую категорию"
+          imageHeight="20rem"
+          imageWidth="20rem"
+        />
       )}
       {!isLoading &&
         categoryList &&
         categoryList.map((category) => (
           <Card
             key={category.id}
+            id={category.id}
             link={`/catelog/${category.id}`}
             image={category.imageList[0]}
             title={category.title}

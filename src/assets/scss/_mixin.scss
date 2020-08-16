@@ -53,3 +53,16 @@
     background-color: $main-color-dark;
   }
 }
+
+@mixin adminCardButton {
+  cursor: pointer;
+  border: none;
+  background-color: $dark-color;
+  color: $light-color;
+  font-weight: bold;
+  padding: 8px 12px;
+
+  &:hover {
+    background-color: $gray-color;
+  }
+}

@@ -45,4 +45,13 @@ export default {
       return getErrorData(err);
     }
   },
+
+  async DELETE<T = object, R = object>(path: string, data?: T): Promise<IResponse<R>> {
+    try {
+      const response: AxiosResponse<R> = await axios.delete(path, { timeout, data });
+      return { status: response.status, data: response.data, error: null };
+    } catch (err) {
+      return getErrorData(err);
+    }
+  },
 };

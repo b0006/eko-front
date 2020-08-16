@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { observer } from 'mobx-react-lite';
 
-import { userStore } from '../../mobx';
+import { userStore, categoryStore } from '../../mobx';
 import useModal from '../../hook/useModal';
 import CategoryModal from '../CategoryModal';
 
 import './Card.scss';
 
 interface IProps {
+  id: string;
   image: string;
   title: string;
   isAddAction?: boolean;
@@ -20,9 +21,9 @@ interface IProps {
 }
 
 const Card: React.FC<IProps> = observer(
-  ({ image, title, description, isAddAction, link = '', imageWidth = '15rem', imageHeight = '15rem' }) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ({ id, image, title, description, isAddAction, link = '', imageWidth = '15rem', imageHeight = '15rem' }) => {
     const { isAuth } = userStore;
+    const { removeById } = categoryStore;
     const { isShowed, showModal, hideModal } = useModal();
 
     const Container = link && !isAddAction ? Link : 'div';
@@ -31,6 +32,12 @@ const Card: React.FC<IProps> = observer(
       if (isAddAction) {
         showModal();
       }
+    };
+
+    const onRemove = (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+      event.stopPropagation();
+      event.preventDefault();
+      removeById(id);
     };
 
     return (
@@ -50,6 +57,12 @@ const Card: React.FC<IProps> = observer(
             <span className="card-item__label">{title}</span>
             {description && <span className="card-item__count">{description}</span>}
           </div>
+          {isAuth && !isAddAction && (
+            <div className="card-item__admin">
+              <input className="card-item__admin-button" type="button" value="Удалить" onClick={onRemove} />
+              <input className="card-item__admin-button" type="button" value="Изменить" />
+            </div>
+          )}
         </Container>
         <CategoryModal isShowed={isShowed} hide={hideModal} />
       </>

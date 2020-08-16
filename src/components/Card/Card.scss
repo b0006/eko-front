@@ -59,6 +59,20 @@
     @include hide;
   }
 
+  &__admin {
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &-button {
+      @include adminCardButton;
+      margin-right: 5px;
+    }
+  }
+
   &:hover {
     #{ $self }__bottom {
       height: 40%;

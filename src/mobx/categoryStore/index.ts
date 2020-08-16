@@ -17,6 +17,18 @@ export class CategoryStore {
 
   public categoryList: ICategoryItem[] = [];
 
+  public removeById = async (id: string) => {
+    const response = await agent.DELETE<any, any>(`/categories/${id}`);
+    if (response.data) {
+      const newList = [...this.categoryList];
+      const findIndex = newList.findIndex((category) => category.id === id);
+      if (findIndex !== -1) {
+        newList.splice(findIndex, 1);
+        runInAction(() => (this.categoryList = newList));
+      }
+    }
+  };
+
   public getList = async () => {
     runInAction(() => (this.isLoading = true));
     const response = await agent.GET<{}, ICategoryItem[]>('/categories');
@@ -36,6 +48,7 @@ decorate(CategoryStore, {
   isLoading: observable,
   setList: action,
   getList: action,
+  removeById: action,
 });
 
 export default new CategoryStore();

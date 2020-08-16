@@ -18,6 +18,7 @@ const FeaturedCategoriesBlock: React.FC = () => {
       <div className="featured-categories-block__blocks">
         {FEATURED_CATEGORIES_LIST.map((item) => (
           <Card
+            id={item.value}
             key={item.value}
             image={item.img}
             title={item.label}

@@ -25,19 +25,17 @@ const DashboardCatalog: React.FC = observer(() => {
           imageWidth="20rem"
         />
       )}
-      {!isLoading &&
-        categoryList &&
-        categoryList.map((category) => (
-          <Card
-            key={category.id}
-            id={category.id}
-            link={`/catelog/${category.id}`}
-            image={category.imageList[0]}
-            title={category.title}
-            imageHeight="20rem"
-            imageWidth="20rem"
-          />
-        ))}
+      {categoryList.map((category) => (
+        <Card
+          key={category.id}
+          id={category.id}
+          link={`/catelog/${category.id}`}
+          image={category.imageList[0]}
+          title={category.title}
+          imageHeight="20rem"
+          imageWidth="20rem"
+        />
+      ))}
     </div>
   );
 });

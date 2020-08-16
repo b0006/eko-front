@@ -5,7 +5,7 @@ import { IModalProps } from '../../layouts/Modal/interfaces';
 import ModalLayout from '../../layouts/Modal';
 import UploadInput from '../UploadInput';
 import TextInput from '../TextInput';
-import useFetchDataApi from '../../hook/useFetchDataApi.hook';
+import { categoryStore } from '../../mobx';
 
 import './CategoryModal.scss';
 
@@ -15,17 +15,20 @@ type Inputs = {
 };
 
 const CategoryModal: React.FC<IModalProps> = ({ isShowed, hide }) => {
+  const { addToList } = categoryStore;
+
   const { register, handleSubmit, errors } = useForm<Inputs>();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [response, savePost] = useFetchDataApi<any, any>('/categories', 'POST');
-
-  const onSubmit = (data: Inputs) => {
+  const onSubmit = async (data: Inputs) => {
     const formData = new FormData();
     const [image] = data.imageFile;
     formData.append('image', image);
     formData.append('title', data.title);
-    savePost(formData);
+    const created = await addToList(formData);
+    if (created) {
+      console.log('Категория создана');
+      hide();
+    }
   };
 
   return (

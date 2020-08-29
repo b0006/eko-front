@@ -1,0 +1,49 @@
+@import '../../../../assets/scss/utils';
+
+.fixed-cart-modal {
+  &__layout {
+    width: 100%;
+    max-width: 560px;
+    max-height: unset;
+    height: unset;
+    margin-top: 5%;
+    top: unset;
+    left: unset;
+    transform: unset;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $tablet-sm-width) {
+      top: unset;
+      left: unset;
+      transform: unset;
+      margin-top: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  &__total-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 10px 0;
+    min-height: 66px;
+
+    > * {
+      margin: 5px 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+}

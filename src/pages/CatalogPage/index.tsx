@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DashboardCatalog from '../../components/DashboardCatalog';
+import DashboardCatalog from '../../modules/category/components/DashboardCatalog';
 
 const CatalogPage: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LoginForm from '../../components/LoginForm';
-import Logo from '../../components/Logo';
+import LoginForm from '../../modules/user/components/LoginForm';
+import Logo from '../../modules/common/components/Logo';
 
 import './LoginPage.scss';
 

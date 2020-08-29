@@ -1,14 +1,14 @@
 import React from 'react';
 
-import MainStartBlock from '../../components/MainStartBlock';
-import FeaturedCategoriesBlock from '../../components/FeaturedCategoriesBlock';
-import FavoriteProductBlock from '../../components/FavoriteProductBlock';
+import MainStartBlock from '../../modules/common/components/MainStartBlock';
+import FavoriteCategoryBlock from '../../modules/category/components/FavoriteCategoryBlock';
+import FavoriteProductBlock from '../../modules/product/components/FavoriteProductBlock';
 
 const StartPage: React.FC = () => {
   return (
     <>
       <MainStartBlock />
-      <FeaturedCategoriesBlock />
+      <FavoriteCategoryBlock />
       <FavoriteProductBlock />
     </>
   );

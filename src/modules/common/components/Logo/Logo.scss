@@ -1,0 +1,21 @@
+@import '../../../../assets/scss/utils';
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: $dark-color;
+  
+  &__img {
+    max-width: 30px;
+    max-height: 30px;
+    margin-right: 4px;
+  }
+
+  &__title {
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 26px;
+  }
+}

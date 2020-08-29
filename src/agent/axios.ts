@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { userStore } from '../mobx';
+import { userStore } from '../helpers/store';
 
 const HTTP = axios.create({
   baseURL: 'http://localhost:5000',

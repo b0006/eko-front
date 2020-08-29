@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { toggleHtmlScroll } from '../../utils/html';
-import { headerStore } from '../../mobx';
+import { headerStore } from '../../helpers/store';
 
 import { IModalProps } from './interfaces';
 import './ModalLayout.scss';

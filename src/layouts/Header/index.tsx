@@ -1,10 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import DesktopHeader from '../../components/DesktopHeader';
-import MobileHeader from '../../components/MobileHeader';
-import FixedCart from '../../components/FixedCart';
-import Footer from '../../components/Footer';
+import DesktopHeader from '../../modules/header/components/DesktopHeader';
+import MobileHeader from '../../modules/header/components/MobileHeader';
+import FixedCart from '../../modules/cart/components/FixedCart';
+import Footer from '../../modules/footer/components/Footer';
 
 import './HeaderLayout.scss';
 

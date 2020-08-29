@@ -1,6 +1,8 @@
 import React from 'react';
-import InputMask from 'react-input-mask';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+
+import TextInput from '../../../form/components/TextInput';
+import TextMaskInput from '../../../form/components/TextMaskInput';
 
 import './CartForm.scss';
 
@@ -11,64 +13,55 @@ type Inputs = {
 };
 
 const CartForm: React.FC = () => {
-  const { register, handleSubmit, control, watch, errors } = useForm<Inputs>();
+  const { register, handleSubmit, errors } = useForm<Inputs>();
   const onSubmit = (data: Inputs) => {
-    console.log(data);
+    window.console.log(data);
   };
 
   return (
     <form className="cart-form" onSubmit={handleSubmit(onSubmit)}>
       <fieldset className="cart-form__fieldset">
         <legend className="cart-form__legend">Введите ваши контакты</legend>
-
         <div className="cart-form__field">
-          <label className="cart-form__label" htmlFor="cart-fullname">
-            Как к Вам обращаться
-          </label>
-          {errors.fullName && <span className="cart-form__error">Введите Ваше имя</span>}
-          <input
-            className="cart-form__input"
-            type="text"
-            id="cart-fullname"
+          <TextInput
+            label="Как к Вам обращаться?"
             name="fullName"
-            placeholder="Имя и фамилия"
-            ref={register({ required: true })}
+            placeholder="Например, Евгений"
+            errorText={errors.fullName && errors.fullName.message}
+            ref={register({
+              required: 'Введите Ваше имя',
+            })}
           />
         </div>
         <div className="cart-form__field">
-          <label className="cart-form__label" htmlFor="cart-phone">
-            Телефон
-          </label>
-          {errors.phone && (
-            <span className="cart-form__error">{!watch('phone') ? 'Введите Ваш телефон' : 'Некорректный телефон'}</span>
-          )}
-          <Controller
-            as={InputMask}
-            control={control}
-            className="cart-form__input"
-            type="text"
-            id="cart-phone"
+          <TextMaskInput
+            label="Телефон"
             name="phone"
+            errorText={errors.phone && errors.phone.message}
             placeholder="+7 (___) ___ __ __"
             mask="+7 (999) 999 99 99"
-            defaultValue=""
-            rules={{ required: true, pattern: /(\+7)\s\(?([0-9]{3})\)\s([ .-]?)([0-9]{3})\s([0-9]{2})\s([0-9]{2})/gm }}
+            ref={register({
+              required: 'Введите Ваш телефон',
+              pattern: {
+                message: 'Некорректный телефон',
+                value: /(\+7)\s\(?([0-9]{3})\)\s([ .-]?)([0-9]{3})\s([0-9]{2})\s([0-9]{2})/,
+              },
+            })}
           />
         </div>
         <div className="cart-form__field">
-          <label className="cart-form__label" htmlFor="cart-email">
-            Email
-          </label>
-          {errors.email && (
-            <span className="cart-form__error">{!watch('email') ? 'Введите Ваш email' : 'Некорректный email'}</span>
-          )}
-          <input
-            className="cart-form__input"
-            type="text"
-            id="cart-email"
+          <TextInput
+            label="E-mail"
             name="email"
             placeholder="example@mail.com"
-            ref={register({ required: true, pattern: /^(\S+)@([a-z0-9-]+)(\.)([a-z]{2,4})(\.?)([a-z]{0,4})+$/gm })}
+            errorText={errors.email && errors.email.message}
+            ref={register({
+              required: 'Введите Ваш email',
+              pattern: {
+                message: 'Некорректный email',
+                value: /^(\S+)@([a-z0-9-]+)(\.)([a-z]{2,4})(\.?)([a-z]{0,4})+$/,
+              },
+            })}
           />
         </div>
       </fieldset>

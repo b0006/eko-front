@@ -6,12 +6,11 @@
     max-width: 560px;
     max-height: unset;
     height: unset;
-    margin-top: 5%;
+    margin: 5% auto;
     top: unset;
     left: unset;
     transform: unset;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 5px;
 
     @media (max-width: $tablet-sm-width) {
       top: unset;

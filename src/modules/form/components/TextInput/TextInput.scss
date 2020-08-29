@@ -6,7 +6,17 @@
   position: relative;
 
   &__input {
-    padding: 5px 10px;
+    border: 1px solid $gray-color;
+    border-radius: 5px;
+    padding: 15px 10px;
+
+    &_error {
+      border: 1px solid $danger-color;
+
+      &::placeholder {
+        color: $danger-color;
+      }
+    }
   }
 
   &__label {
@@ -20,6 +30,7 @@
     position: absolute;
     color: $danger-color;
     font-size: 12px;
-    bottom: -20px;
+    bottom: 30px;
+    right: 13px;
   }
 }

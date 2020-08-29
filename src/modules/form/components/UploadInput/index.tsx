@@ -35,7 +35,7 @@ const UploadInput = React.forwardRef((props: IProps, ref?: React.Ref<HTMLInputEl
   };
 
   return (
-    <label className={classnames('upload-input', className)}>
+    <label className={classnames('upload-input', className, { 'upload-input_error': errorText })}>
       {previewImg && <img className="upload-input__preview-img" src={previewImg.toString()} alt="preview" />}
       {!previewImg && <span className="upload-input__title">{caption}</span>}
       <input ref={ref} className="upload-input__input" type="file" onChange={onChange} {...rest} />

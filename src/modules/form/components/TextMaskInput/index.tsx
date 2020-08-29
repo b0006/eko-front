@@ -15,7 +15,11 @@ const TextMaskInput = React.forwardRef((props: IProps, ref?: React.Ref<HTMLInput
   return (
     <div className={classnames('text-mask-input', className)}>
       <label className="text-mask-input__label">{label}</label>
-      <InputMask className="text-input__input" inputRef={ref} {...rest} />
+      <InputMask
+        className={classnames('text-mask-input__input', { 'text-mask-input__input_error': errorText })}
+        inputRef={ref}
+        {...rest}
+      />
       {errorText && <span className="text-mask-input__error">{errorText}</span>}
     </div>
   );

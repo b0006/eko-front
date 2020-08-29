@@ -14,7 +14,12 @@ const TextInput = React.forwardRef((props: IProps, ref?: React.Ref<HTMLInputElem
   return (
     <div className={classnames('text-input', className)}>
       <label className="text-input__label">{label}</label>
-      <input ref={ref} className="text-input__input" type="text" {...rest} />
+      <input
+        ref={ref}
+        className={classnames('text-input__input', { 'text-input__input_error': errorText })}
+        type="text"
+        {...rest}
+      />
       {errorText && <span className="text-input__error">{errorText}</span>}
     </div>
   );

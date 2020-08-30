@@ -6,6 +6,7 @@ import NotFoundPage from '../pages/NotFoundPage';
 import ContactPage from '../pages/ContactPage';
 import CatalogPage from '../pages/CatalogPage';
 import LoginPage from '../pages/LoginPage';
+import CategoryPage from '../pages/CategoryPage';
 
 import { PublicRoute } from './types';
 
@@ -15,6 +16,7 @@ const Router: React.FC = () => (
       <PublicRoute exact path="/" component={StartPage} />
       <PublicRoute exact path="/contacts" isWrappedContainer component={ContactPage} />
       <PublicRoute exact path="/catalog" isWrappedContainer component={CatalogPage} />
+      <PublicRoute exact path="/catalog/:name" isWrappedContainer component={CategoryPage} />
 
       <Route exact path="/admin" component={LoginPage} />
 

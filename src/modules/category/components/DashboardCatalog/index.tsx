@@ -29,7 +29,7 @@ const DashboardCatalog: React.FC = observer(() => {
         <CategoryCard
           key={category.id}
           id={category.id}
-          link={`/catelog/${category.id}`}
+          link={`/catalog/${category.value}`}
           image={category.imageList[0]}
           title={category.title}
           imageHeight="20rem"

@@ -5,6 +5,7 @@ import agent from '../../../agent';
 export interface ICategoryItem {
   id: string;
   title: string;
+  value: string;
   imageList: string[];
 }
 

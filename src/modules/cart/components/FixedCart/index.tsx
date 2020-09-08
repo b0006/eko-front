@@ -12,7 +12,7 @@ import './FixedCart.scss';
 
 const FixedCart: React.FC = observer(() => {
   const { cartList, totalPrice } = cartStore;
-  const { isShowed, showModal, hideModal } = useModal();
+  const [isShowed, showModal, hideModal] = useModal();
 
   const isCartEmpty = useMemo(() => cartList.length <= 0, [cartList]);
 

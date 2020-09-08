@@ -9,17 +9,24 @@ import TextInput from '../../../form/components/TextInput';
 import { categoryStore } from '../../../../helpers/store';
 import notify from '../../../../utils/notify';
 
-import './AddCategoryModal.scss';
+import './EditCategoryModal.scss';
 
 type Inputs = {
   title: string;
   imageFile: FileList;
 };
 
-const AddCategoryModal: React.FC<IModalProps> = observer(({ isShowed, hide }) => {
+interface IProps extends IModalProps {
+  defaultValues: {
+    title: string;
+    imageUrl: string;
+  };
+}
+
+const EditCategoryModal: React.FC<IProps> = observer(({ isShowed, hide, defaultValues }) => {
   const { create } = categoryStore;
 
-  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const { register, handleSubmit, errors } = useForm<Inputs>({ defaultValues });
 
   const onSubmit = async (data: Inputs) => {
     const formData = new FormData();
@@ -29,7 +36,7 @@ const AddCategoryModal: React.FC<IModalProps> = observer(({ isShowed, hide }) =>
     const created = await create(formData);
     if (created) {
       hide();
-      notify.show({ text: 'Категория создана', type: 'success' });
+      notify.show({ text: 'Категория изменена', type: 'success' });
     }
   };
 
@@ -37,20 +44,20 @@ const AddCategoryModal: React.FC<IModalProps> = observer(({ isShowed, hide }) =>
     <ModalLayout
       type="form"
       submitBtn={{
-        title: 'Создать',
+        title: 'Изменить',
         handler: handleSubmit(onSubmit),
       }}
       isShowedCancelBtn
       isShowed={isShowed}
       enctype="multipart/form-data"
       hide={hide}
-      title="Создание новой категории"
-      classNameModal="add-category-modal">
-      <div className="add-category-modal__content">
+      title="Редактирование категории"
+      classNameModal="edit-category-modal">
+      <div className="edit-category-modal__content">
         <TextInput
           label="Название"
           name="title"
-          className="add-category-modal__input"
+          className="edit-category-modal__input"
           placeholder="Например, Овощи"
           errorText={errors.title && errors.title.message}
           ref={register({
@@ -70,4 +77,4 @@ const AddCategoryModal: React.FC<IModalProps> = observer(({ isShowed, hide }) =>
   );
 });
 
-export default AddCategoryModal;
+export default EditCategoryModal;

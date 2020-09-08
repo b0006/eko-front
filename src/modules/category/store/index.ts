@@ -30,7 +30,7 @@ export class CategoryStore {
     }
   };
 
-  public addToList = async (data: FormData) => {
+  public create = async (data: FormData) => {
     const response = await agent.POST<FormData, ICategoryItem>('/categories', data);
     if (response.data) {
       this.categoryList.push(response.data);
@@ -60,7 +60,7 @@ decorate(CategoryStore, {
   setList: action,
   getList: action,
   removeById: action,
-  addToList: action,
+  create: action.bound,
 });
 
 export default new CategoryStore();

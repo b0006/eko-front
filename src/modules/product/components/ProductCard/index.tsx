@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const ProductCard: React.FC<IProps> = ({ imageHeight = '16rem', imageWidth = '16rem' }) => {
-  const { isShowed, showModal, hideModal } = useModal();
+  const [isShowed, showModal, hideModal] = useModal();
   return (
     <>
       <div className="card-product" role="button" onClick={showModal}>

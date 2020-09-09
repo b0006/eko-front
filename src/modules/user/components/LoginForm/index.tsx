@@ -20,10 +20,22 @@ interface ILoginData {
   };
 }
 
+const VK_DATA = {
+  client_id: '7590902',
+  redirect_uri: 'http://localhost:5000/auth/vk/callback',
+  display: 'popup',
+  scope: 'email',
+  response_type: 'code',
+  v: '5.122',
+};
+
 const LoginForm: React.FC = () => {
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm<Inputs>();
   const [response, login] = useFetchDataApi<Inputs, ILoginData>('/auth/login', 'POST');
+  // const [vkResponse, vkLogin] = useFetchDataApi<any, any>(
+  //   `https://oauth.vk.com/authorize?${new URLSearchParams(VK_DATA).toString()}`
+  // );
   const { saveToken } = userStore;
 
   const onSubmit = (data: Inputs) => login(data);
@@ -34,6 +46,14 @@ const LoginForm: React.FC = () => {
       history.push('/');
     }
   }, [history, response, saveToken]);
+
+  const onVkLogin = () => {
+    window.location.href = `https://oauth.vk.com/authorize?${new URLSearchParams(VK_DATA).toString()}`;
+  };
+
+  // useEffect(() => {
+  //   console.log(vkResponse);
+  // }, [vkResponse]);
 
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
@@ -63,6 +83,7 @@ const LoginForm: React.FC = () => {
         />
       </div>
       <input className="login-form__button" type="submit" value="Вход" />
+      <input type="button" value="VK" onClick={onVkLogin} />
     </form>
   );
 };

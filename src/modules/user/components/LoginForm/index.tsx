@@ -36,13 +36,16 @@ const GOOGLE_DATA = {
   scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
 };
 
+const YANDEX_DATA = {
+  client_id: '2ddef3a44a3f403fb1c5c8a6946767ba',
+  display: 'popup',
+  response_type: 'code',
+};
+
 const LoginForm: React.FC = () => {
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm<Inputs>();
   const [response, login] = useFetchDataApi<Inputs, ILoginData>('/auth/login', 'POST');
-  // const [vkResponse, vkLogin] = useFetchDataApi<any, any>(
-  //   `https://oauth.vk.com/authorize?${new URLSearchParams(VK_DATA).toString()}`
-  // );
   const { saveToken } = userStore;
 
   const onSubmit = (data: Inputs) => login(data);
@@ -62,9 +65,9 @@ const LoginForm: React.FC = () => {
     window.location.href = `https://accounts.google.com/o/oauth2/auth?${new URLSearchParams(GOOGLE_DATA).toString()}`;
   };
 
-  // useEffect(() => {
-  //   console.log(vkResponse);
-  // }, [vkResponse]);
+  const onYandexLogin = () => {
+    window.location.href = `https://oauth.yandex.ru/authorize?${new URLSearchParams(YANDEX_DATA).toString()}`;
+  };
 
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
@@ -96,6 +99,7 @@ const LoginForm: React.FC = () => {
       <input className="login-form__button" type="submit" value="Вход" />
       <input type="button" value="VK" onClick={onVkLogin} />
       <input type="button" value="Google" onClick={onGoogleLogin} />
+      <input type="button" value="Yandex" onClick={onYandexLogin} />
     </form>
   );
 };

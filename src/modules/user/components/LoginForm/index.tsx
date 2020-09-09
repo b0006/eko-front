@@ -29,6 +29,13 @@ const VK_DATA = {
   v: '5.122',
 };
 
+const GOOGLE_DATA = {
+  redirect_uri: 'http://me.mydomain.com:5000/auth/google/callback',
+  response_type: 'code',
+  client_id: '213999649597-bd74qs4rnaa8sgn1vnb672ivqkfomf5k.apps.googleusercontent.com',
+  scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+};
+
 const LoginForm: React.FC = () => {
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm<Inputs>();
@@ -49,6 +56,10 @@ const LoginForm: React.FC = () => {
 
   const onVkLogin = () => {
     window.location.href = `https://oauth.vk.com/authorize?${new URLSearchParams(VK_DATA).toString()}`;
+  };
+
+  const onGoogleLogin = () => {
+    window.location.href = `https://accounts.google.com/o/oauth2/auth?${new URLSearchParams(GOOGLE_DATA).toString()}`;
   };
 
   // useEffect(() => {
@@ -84,6 +95,7 @@ const LoginForm: React.FC = () => {
       </div>
       <input className="login-form__button" type="submit" value="Вход" />
       <input type="button" value="VK" onClick={onVkLogin} />
+      <input type="button" value="Google" onClick={onGoogleLogin} />
     </form>
   );
 };

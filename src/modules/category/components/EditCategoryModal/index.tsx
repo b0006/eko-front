@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { observer } from 'mobx-react-lite';
 
@@ -17,26 +17,41 @@ type Inputs = {
 };
 
 interface IProps extends IModalProps {
+  id: string;
   defaultValues: {
     title: string;
     imageUrl: string;
   };
 }
 
-const EditCategoryModal: React.FC<IProps> = observer(({ isShowed, hide, defaultValues }) => {
-  const { create } = categoryStore;
+const EditCategoryModal: React.FC<IProps> = observer(({ id, isShowed, hide, defaultValues }) => {
+  const { update } = categoryStore;
 
-  const { register, handleSubmit, errors } = useForm<Inputs>({ defaultValues });
+  const { register, handleSubmit, errors, setValue } = useForm<Inputs>();
+
+  useEffect(() => {
+    if (isShowed) {
+      setValue('title', defaultValues.title);
+    }
+  }, [isShowed, defaultValues, setValue]);
 
   const onSubmit = async (data: Inputs) => {
     const formData = new FormData();
-    const [image] = data.imageFile;
-    formData.append('image', image);
     formData.append('title', data.title);
-    const created = await create(formData);
-    if (created) {
+
+    const [image] = data.imageFile;
+
+    if (image) {
+      formData.append('image', image);
+    } else {
+      const blob = await fetch(defaultValues.imageUrl).then((res) => res.blob());
+      formData.append('image', blob);
+    }
+
+    const updated = await update(formData, id);
+    if (updated) {
       hide();
-      notify.show({ text: 'Категория изменена', type: 'success' });
+      notify.show({ text: `Категория изменена [${data.title}]`, type: 'success' });
     }
   };
 
@@ -69,8 +84,9 @@ const EditCategoryModal: React.FC<IProps> = observer(({ isShowed, hide, defaultV
         <UploadInput
           name="imageFile"
           accept="image/*"
+          previewImageUrl={defaultValues.imageUrl}
           errorText={errors.imageFile && errors.imageFile.message}
-          ref={register({ required: 'Выберите изображение' })}
+          ref={register}
         />
       </div>
     </ModalLayout>

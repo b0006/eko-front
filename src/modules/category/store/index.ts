@@ -30,6 +30,18 @@ export class CategoryStore {
     }
   };
 
+  public update = async (data: FormData, id: string) => {
+    const response = await agent.PUT<FormData, ICategoryItem>(`/categories/${id}`, data);
+    if (response.data) {
+      const foundIndex = this.categoryList.findIndex((c) => c.id === id);
+      this.categoryList[foundIndex] = response.data;
+
+      return true;
+    }
+
+    return false;
+  };
+
   public create = async (data: FormData) => {
     const response = await agent.POST<FormData, ICategoryItem>('/categories', data);
     if (response.data) {
@@ -61,6 +73,7 @@ decorate(CategoryStore, {
   getList: action,
   removeById: action,
   create: action.bound,
+  update: action.bound,
 });
 
 export default new CategoryStore();

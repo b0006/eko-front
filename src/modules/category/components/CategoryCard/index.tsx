@@ -76,7 +76,7 @@ const CategoryCard: React.FC<IProps> = observer(
           )}
         </Container>
         <AddCategoryModal isShowed={isShowedAdd} hide={hideModalAdd} />
-        <EditCategoryModal defaultValues={{ title, imageUrl: image }} isShowed={isShowedEdit} hide={hideModalEdit} />
+        <EditCategoryModal id={id} defaultValues={{ title, imageUrl: image }} isShowed={isShowedEdit} hide={hideModalEdit} />
       </>
     );
   }

@@ -46,6 +46,15 @@ export default {
     }
   },
 
+  async PUT<T = object, R = object>(path: string, data?: T): Promise<IResponse<R>> {
+    try {
+      const response: AxiosResponse<R> = await axios.put(path, data, { timeout });
+      return { status: response.status, data: response.data, error: null };
+    } catch (err) {
+      return getErrorData(err);
+    }
+  },
+
   async DELETE<T = object, R = object>(path: string, data?: T): Promise<IResponse<R>> {
     try {
       const response: AxiosResponse<R> = await axios.delete(path, { timeout, data });

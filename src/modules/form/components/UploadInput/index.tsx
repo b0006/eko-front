@@ -9,11 +9,12 @@ interface IProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLI
   caption?: string;
   errorText?: string;
   className?: string;
+  previewImageUrl?: string;
 }
 
 const UploadInput = React.forwardRef((props: IProps, ref?: React.Ref<HTMLInputElement>) => {
-  const { caption = 'Добавить изображение', className, errorText, ...rest } = props;
-  const [previewImg, setPreviewImg] = useState<TImage>();
+  const { caption = 'Добавить изображение', className, errorText, previewImageUrl, ...rest } = props;
+  const [previewImg, setPreviewImg] = useState<TImage>(previewImageUrl);
   const [readerError, setReaderError] = useState('');
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {

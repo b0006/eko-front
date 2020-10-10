@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import useFetchDataApi from '../../../../hook/useFetchDataApi.hook';
 import { userStore } from '../../../../helpers/store';
+import TextInput from '../../../form/components/TextInput';
 
 import './LoginForm.scss';
 
@@ -38,25 +39,23 @@ const LoginForm: React.FC = () => {
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="login-form__field">
-        {response.error && <span className="login-form__error">{response.error.toString()}</span>}
-        {errors.username && <span className="login-form__error">{errors.username.message}</span>}
-        <input
-          className="login-form__input"
-          type="text"
+        <TextInput
+          label="Логин"
           name="username"
-          placeholder="Логин"
+          errorText={errors.username && errors.username.message}
           ref={register({
             required: { message: 'Введите логин', value: true },
           })}
         />
+
+        {/* {response.error && <span className="login-form__error">{response.error.toString()}</span>} */}
       </div>
       <div className="login-form__field">
-        {errors.password && <span className="login-form__error">{errors.password.message}</span>}
-        <input
-          className="login-form__input"
+        <TextInput
+          label="Пароль"
           type="password"
           name="password"
-          placeholder="Пароль"
+          errorText={errors.password && errors.password.message}
           ref={register({
             required: { message: 'Введите пароль', value: true },
           })}

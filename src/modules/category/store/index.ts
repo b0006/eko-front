@@ -10,10 +10,6 @@ export interface ICategoryItem {
 }
 
 export class CategoryStore {
-  constructor() {
-    this.getList();
-  }
-
   public isLoading = false;
 
   public categoryList: ICategoryItem[] = [];
@@ -70,7 +66,7 @@ decorate(CategoryStore, {
   categoryList: observable,
   isLoading: observable,
   setList: action,
-  getList: action,
+  getList: action.bound,
   removeById: action,
   create: action.bound,
   update: action.bound,

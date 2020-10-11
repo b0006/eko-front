@@ -14,7 +14,7 @@ import * as serviceWorker from 'serviceWorker';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
-import { App } from 'app';
+import { App } from './pages';
 
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -41,9 +41,9 @@ if (module.hot) {
   // Hot reloadable translation json files and app
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./app', './locales/i18n'], () => {
+  module.hot.accept(['./pages', './locales/i18n'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    const App = require('./app').App;
+    const App = require('./pages').App;
     render(App);
   });
 }

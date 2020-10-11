@@ -38,30 +38,24 @@ const LoginForm: React.FC = () => {
 
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="login-form__field">
-        <TextInput
-          label="Логин"
-          name="username"
-          errorText={errors.username && errors.username.message}
-          ref={register({
-            required: { message: 'Введите логин', value: true },
-          })}
-        />
-
-        {/* {response.error && <span className="login-form__error">{response.error.toString()}</span>} */}
-      </div>
-      <div className="login-form__field">
-        <TextInput
-          label="Пароль"
-          type="password"
-          name="password"
-          errorText={errors.password && errors.password.message}
-          ref={register({
-            required: { message: 'Введите пароль', value: true },
-          })}
-        />
-      </div>
-      <input className="login-form__button" type="submit" value="Вход" />
+      <TextInput
+        label="Логин"
+        name="username"
+        errorText={errors.username && errors.username.message}
+        ref={register({
+          required: { message: 'Введите логин', value: true },
+        })}
+      />
+      <TextInput
+        label="Пароль"
+        type="password"
+        name="password"
+        errorText={errors.password && errors.password.message}
+        ref={register({
+          required: { message: 'Введите пароль', value: true },
+        })}
+      />
+      <input className="container__col-12" type="submit" value="Вход" />
     </form>
   );
 };

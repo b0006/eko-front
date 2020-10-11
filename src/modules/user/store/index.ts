@@ -9,13 +9,13 @@ const setHeaderToken = (token: string) => {
 };
 
 export class UserStore {
-  constructor() {
-    const token = localStorage.getItem(TOKEN_KEY);
-    if (token) {
-      setHeaderToken(token);
-      this.isAuth = true;
-    }
-  }
+  // constructor() {
+  //   const token = localStorage.getItem(TOKEN_KEY);
+  //   if (token) {
+  //     setHeaderToken(token);
+  //     this.isAuth = true;
+  //   }
+  // }
 
   public isAuth = false;
 

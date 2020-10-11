@@ -1,22 +1,5 @@
 @import './vars';
 
-@mixin container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-
-  @media (min-width: $tablet-md-width) {
-    width: 750px;
-  }
-  @media (min-width: $desktop-xs-width) {
-    width: 970px;
-  }
-  @media (min-width: $desktop-md-width) {
-    width: 1170px;
-  }
-}
-
 @mixin rotateDown {
   transform: rotate(180deg);
   transition: transform $animation-time linear;

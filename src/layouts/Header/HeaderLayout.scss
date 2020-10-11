@@ -1,14 +1,5 @@
 @import '../../assets/scss/utils';
 
 .header-layout {
-  &__container {
-    @include container;
-  }
   
-  &__content {
-    padding-bottom: 180px;
-    @media (max-width: $desktop-xs-width) {
-      padding-top: 50px;
-    }
-  }
 }

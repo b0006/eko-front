@@ -6,7 +6,7 @@ import './LoginPage.scss';
 
 const LoginPage: React.FC = () => {
   return (
-    <div className="login-page">
+    <div className="container">
       <LoginForm />
     </div>
   );

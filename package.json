@@ -1,133 +1,76 @@
 {
-  "name": "eko-front",
+  "name": "eco-front",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.29",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/classnames": "^2.2.10",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-input-mask": "^2.0.5",
-    "@types/react-transition-group": "^4.4.0",
-    "axios": "^0.19.2",
-    "classnames": "^2.2.6",
-    "mobx": "^5.15.4",
-    "mobx-react": "^6.2.2",
-    "mobx-react-lite": "^2.0.6",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-hook-form": "^6.0.8",
-    "react-input-mask": "^2.0.4",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.3",
-    "react-transition-group": "^4.4.1",
-    "typescript": "~3.7.2"
+    "@reduxjs/toolkit": "1.3.2",
+    "@testing-library/jest-dom": "5.1.1",
+    "@testing-library/react": "10.0.1",
+    "@types/fontfaceobserver": "0.0.6",
+    "@types/jest": "25.1.4",
+    "@types/node": "13.9.3",
+    "@types/react": "16.9.25",
+    "@types/react-dom": "16.9.3",
+    "@types/react-helmet": "5.0.15",
+    "@types/react-redux": "7.1.7",
+    "@types/react-router-dom": "5.1.3",
+    "@types/react-test-renderer": "16.9.2",
+    "@types/styled-components": "5.0.1",
+    "@types/testing-library__jest-dom": "5.0.2",
+    "@types/webpack-env": "1.15.1",
+    "cross-env": "7.0.2",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "fontfaceobserver": "2.1.0",
+    "husky": "4.2.3",
+    "i18next": "19.3.4",
+    "i18next-browser-languagedetector": "4.0.2",
+    "jest-styled-components": "7.0.2",
+    "lint-staged": "10.0.8",
+    "node-plop": "0.25.0",
+    "plop": "2.6.0",
+    "prettier": "2.0.1",
+    "react": "16.13.0",
+    "react-app-polyfill": "1.0.6",
+    "react-dom": "16.13.0",
+    "react-helmet-async": "1.0.4",
+    "react-i18next": "11.3.4",
+    "react-redux": "7.2.0",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.4.3",
+    "react-test-renderer": "16.13.0",
+    "redux-injectors": "1.3.0",
+    "redux-saga": "1.1.3",
+    "replace-in-file": "6.0.0",
+    "sanitize.css": "11.0.0",
+    "serve": "11.3.0",
+    "shelljs": "0.8.3",
+    "styled-components": "5.0.1",
+    "stylelint": "13.2.1",
+    "stylelint-config-recommended": "3.0.0",
+    "stylelint-config-styled-components": "0.1.1",
+    "stylelint-processor-styled-components": "1.10.0",
+    "ts-node": "8.8.2",
+    "typescript": "3.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.ts{,x} --max-warnings=0"
+    "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/test-generators.ts",
+    "start:prod": "yarn build && serve -s build",
+    "checkTs": "tsc --noEmit",
+    "eslint": "eslint --ext js,ts,tsx",
+    "lint": "yarn eslint -- src",
+    "lint:fix": "yarn eslint -- --fix src",
+    "lint:css": "stylelint src/**/*.css",
+    "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
+    "cleanAndSetup": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/scripts/clean.ts",
+    "prettify": "prettier --write"
   },
   "eslintConfig": {
-    "root": true,
-    "extends": [
-      "react-app",
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier/@typescript-eslint",
-      "plugin:prettier/recommended"
-    ],
-    "plugins": [
-      "react",
-      "@typescript-eslint",
-      "prettier"
-    ],
-    "env": {
-      "es6": true,
-      "browser": true,
-      "jasmine": true,
-      "jest": true
-    },
-    "rules": {
-      "max-len": [
-        "error",
-        {
-          "code": 120
-        }
-      ],
-      "comma-dangle": [
-        "error",
-        {
-          "arrays": "always-multiline",
-          "objects": "always-multiline",
-          "imports": "always-multiline",
-          "exports": "always-multiline",
-          "functions": "never"
-        }
-      ],
-      "no-shadow": "warn",
-      "radix": "error",
-      "no-return-await": "error",
-      "no-multi-spaces": "error",
-      "no-console": "warn",
-      "import/order": [
-        "error",
-        {
-          "groups": [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index"
-          ],
-          "newlines-between": "always"
-        }
-      ],
-      "react/display-name": "off",
-      "react/prop-types": "off",
-      "@typescript-eslint/interface-name-prefix": [
-        "error",
-        {
-          "prefixWithI": "always"
-        }
-      ],
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/camelcase": [
-        "error",
-        {
-          "properties": "never"
-        }
-      ],
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-          "trailingComma": "es5"
-        }
-      ],
-      "@typescript-eslint/explicit-member-accessibility": 0,
-      "@typescript-eslint/explicit-function-return-type": 0,
-      "no-duplicate-imports": "error"
-    },
-    "settings": {
-      "react": {
-        "pragma": "React",
-        "version": "detect"
-      }
-    },
-    "parser": "@typescript-eslint/parser"
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -141,32 +84,39 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
-    "@types/react-router-dom": "^5.1.4",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-loader": "^4.0.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.1.7",
-    "prettier": "^2.0.5"
+  "engines": {
+    "npm": ">=6.4.1",
+    "node": ">=10.13.0"
   },
-  "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "jsxBracketSameLine": true
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "npm run eslint -- --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
   },
-  "husky": {
+  "husky(remove-everything-in-these-parentheses.See-the-issue-#29)": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run checkTs && lint-staged"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*/*.d.ts",
+      "!src/**/*/Loadable.{js,jsx,ts,tsx}",
+      "!src/**/*/types.ts",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
     }
   }
 }

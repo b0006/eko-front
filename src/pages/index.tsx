@@ -14,20 +14,18 @@ import { IndexPage } from './Index/Loadable';
 import { NotFoundPage } from './NotFound/Loadable';
 import { PublicRoute } from './types';
 
-export function App() {
-  return (
-    <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-      >
-        <meta name="description" content="A React Boilerplate application" />
-      </Helmet>
+export const App: React.FC = () => (
+  <BrowserRouter>
+    <Helmet
+      titleTemplate="%s - React Boilerplate"
+      defaultTitle="React Boilerplate"
+    >
+      <meta name="description" content="A React Boilerplate application" />
+    </Helmet>
 
-      <Switch>
-        <PublicRoute exact path="/" component={IndexPage} />
-        <PublicRoute component={NotFoundPage} />
-      </Switch>
-    </BrowserRouter>
-  );
-}
+    <Switch>
+      <PublicRoute exact path="/" component={IndexPage} />
+      <PublicRoute component={NotFoundPage} />
+    </Switch>
+  </BrowserRouter>
+);

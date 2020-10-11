@@ -11,7 +11,9 @@ export function IndexPage() {
           content="A Boilerplate application index page"
         />
       </Helmet>
-      <span>IndexPage container</span>
+      <div className="container">
+        <span>IndexPage container</span>
+      </div>
     </>
   );
 }

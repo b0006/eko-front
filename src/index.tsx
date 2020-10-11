@@ -11,6 +11,7 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as serviceWorker from 'serviceWorker';
+import './styles/index.scss';
 import 'sanitize.css/sanitize.css';
 
 // Import root app

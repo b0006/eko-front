@@ -8,10 +8,11 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 
 import { IndexPage } from './Index/Loadable';
 import { NotFoundPage } from './NotFound/Loadable';
+import { PublicRoute } from './types';
 
 export function App() {
   return (
@@ -24,8 +25,8 @@ export function App() {
       </Helmet>
 
       <Switch>
-        <Route exact path="/" component={IndexPage} />
-        <Route component={NotFoundPage} />
+        <PublicRoute exact path="/" component={IndexPage} />
+        <PublicRoute component={NotFoundPage} />
       </Switch>
     </BrowserRouter>
   );

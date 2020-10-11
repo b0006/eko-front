@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 
-import { Layout } from '../modules/common/components/Layout/Loadable';
+import { Layout } from '../modules/layout/components/Layout/Loadable';
 
 interface IRouteComponentProps extends RouteProps {
   component: React.ComponentType<RouteComponentProps>;

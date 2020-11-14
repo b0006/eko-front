@@ -1,4 +1,5 @@
 @import './grid';
+@import './color';
 
 * {
   box-sizing: border-box;
@@ -7,6 +8,10 @@
   &::after {
       box-sizing: border-box;
   }
+}
+
+body {
+  background-color: $c-background;
 }
 
 html,

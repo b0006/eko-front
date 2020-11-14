@@ -1,0 +1,23 @@
+@import '../../../../styles/utils';
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  background-color: $c-secondary;
+  min-width: $width-sidebar;
+
+  &__logo {
+    &-icon {
+      width: 145px;
+      height: 130px;
+      border-radius: 20px;
+      background-color: $c-white;
+      border: 2px solid $c-primary;
+    }
+
+    &-wrapper {
+      margin-top: 15px;
+      text-align: center;
+    }
+  }
+}

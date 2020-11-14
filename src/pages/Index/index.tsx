@@ -7,8 +7,6 @@ export const IndexPage: React.FC = () => (
       <title>Home Page</title>
       <meta name="description" content="A Boilerplate application index page" />
     </Helmet>
-    <div className="container">
-      <span>IndexPage container</span>
-    </div>
+    <div className="container">IndexPage container</div>
   </>
 );

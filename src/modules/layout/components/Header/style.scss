@@ -1,0 +1,10 @@
+@import '../../../../styles/utils';
+
+.header {
+  position: fixed;
+  height: $height-header;
+  background-color: $c-white;
+  border-bottom: 1px solid $c-secondary;
+  left: $width-sidebar;
+  right: 0;
+}
